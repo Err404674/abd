@@ -107,6 +107,10 @@ local rarm = stand:WaitForChild("Stand Right Arm")
 local larm = stand:WaitForChild("Stand Left Arm")
 local rleg = stand:WaitForChild("Stand Right Leg"):Destroy()
 local lleg = stand:WaitForChild("Stand Left Leg"):Destroy()
+local llegdecor = stand:WaitForChild("LLegDecor"):Destroy()
+local rlegdecor = stand:WaitForChild("RLegDecor"):Destroy()
+local llegneon = stand:WaitForChild("LLegNeon"):Destroy()
+local rlegneon = stand:WaitForChild("RLegNeon"):Destroy()
 
 local head = chr["Head"]
 local ntorso = chr["Torso"]
