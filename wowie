@@ -14,7 +14,7 @@
 
 --NOTE: execute it on eldritch horror
 
-game.Players.LocalPlayer.MobileButtons.Enabled = false
+game.Players.LocalPlayer.PlayerGui.MobileButtons.Enabled = false
 
 --Events
 local replicatedstorage = game:GetService("ReplicatedStorage")
