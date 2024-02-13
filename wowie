@@ -14,6 +14,8 @@
 
 --NOTE: execute it on eldritch horror
 
+game.Players.LocalPlayer.MobileButtons.Enabled = false
+
 --Events
 local replicatedstorage = game:GetService("ReplicatedStorage")
 local standevent = replicatedstorage.Stand game.ReplicatedStorage.UberOni:FireServer() game.ReplicatedStorage.BossUberOni:FireServer()
