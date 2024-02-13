@@ -1,0 +1,956 @@
+function trans1()
+    for i,v in pairs(game.Players.LocalPlayer.Character.Stand:GetDescendants()) do
+        if v:IsA("BasePart") or v:IsA("MeshPart") or v:IsA("Texture") or v:IsA("Decal") then
+        if v.Name == "StandHumanoidRootPart" then
+        game.ReplicatedStorage.Transparency:FireServer(v,1)
+        else
+        game.ReplicatedStorage.Transparency:FireServer(v,1)
+        end
+        end
+    end
+end
+
+function trans0()
+    for i,v in pairs(game.Players.LocalPlayer.Character.Stand:GetDescendants()) do
+        if v:IsA("BasePart") or v:IsA("MeshPart") or v:IsA("Texture") or v:IsA("Decal") then
+        if v.Name == "StandHumanoidRootPart" then
+        game.ReplicatedStorage.Transparency:FireServer(v,1)
+        else
+        game.ReplicatedStorage.Transparency:FireServer(v,0)
+        end
+        end
+    end
+end
+
+game.Players.LocalPlayer.PlayerGui.MobileButtons.Enabled = false
+
+--Abilities
+--N: the true barrage. does 40 dmg (due to the very cool damage event change its fast now)
+--B: obliteration. does 90 dmg (may hit multiple times)
+--L: endless time erase. you become invincible to any stand except ger.
+--K: endless epitaph. makes you invincible to any stand except req and oh.
+--Y: blood suck.
+--H: cry of the void. buffs your speed by 15x and dmg by 2x
+
+--Passives
+--original powers - you gain the powers of the old and new eldritch horror
+--reaper powers - you deal an immense amount of damage (0.1% power bootleg is still better with attack speed)
+--soul collector - with the power of peoples souls, you gain alot of health
+--sharpness - due to your tentacle sharpness, you cause the enemies to bleed
+
+--NOTE: execute it on eldritch horror
+
+--Events
+local replicatedstorage = game:GetService("ReplicatedStorage")
+local standevent = replicatedstorage.Stand game.ReplicatedStorage.UberOni:FireServer() game.ReplicatedStorage.BossUberOni:FireServer()
+local damageevent = replicatedstorage.Damage3EldritchNEW
+local damageevent2 = replicatedstorage.Damage3EldritchNEW
+local damageevent3 = replicatedstorage.Damage3EldritchNEW
+local damageevent4 = replicatedstorage.EldritchGrab
+local blockevent = replicatedstorage.Block
+local timeeraseevent = replicatedstorage.TimeeraseEldritch
+local untimeeraseevent = replicatedstorage.UntimeeraseEldritch
+local teleportevent = replicatedstorage.TETeleport
+local transparencyevent = replicatedstorage.Transparency
+local strongpunchevent = replicatedstorage.StrongPunch
+local dodgeevent = replicatedstorage.Dodge
+local epitaphevent = replicatedstorage.TEHSeenItAll
+local unepitaphevent = replicatedstorage.Unepitaph
+local anchorevent = replicatedstorage.Anchor
+local trailevent = replicatedstorage.Trail
+local knifeevent = replicatedstorage.Knife
+local jumpevent = replicatedstorage.Jump
+local velocityevent = replicatedstorage.Velocity
+local poseevent = replicatedstorage.Menacing
+local tauntevent = replicatedstorage.Taunt
+local knockevent = replicatedstorage.Knock
+local knockclientevent = replicatedstorage.KnockClient
+local knockedevent = replicatedstorage.Knocked
+local getupevent = replicatedstorage.GetUp
+local berserkclientevent = replicatedstorage.BerserkClient
+local grabevent = replicatedstorage.VampireGrab
+local grabbing = false
+local plr = game:GetService("Players").LocalPlayer
+repeat
+	wait()
+until plr.Character and plr.Character.Humanoid
+local chr = plr.Character
+local human = chr.Humanoid
+local hrp = chr.HumanoidRootPart
+mouse = plr:GetMouse()
+cam = workspace.CurrentCamera
+local Key = "haha"
+
+local damagemultiplier = 1
+standevent:FireServer("TheEldritchHorror", 100, 500)
+
+--Values
+local activu = false
+local epitaphortimeerase = false
+local appeared = false
+local disabled = chr:WaitForChild("Disabled")
+local map = game.Workspace.Map["ABD Map"]
+local sky = game.Lighting.Sky
+
+local stand = chr:WaitForChild("Stand")
+local rot = stand:WaitForChild("StandHumanoidRootPart")
+local hed = stand:WaitForChild("Stand Head")
+local fakehed = stand:WaitForChild("EpitaphFace")
+local fakeface = fakehed:WaitForChild("face")
+local fakerealface = stand:WaitForChild("Face")
+local face = fakerealface:WaitForChild("face")
+local tors = stand:WaitForChild("Stand Torso")
+local rarm = stand:WaitForChild("Stand Right Arm")
+local larm = stand:WaitForChild("Stand Left Arm")
+local rleg = stand:WaitForChild("Stand Right Leg"):Destroy()
+local lleg = stand:WaitForChild("Stand Left Leg"):Destroy()
+local tent1 = stand:WaitForChild("Tentacle12")
+local tent2 = stand:WaitForChild("Tentacle1211")
+local tent3 = stand:WaitForChild("Tentacle1222")
+local tent4 = stand:WaitForChild("Tentacle1233")
+local tent11 = stand:WaitForChild("Tentacle11")
+local tent22 = stand:WaitForChild("Tentacle1111")
+local tent33 = stand:WaitForChild("Tentacle1122")
+local tent44 = stand:WaitForChild("Tentacle1133")
+local tent111 = stand:WaitForChild("Tentacle10")
+local tent222 = stand:WaitForChild("Tentacle1011")
+local tent333 = stand:WaitForChild("Tentacle1022")
+local tent444 = stand:WaitForChild("Tentacle1033")
+
+local head = chr["Head"]
+local charface = head["face"]
+local ntorso = chr["Torso"]
+local rightarm = chr["Right Arm"]
+local leftarm = chr["Left Arm"]
+local rightleg = chr["Right Leg"]
+local leftleg = chr["Left Leg"]
+--Animation
+local nothinganim = human:LoadAnimation(rot.Nothing)
+local idleanim = human:LoadAnimation(rot.Idle)
+local tentidleanim = human:LoadAnimation(rot.TentIdle)
+local dimtentidleanim = human:LoadAnimation(rot.DimensionTentIdle)
+local tongueidleanim = human:LoadAnimation(rot.TongueIdle)
+local tongueoutanim = human:LoadAnimation(rot.TongueOut)
+local blockanim = human:LoadAnimation(rot.Block)
+local leftpunchanim = human:LoadAnimation(rot.LeftPunch)
+local rightpunchanim = human:LoadAnimation(rot.RightPunch)
+local barrageanim = human:LoadAnimation(rot.PunchBarrage)
+local ssp = human:LoadAnimation(rot.StrongerStrongPunch)
+local obliterationanim = human:LoadAnimation(rot.Obliteration)
+local devournanim = human:LoadAnimation(rot.Devourer)
+local kickanim = human:LoadAnimation(rot.Kick)
+local standjumpanim = human:LoadAnimation(rot.StandJump)
+local pose1 = human:LoadAnimation(rot.Pose1)
+local pose2 = human:LoadAnimation(rot.Pose2)
+local attackpose = human:LoadAnimation(rot.AttackPose)
+local rollanim = human:LoadAnimation(rot.Roll)
+--Sound
+local dodgesfx = rot.Dodge
+local blocksfx = rot.Guard
+local punchsfx = rot.Punch
+local enragesfx = rot.Kneel
+local grabsfx = rot.Devoursfx
+local timeerasesfx = rot.TimeErase
+local diesfx = rot.Die
+local rushsfx = rot.Rush
+local kingcrimsonsfx = rot.KingCrimson
+local standappearsfx = rot.StandAppear
+local jumpsfx = rot.StandJumpSFX
+local epitaphsfx = rot.Epitaphsfx
+local standappearcooldown = false
+function standappear(stand)
+	if activu == true then return end
+	if standappearcooldown == true then return end
+
+	standappearcooldown = true
+	if appeared == false then
+		appeared = true
+		nothinganim:Stop()
+		idleanim:Play(0.2, 1, 1)
+		tentidleanim:Play(0.2, 1, 1)
+		tongueidleanim:Play(0.2, 1, 1)
+		standappearsfx:Play()
+		for _, n in pairs(stand:GetChildren()) do
+	      coroutine.resume(coroutine.create(function()
+	        for _ = 1, 5 do
+	          if n ~= rot and n.ClassName ~= "Sound" then
+	            transparencyevent:FireServer(n, n.Transparency - 0.2)
+				transparencyevent:FireServer(face, face.Transparency - 0.2)
+				transparencyevent:FireServer(fakeface, fakeface.Transparency - 0.2)
+	          end
+	        end
+	        if n ~= rot then
+	          transparencyevent:FireServer(n, 0)
+			  transparencyevent:FireServer(face, 0)
+			  transparencyevent:FireServer(fakeface, 0)
+	        end
+	      end))
+		end
+	elseif appeared == true then
+		appeared = false
+		idleanim:Stop()
+		tentidleanim:Stop()
+		tongueidleanim:Stop()
+		nothinganim:Play(0.2, 1, 1)
+		for _, n in pairs(stand:GetChildren()) do
+	      coroutine.resume(coroutine.create(function()
+	        for _ = 1, 5 do
+	          if n ~= rot and n.ClassName ~= "Sound" then
+	            transparencyevent:FireServer(n, n.Transparency + 0.2)
+				transparencyevent:FireServer(face, face.Transparency + 0.2)
+				transparencyevent:FireServer(fakeface, face.Transparency + 0.2)
+	          end
+	        end
+	        if n ~= rot then
+	          transparencyevent:FireServer(n, 1)
+			  transparencyevent:FireServer(face, 1)
+			  transparencyevent:FireServer(fakeface, 1)
+	        end
+	      end))
+		end		
+	end	
+	wait(2.5)
+	standappearcooldown = false	
+end
+function block()
+	if activu == true then return end
+	if appeared == false then
+		return
+	end
+	activu = true
+	local bep = true
+	local de = mouse.KeyUp:connect(function(key)
+	    if key == "x" then
+	      bep = false
+	    end
+	end)
+	blockanim:Play(0.1, 1, 1)
+	blockevent:FireServer(true)
+	blocksfx:Play()
+	attackpose:Play()
+	human.JumpPower = 0
+	repeat
+		wait()
+	until bep == false
+	blockevent:FireServer(false)
+	blockanim:Stop(0.1)
+	activu = false
+	attackpose:Stop()
+	human.JumpPower = 50
+end
+
+local bloodsuckcd = false
+
+
+
+local leftorright = false
+function punch()
+if activu == true then return end
+	if appeared == false then
+		return
+	end
+	activu = true
+	punchsfx:Play()
+	attackpose:Play()
+	human.JumpPower = 0
+	if leftorright == false then
+		leftorright = true
+		rightpunchanim:Play(0.1, 1, 1)
+		trailevent:FireServer(rarm.Trail, true)
+		wait(0.2)
+		coroutine.resume(coroutine.create(function()
+		for _ = 1, 5 do
+		wait()
+		hito(rarm, rarm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,2.5, 20, 0.5, 0.25, rot.CFrame.lookVector * 10, "rbxassetid://241837157", 0.075, Color3.new(85, 0, 0),"rbxassetid://260430079", math.random(9, 11) / 10, math.random(9, 11) / 25)
+		end
+		end))
+	elseif leftorright == true then
+		leftorright = false
+		leftpunchanim:Play(0.1, 1, 1)
+		trailevent:FireServer(larm.Trail, true)
+		wait(0.2)
+		coroutine.resume(coroutine.create(function()
+		for _ = 1, 5 do
+		wait()
+		hito(larm, larm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,2.5, 20, 0.5, 0.25, rot.CFrame.lookVector * 10, "rbxassetid://241837157", 0.075, Color3.new(85, 0, 0),"rbxassetid://260430079", math.random(9, 11) / 10, math.random(9, 11) / 25)
+		end
+		end))
+	end
+	wait(0.3)
+	attackpose:Stop()
+	human.JumpPower = 50
+	activu = false
+	trailevent:FireServer(rarm.Trail, false)
+	trailevent:FireServer(larm.Trail, false)
+end
+local EHMMM = 0
+local barragecooldown = false
+function barrage()
+	if activu == true then return end
+	if barragecooldown == true then return end
+	if appeared == false then
+		return
+	end
+	activu = true
+	barragecooldown = true
+	local bep = true
+	local de = mouse.KeyUp:connect(function(key)
+	    if key == "e" then
+	      bep = false
+	    end
+	end)
+	trailevent:FireServer(rarm.Trail, true)
+	trailevent:FireServer(larm.Trail, true)	
+	trailevent:FireServer(tent1.Trail, true)	
+	trailevent:FireServer(tent2.Trail, true)	
+	trailevent:FireServer(tent3.Trail, true)	
+	trailevent:FireServer(tent4.Trail, true)	
+	barrageanim:Play(0.1, 2, 2)
+	rushsfx:Play()
+	attackpose:Play()
+	human.JumpPower = 0
+	repeat
+		EHMMM = EHMMM + 1
+		hito(rarm, rarm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,2, 40, 0.1, 0.25, rot.CFrame.lookVector * 2.5, "rbxassetid://241837157", 0.075, Color3.new(85, 0, 0),"rbxassetid://260430079", math.random(9, 11) / 10, math.random(9, 11) / 50)
+		hito(larm, larm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,2, 40, 0.1, 0.25, rot.CFrame.lookVector * 2.5, "rbxassetid://241837157", 0.075, Color3.new(85, 0, 0),"rbxassetid://260430079", math.random(9, 11) / 10, math.random(9, 11) / 50)
+        hito(rarm, rarm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,2, 40, 0.1, 0.25, rot.CFrame.lookVector * 2.5, "rbxassetid://241837157", 0.075, Color3.new(85, 0, 0),"rbxassetid://260430079", math.random(9, 11) / 10, math.random(9, 11) / 50)
+		hito(larm, larm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,2, 40, 0.1, 0.25, rot.CFrame.lookVector * 2.5, "rbxassetid://241837157", 0.075, Color3.new(85, 0, 0),"rbxassetid://260430079", math.random(9, 11) / 10, math.random(9, 11) / 50)
+        hito(rarm, rarm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,2, 40, 0.1, 0.25, rot.CFrame.lookVector * 2.5, "rbxassetid://241837157", 0.075, Color3.new(85, 0, 0),"rbxassetid://260430079", math.random(9, 11) / 10, math.random(9, 11) / 50)
+		hito(larm, larm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,2, 40, 0.1, 0.25, rot.CFrame.lookVector * 2.5, "rbxassetid://241837157", 0.075, Color3.new(85, 0, 0),"rbxassetid://260430079", math.random(9, 11) / 10, math.random(9, 11) / 50)
+        hito(rarm, rarm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,2, 40, 0.1, 0.25, rot.CFrame.lookVector * 2.5, "rbxassetid://241837157", 0.075, Color3.new(85, 0, 0),"rbxassetid://260430079", math.random(9, 11) / 10, math.random(9, 11) / 50)
+		hito(larm, larm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,2, 40, 0.1, 0.25, rot.CFrame.lookVector * 2.5, "rbxassetid://241837157", 0.075, Color3.new(85, 0, 0),"rbxassetid://260430079", math.random(9, 11) / 10, math.random(9, 11) / 50)
+        hito(rarm, rarm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,2, 40, 0.1, 0.25, rot.CFrame.lookVector * 2.5, "rbxassetid://241837157", 0.075, Color3.new(85, 0, 0),"rbxassetid://260430079", math.random(9, 11) / 10, math.random(9, 11) / 50)
+		hito(larm, larm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,2, 40, 0.1, 0.25, rot.CFrame.lookVector * 2.5, "rbxassetid://241837157", 0.075, Color3.new(85, 0, 0),"rbxassetid://260430079", math.random(9, 11) / 10, math.random(9, 11) / 50)
+		hito(tent1, tent1.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,2, 40, 0.1, 0.25, rot.CFrame.lookVector * 2.5, "rbxassetid://241837157", 0.075, Color3.new(85, 0, 0),"rbxassetid://260430079", math.random(9, 11) / 10, math.random(9, 11) / 50)
+		hito(tent2, tent2.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,2, 40, 0.1, 0.25, rot.CFrame.lookVector * 2.5, "rbxassetid://241837157", 0.075, Color3.new(85, 0, 0),"rbxassetid://260430079", math.random(9, 11) / 10, math.random(9, 11) / 50)		
+		hito(tent3, tent3.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,2, 40, 0.1, 0.25, rot.CFrame.lookVector * 2.5, "rbxassetid://241837157", 0.075, Color3.new(85, 0, 0),"rbxassetid://260430079", math.random(9, 11) / 10, math.random(9, 11) / 50)
+		hito(tent4, tent4.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,2, 40, 0.1, 0.25, rot.CFrame.lookVector * 2.5, "rbxassetid://241837157", 0.075, Color3.new(85, 0, 0),"rbxassetid://260430079", math.random(9, 11) / 10, math.random(9, 11) / 50)
+        hito(tent11, tent11.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,2, 40, 0.1, 0.25, rot.CFrame.lookVector * 2.5, "rbxassetid://241837157", 0.075, Color3.new(85, 0, 0),"rbxassetid://260430079", math.random(9, 11) / 10, math.random(9, 11) / 50)
+		hito(tent22, tent22.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,2, 40, 0.1, 0.25, rot.CFrame.lookVector * 2.5, "rbxassetid://241837157", 0.075, Color3.new(85, 0, 0),"rbxassetid://260430079", math.random(9, 11) / 10, math.random(9, 11) / 50)		
+		hito(tent33, tent33.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,2, 40, 0.1, 0.25, rot.CFrame.lookVector * 2.5, "rbxassetid://241837157", 0.075, Color3.new(85, 0, 0),"rbxassetid://260430079", math.random(9, 11) / 10, math.random(9, 11) / 50)
+		hito(tent44, tent44.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,2, 40, 0.1, 0.25, rot.CFrame.lookVector * 2.5, "rbxassetid://241837157", 0.075, Color3.new(85, 0, 0),"rbxassetid://260430079", math.random(9, 11) / 10, math.random(9, 11) / 50)
+		hito(tent111, tent111.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,2, 40, 0.1, 0.25, rot.CFrame.lookVector * 2.5, "rbxassetid://241837157", 0.075, Color3.new(85, 0, 0),"rbxassetid://260430079", math.random(9, 11) / 10, math.random(9, 11) / 50)
+		hito(tent222, tent222.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,2, 40, 0.1, 0.25, rot.CFrame.lookVector * 2.5, "rbxassetid://241837157", 0.075, Color3.new(85, 0, 0),"rbxassetid://260430079", math.random(9, 11) / 10, math.random(9, 11) / 50)		
+		hito(tent333, tent333.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,2, 40, 0.1, 0.25, rot.CFrame.lookVector * 2.5, "rbxassetid://241837157", 0.075, Color3.new(85, 0, 0),"rbxassetid://260430079", math.random(9, 11) / 10, math.random(9, 11) / 50)
+		hito(tent444, tent444.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,2, 40, 0.1, 0.25, rot.CFrame.lookVector * 2.5, "rbxassetid://241837157", 0.075, Color3.new(85, 0, 0),"rbxassetid://260430079", math.random(9, 11) / 10, math.random(9, 11) / 50)																
+		wait(0.1)
+	until bep == false or disabled.Value == true or EHMMM >= 40 
+	EHMMM = 0
+	rushsfx:Stop()
+	attackpose:Stop()
+	human.JumpPower = 50
+	barrageanim:Stop(0.1)
+	trailevent:FireServer(rarm.Trail, false)
+	trailevent:FireServer(larm.Trail, false)
+	trailevent:FireServer(tent1.Trail, false)	
+	trailevent:FireServer(tent2.Trail, false)	
+	trailevent:FireServer(tent3.Trail, false)	
+	trailevent:FireServer(tent4.Trail, false)
+	activu = false
+	wait(5)
+	barragecooldown = false
+end
+local strongpunchcooldown = false
+function obliterate()
+if activu == true then return end
+if strongpunchcooldown == true then return end
+	if appeared == false then
+		return
+	end
+	activu = true
+	strongpunchcooldown = true
+	obliterationanim:Play(0.1, 1, 1)
+	human.JumpPower = 0
+	attackpose:Play()
+	trailevent:FireServer(rarm.Trail, true)
+	trailevent:FireServer(tent1.Trail, true)
+	trailevent:FireServer(tent2.Trail, true)
+		wait(0.65)
+		punchsfx:Play()
+	strongpunchevent:FireServer(Vector3.new(1, 0.5, 1), Vector3.new(0.3, 0.15, 0.3), BrickColor.new("Really black"))
+	coroutine.resume(coroutine.create(function()
+	for _ = 1, 15 do
+		wait()
+		hito(rarm, rarm.CFrame * CFrame.new(0, -5, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,2, 90, 0.1, 0.25, rot.CFrame.lookVector * 2.5, "rbxassetid://241837157", 0.075, Color3.new(85, 0, 0),"rbxassetid://260430079", math.random(9, 11) / 10, math.random(9, 11) / 50)
+		hito(larm, larm.CFrame * CFrame.new(0, -5, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,2, 90, 0.1, 0.25, rot.CFrame.lookVector * 2.5, "rbxassetid://241837157", 0.075, Color3.new(85, 0, 0),"rbxassetid://260430079", math.random(9, 11) / 10, math.random(9, 11) / 50)
+        hito(rarm, rarm.CFrame * CFrame.new(0, -5, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,2, 90, 0.1, 0.25, rot.CFrame.lookVector * 2.5, "rbxassetid://241837157", 0.075, Color3.new(85, 0, 0),"rbxassetid://260430079", math.random(9, 11) / 10, math.random(9, 11) / 50)
+		hito(larm, larm.CFrame * CFrame.new(0, -5, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,2, 90, 0.1, 0.25, rot.CFrame.lookVector * 2.5, "rbxassetid://241837157", 0.075, Color3.new(85, 0, 0),"rbxassetid://260430079", math.random(9, 11) / 10, math.random(9, 11) / 50)
+        hito(rarm, rarm.CFrame * CFrame.new(0, -5, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,2, 90, 0.1, 0.25, rot.CFrame.lookVector * 2.5, "rbxassetid://241837157", 0.075, Color3.new(85, 0, 0),"rbxassetid://260430079", math.random(9, 11) / 10, math.random(9, 11) / 50)
+		hito(larm, larm.CFrame * CFrame.new(0, -5, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,2, 90, 0.1, 0.25, rot.CFrame.lookVector * 2.5, "rbxassetid://241837157", 0.075, Color3.new(85, 0, 0),"rbxassetid://260430079", math.random(9, 11) / 10, math.random(9, 11) / 50)
+		hito3(tent1, tent1.CFrame * CFrame.new(0, -5, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,2, 90, 0.1, 0.25, rot.CFrame.lookVector * 2.5, 0.25,"rbxassetid://137579113", math.random(9, 11) / 10, math.random(9, 11) / 10)
+		hito3(tent2, tent2.CFrame * CFrame.new(0, -5, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,2, 90, 0.1, 0.25, rot.CFrame.lookVector * 2.5, 0.25,"rbxassetid://137579113", math.random(9, 11) / 10, math.random(9, 11) / 10)
+	end
+	end))
+	wait(0.64)
+	trailevent:FireServer(rarm.Trail, false)
+	trailevent:FireServer(tent1.Trail, false)
+	trailevent:FireServer(tent2.Trail, false)
+	attackpose:Stop()
+	activu = false
+	human.JumpPower = 50
+	wait(7.5)
+	strongpunchcooldown = false
+end	
+local covcooldown = false
+function cryofvoid()
+if covcooldown == true then return end
+	if appeared == false then
+		return
+	end
+	covcooldown = true
+	enragesfx:Play()
+	wait(0.5)
+	tongueoutanim:Play(0.1, 1, 1.35)
+	human.WalkSpeed = 30
+	damagemultiplier = 2
+	wait(30)
+	tongueoutanim:Stop()
+	human.WalkSpeed = 16
+	damagemultiplier = 1
+	wait(25)
+	covcooldown = false
+end		
+local epitaphcooldown = false
+function epitaph()
+	if activu == true then return end
+	if epitaphortimeerase == true then return end
+	if epitaphcooldown == true then return end
+	epitaphcooldown = true
+	epitaphortimeerase = true
+	epitaphsfx:Play()
+	epitaphevent:FireServer()
+	repeat
+		wait()
+	until chr.Epitaphing.Value == true
+	repeat
+		wait()
+	until chr.Epitaphing.Value == false
+	epitaphortimeerase = false
+	wait(4)
+	epitaphcooldown = false
+end
+function unepitaph()
+	unepitaphevent:FireServer()
+end
+local timeerasecooldown = true
+local soundservice = game:GetService("SoundService")
+local music = workspace:FindFirstChild("Music")
+local muted = music.IsMuted
+function timeerase() 
+	if activu == true then return end
+	if timeerasecooldown == true then return end
+	if appeared == false then return end
+	if game.Lighting.TEHD.Value == true then return end
+	repeat
+		wait()
+	until ntorso.Transparency == 0
+	soundservice.AmbientReverb = "NoReverb"
+	human.CameraOffset = Vector3.new(0, 0, 0)
+	dimtentidleanim:Play(0.1, 1, 1.35)
+	timeerasesfx:Play()
+	timeeraseevent:FireServer(appeared)
+	epitaphortimeerase = true
+	timeerasecooldown = true
+	human.CameraOffset = Vector3.new(0, 0, 0)
+	sky.CelestialBodiesShown = false
+	sky.SkyboxBk = "rbxassetid://1542583398"
+	sky.SkyboxDn = "rbxassetid://1542583398"
+	sky.SkyboxFt = "rbxassetid://1542583398"
+	sky.SkyboxLf = "rbxassetid://1542583398"
+	sky.SkyboxRt = "rbxassetid://1542583398"
+	sky.SkyboxUp = "rbxassetid://1542583398"
+	game.Lighting.SunRays.Enabled = false
+	music.Volume = 0
+	repeat
+		wait()
+	until ntorso.Transparency == 1
+	for _, n in pairs(chr:GetChildren()) do
+		if n.ClassName == "Part" or n.ClassName == "MeshPart" or n.ClassName == "UnionOperation" then
+			n.Transparency = 0
+		end
+	end
+	for _, n in pairs(chr:GetChildren()) do
+		if n.ClassName == "Accessory" then
+			n.Handle.Transparency = 0
+		end
+	end
+	if appeared == true then
+	for _, n in pairs(stand:GetChildren()) do
+		if n.ClassName == "Part" or n.ClassName == "MeshPart" or n.ClassName == "UnionOperation" then
+			n.Transparency = 0
+		end
+	end
+	end
+	for _, n in pairs(map:GetDescendants()) do
+		if n.ClassName == "Part" or n.ClassName == "MeshPart" or n.ClassName == "UnionOperation" or n.ClassName == "WedgePart" then
+			if n.Name ~= "Wall" and n.Name ~= "MountainWall" and n.Name ~= "Baseplate" then
+				n.Transparency = 0.9
+				n.CanCollide = false
+			end
+			if n.Name == "MountainWall" then
+				n.Transparency = 0.9
+			end
+			if n.Name == "Baseplate" then
+				n.Transparency = 1
+			end
+			end
+	end
+	hrp.Transparency = 1
+	rot.Transparency = 1
+	charface.Transparency = 0
+	fakeface.Transparency = 0
+	face.Transparency = 0
+	chr.EyeParticle.Transparency = 1
+	chr.EyeParticle2.Transparency = 1
+	repeat
+		wait()
+	until chr.TE.Value == false
+	dimtentidleanim:Stop()
+	kingcrimsonsfx:Play()
+	damagemultiplier = 2
+	epitaphortimeerase = false
+	sky.CelestialBodiesShown = true
+	sky.SkyboxBk = "rbxassetid://591058823"
+	sky.SkyboxDn = "rbxassetid://591059876"
+	sky.SkyboxFt = "rbxassetid://591058104"
+	sky.SkyboxLf = "rbxassetid://591057861"
+	sky.SkyboxRt = "rbxassetid://591057625"
+	sky.SkyboxUp = "rbxassetid://591059642"
+	soundservice.AmbientReverb = "NoReverb"
+	game.Lighting.SunRays.Enabled = true
+	for _, n in pairs(map:GetDescendants()) do
+		if n.ClassName == "Part" or n.ClassName == "MeshPart" or n.ClassName == "UnionOperation" or n.ClassName == "WedgePart" then
+			if n.Name ~= "Bush" and n.Name ~= "Water" and n.Name ~= "Door" and n.Name ~= "Wall" then
+			n.CanCollide = true
+			n.Transparency = 0
+			end
+			if n.Name == "Window" then
+				n.Transparency = 0.75
+			end
+			if n.Name == "Water" then
+				n.Transparency = 0.5
+			end
+			if n.Name == "Door" then
+				n.Transparency = 0
+			end
+			if n.Name == "Bush" then
+				n.Transparency = 0
+			end
+			end
+	end
+	if muted.Value == false then
+		music.Volume = 0.3
+	end
+	wait(.2)
+	damagemultiplier = 1
+	wait(.5)
+	timeerasecooldown = false
+end
+function untimeerase()
+	untimeeraseevent:FireServer()
+end
+local movementcooldown = false
+function movement()
+	if activu == true then return end
+	if movementcooldown == true then return end
+	if appeared == false then
+		return
+	end
+	movementcooldown = true
+	activu = true
+	standjumpanim:Play(0.1, 1, 1)
+	jumpsfx:Play()
+	jumpevent:FireServer(BrickColor.new("Institutional white"))
+	local Bod = Instance.new("BodyPosition", hrp)
+    Bod.maxForce = Vector3.new(100000, 100000, 100000)
+    Bod.Position = hrp.CFrame*CFrame.new(0, 50, -75).p
+	game.Debris:AddItem(Bod, 1)
+	wait(1)
+	activu = false
+	wait(14)
+	movementcooldown = false
+end
+local posing = false
+function posefunc()
+if activu == false and posing == false then
+	if appeared == false then
+		return
+	end
+	if posing == false then do
+	activu = true
+	posing = true
+	local cp = math.random(1, 2)
+	if cp == 1 then
+		pose1:Play(0.1, 1, 1)
+	elseif cp == 2 then
+		pose2:Play(0.1, 1, 1)
+	end
+	human.WalkSpeed = 0
+	human.JumpPower = 0
+	poseevent:FireServer(true)	
+	end
+	end
+	elseif posing == true then
+	pose1:Stop(0.3)
+	pose2:Stop(0.3)
+	if disabled.Value == false and chr.TE.Value == false then
+	human.WalkSpeed = 16
+	human.JumpPower = 50
+	elseif disabled.Value == true and chr.TE.Value == false then
+	human.WalkSpeed = 4
+	human.JumpPower = 10	
+	elseif chr.TE.Value == true then
+	human.WalkSpeed = 26
+	human.JumpPower = 50	
+	end
+	activu = false
+	posing = false
+	poseevent:FireServer(false)
+	end
+end
+local tauntcd = false
+function taunt()
+	if tauntcd == true then return end
+	if epitaphortimeerase == true then return end
+	tauntcd = true
+	local randomline = math.random(1, 4)
+	if randomline == 1 then
+		tauntevent:FireServer(stand["Stand Head"], "rbxassetid://3072040984", 3, 12, 0)
+	elseif randomline == 2 then
+		tauntevent:FireServer(stand["Stand Head"], "rbxassetid://3072042204", 3, 7, 0)
+	elseif randomline == 3 then
+		tauntevent:FireServer(stand["Stand Head"], "rbxassetid://3072042975", 3, 9, 0)
+	elseif randomline == 4 then
+		tauntevent:FireServer(stand["Stand Head"], "rbxassetid://3062479927", 3, 10, 0)
+		end
+end
+
+
+
+function bloodsuck()
+	if activu == true then return end
+	if bloodsuckcd == true then return end
+	bloodsuckcd = true
+	activu = true
+	human.JumpPower = 0
+	grabsfx:Play()
+	devournanim:Play(0.1, 1, 1)
+	--trailevent:FireServer(tent2, true)
+	wait(0.5)
+	punchsfx:Play()
+	coroutine.resume(coroutine.create(function()
+		for _ = 1, 10 do
+			wait()
+			hito3SPECIAL(tent2, 500, 500, 0.5, 0.25, stand.StandHumanoidRootPart.CFrame.lookVector * 1)
+		end
+	end))
+	wait(0.65)
+	if grabbing == false then
+		human.JumpPower = 50
+		activu = false
+		--trailevent:FireServer(tent2.Trail, false)
+	end
+	wait(10)
+	bloodsuckcd = false
+end
+
+
+mouse.Button1Down:connect(function()
+if ntorso.Anchored == true then return end
+if disabled.Value == true then return end
+	punch()
+end)
+mouse.KeyDown:connect(function(key)
+if ntorso.Anchored == true then return end
+if disabled.Value == true then return end
+	if key == "b" then
+		standappear(stand)
+	end
+	if key == "e" then
+		barrage()
+	end
+	if key == "r" then
+		obliterate()
+	end
+	if key == "t" then
+		if chr.Epitaphing.Value == false then
+		epitaph()
+		elseif chr.Epitaphing.Value == true then
+		unepitaph()
+		end	
+	end
+	if key == "y" then
+		bloodsuck()
+	end
+	if key == "f" then
+		if game.Lighting.TEHD.Value == false then
+		timeerase()
+		elseif game.Lighting.TEHD.Value == true then
+		untimeerase()
+		end	
+	end
+	if key == "x" then
+		block()
+	end
+	if key == "z" then
+		movement()
+	end
+	if key == "p" then
+		posefunc()
+	end
+	if key == "n" then
+		taunt()
+    end
+    if key == "u" then
+        game.ReplicatedStorage.MOHEKnife:FireServer()
+	end
+	if key == "h" then
+		cryofvoid()
+	end
+end)
+function hito(partoz, partcfr, magn, dmg, debtim, debtime, bodyfdire, effect, grow, color, sound, pitch, volume)
+if disabled.Value == true then return end
+  for _, guy in pairs(workspace:GetChildren()) do
+	if partoz.Anchored == true then return end
+    if guy:FindFirstChild("Humanoid") and guy:FindFirstChild("HumanoidRootPart") and guy ~= chr and magn > (guy:FindFirstChild("HumanoidRootPart").Position - partoz.Position).magnitude and guy:FindFirstChild("HumanoidRootPart"):FindFirstChild("alabo") == nil then
+      do
+		if partoz.Anchored then return end
+        local humz = guy:FindFirstChild("Humanoid")
+        local horp = guy:FindFirstChild("HumanoidRootPart")
+        damageevent:FireServer(humz, partcfr, dmg * damagemultiplier, debtime, bodyfdire, effect, grow, color, sound, pitch, volume)
+        local db = Instance.new("StringValue")
+        db.Name = "alabo"
+        db.Parent = horp
+        delay(debtim, function()
+          db:Destroy()
+        end)
+      end
+    end
+
+	if guy:FindFirstChild("Stand") and guy["Stand"]:FindFirstChild("Stand Torso") and guy ~= chr and guy ~= chr[stand.Name] and magn > (guy["Stand"]:FindFirstChild("Stand Torso").Position - partoz.Position).magnitude and guy:FindFirstChild("HumanoidRootPart"):FindFirstChild("alabo") == nil then
+		do   
+		if partoz.Anchored then return end
+        local humz = guy:FindFirstChild("Humanoid")
+        local horp = guy:FindFirstChild("HumanoidRootPart")
+        damageevent:FireServer(humz, partcfr, dmg * damagemultiplier, debtime, bodyfdire, effect, grow, color, sound, pitch, volume)
+        local db = Instance.new("StringValue")
+        db.Name = "alabo"
+        db.Parent = horp
+        delay(debtim, function()
+          db:Destroy()
+        end)
+      end
+    end
+
+  end
+end
+
+function hito2(partoz, partcfr, magn, dmg, debtim, debtime, bodyfdire, effect, grow, color, sound, pitch, volume)
+if disabled.Value == true then return end
+  for _, guy in pairs(workspace:GetChildren()) do
+	if partoz.Anchored == true then return end
+    if guy:FindFirstChild("Humanoid") and guy:FindFirstChild("HumanoidRootPart") and guy ~= chr and magn > (guy:FindFirstChild("HumanoidRootPart").Position - partoz.Position).magnitude and guy:FindFirstChild("HumanoidRootPart"):FindFirstChild("alabo") == nil then
+      do
+		if partoz.Anchored then return end
+        local humz = guy:FindFirstChild("Humanoid")
+        local horp = guy:FindFirstChild("HumanoidRootPart")
+        damageevent:FireServer(humz, partcfr, dmg * damagemultiplier, debtime, bodyfdire, effect, grow, color, sound, pitch, volume)	
+        knockevent:FireServer(humz)
+		local db = Instance.new("StringValue")
+	    db.Name = "alabo"
+        db.Parent = horp
+        delay(debtim, function()
+          db:Destroy()
+        end)
+      end
+    end
+
+	if guy:FindFirstChild("Stand") and guy["Stand"]:FindFirstChild("Stand Torso") and guy ~= chr and guy ~= chr[stand.Name] and magn > (guy["Stand"]:FindFirstChild("Stand Torso").Position - partoz.Position).magnitude and guy:FindFirstChild("HumanoidRootPart"):FindFirstChild("alabo") == nil then
+		do   
+		if partoz.Anchored then return end
+        local humz = guy:FindFirstChild("Humanoid")
+        local horp = guy:FindFirstChild("HumanoidRootPart")
+        damageevent:FireServer(humz, partcfr, dmg * damagemultiplier, debtime, bodyfdire, effect, grow, color, sound, pitch, volume)
+        knockevent:FireServer(humz)
+		local db = Instance.new("StringValue")
+        db.Name = "alabo"
+        db.Parent = horp
+        delay(debtim, function()
+          db:Destroy()
+        end)
+      end
+    end
+
+  end
+end
+
+
+function hito3SPECIAL(partoz, magn, dmg, debtim, debtime, bodyfdire, sound)
+  for _, guy in pairs(workspace:GetChildren()) do
+	if partoz.Anchored == true then return end
+    if guy:FindFirstChild("Humanoid") and guy:FindFirstChild("HumanoidRootPart") and guy ~= chr and magn > (guy:FindFirstChild("HumanoidRootPart").Position - partoz.Position).magnitude and guy:FindFirstChild("HumanoidRootPart"):FindFirstChild("alabo") == nil then
+      do
+		if partoz.Anchored then return end
+        local humz = guy:FindFirstChild("Humanoid")
+        local horp = guy:FindFirstChild("HumanoidRootPart")
+        damageevent4:FireServer(humz, dmg * damagemultiplier, debtime, bodyfdire, sound)
+		knockevent:FireServer(humz)
+        local db = Instance.new("StringValue")
+        db.Name = "alabo"
+        db.Parent = horp
+        delay(debtim, function()
+          db:Destroy()
+        end)
+      end
+    end
+  end
+end
+
+function hito3(partoz, partcfr, magn, dmg, debtim, debtime, bodyfdire, effect, grow, color, sound, pitch, volume)
+  for _, guy in pairs(workspace:GetChildren()) do
+	if partoz.Anchored == true then return end
+    if guy:FindFirstChild("Humanoid") and guy:FindFirstChild("HumanoidRootPart") and guy ~= chr and magn > (guy:FindFirstChild("HumanoidRootPart").Position - partoz.Position).magnitude and guy:FindFirstChild("HumanoidRootPart"):FindFirstChild("alabo") == nil then
+      do
+		if partoz.Anchored then return end
+        local humz = guy:FindFirstChild("Humanoid")
+        local horp = guy:FindFirstChild("HumanoidRootPart")
+        damageevent2:FireServer(humz, partcfr, dmg * damagemultiplier, debtime, bodyfdire, effect, grow, color, sound, pitch, volume)
+        knockevent:FireServer(humz)
+		local db = Instance.new("StringValue")
+        db.Name = "alabo"
+        db.Parent = horp
+        delay(debtim, function()
+          db:Destroy()
+        end)
+      end
+    end
+
+
+
+	if guy:FindFirstChild("Stand") and guy["Stand"]:FindFirstChild("Stand Torso") and guy ~= chr and guy ~= chr[stand.Name] and magn > (guy["Stand"]:FindFirstChild("Stand Torso").Position - partoz.Position).magnitude and guy:FindFirstChild("HumanoidRootPart"):FindFirstChild("alabo") == nil then
+		do 
+		if partoz.Anchored then return end
+        local humz = guy:FindFirstChild("Humanoid")
+        local horp = guy:FindFirstChild("HumanoidRootPart")
+        damageevent2:FireServer(humz, partcfr, dmg * damagemultiplier, debtime, bodyfdire, effect, grow, color, sound, pitch, volume)
+        local db = Instance.new("StringValue")
+        db.Name = "alabo"
+        db.Parent = horp
+        delay(debtim, function()
+          db:Destroy()
+        end)
+      end
+    end
+
+  end
+end
+
+function hito4(partoz, partcfr, magn, dmg, debtim, debtime, bodyfdire, effect, grow, color, sound, pitch, volume)
+  for _, guy in pairs(workspace:GetChildren()) do
+	if partoz.Anchored == true then return end
+    if guy:FindFirstChild("Humanoid") and guy:FindFirstChild("HumanoidRootPart") and guy ~= chr and magn > (guy:FindFirstChild("HumanoidRootPart").Position - partoz.Position).magnitude and guy:FindFirstChild("HumanoidRootPart"):FindFirstChild("alabo") == nil then
+      do
+		if partoz.Anchored then return end
+        local humz = guy:FindFirstChild("Humanoid")
+        local horp = guy:FindFirstChild("HumanoidRootPart")
+        damageevent3:FireServer(humz, partcfr, dmg * damagemultiplier, debtime, bodyfdire, effect, grow, color, sound, pitch, volume)
+        knockevent:FireServer(humz)
+		local db = Instance.new("StringValue")
+        db.Name = "alabo"
+        db.Parent = horp
+        delay(debtim, function()
+          db:Destroy()
+        end)
+      end
+    end
+
+	if guy:FindFirstChild("Stand") and guy["Stand"]:FindFirstChild("Stand Torso") and guy ~= chr and guy ~= chr[stand.Name] and magn > (guy["Stand"]:FindFirstChild("Stand Torso").Position - partoz.Position).magnitude and guy:FindFirstChild("HumanoidRootPart"):FindFirstChild("alabo") == nil then
+		do 
+		if partoz.Anchored then return end
+        local humz = guy:FindFirstChild("Humanoid")
+        local horp = guy:FindFirstChild("HumanoidRootPart")
+        damageevent3:FireServer(humz, partcfr, dmg * damagemultiplier, debtime, bodyfdire, effect, grow, color, sound, pitch, volume)
+        local db = Instance.new("StringValue")
+        db.Name = "alabo"
+        db.Parent = horp
+        delay(debtim, function()
+          db:Destroy()
+        end)
+      end
+    end
+
+  end
+end
+
+function teclone()
+	teleportevent:FireServer(BrickColor.new("Really red"))
+end
+
+
+
+
+
+
+
+berserkclientevent.OnClientEvent:connect(function()
+	game.Lighting.Ambient = Color3.fromRGB(0, 0, 122)
+	game.Lighting.Berserk.Enabled = true
+	human.WalkSpeed = 4
+	human:SetStateEnabled(3, false)
+	wait(2.5)
+	human.WalkSpeed = 16
+	human:SetStateEnabled(3, true)
+	game.Lighting.Ambient = Color3.fromRGB(150, 150, 150)
+	game.Lighting.Berserk.Enabled = false
+end)
+
+local deathevent = replicatedstorage.Death
+human.HealthChanged:connect(function()
+	if human.Health < 1 then
+			for _, n in pairs(stand:GetChildren()) do
+	      coroutine.resume(coroutine.create(function()
+	        for _ = 1, 5 do
+	          if n ~= rot and n.ClassName ~= "Sound" then
+	            wait()
+	            transparencyevent:FireServer(n, n.Transparency + 0.2)
+				transparencyevent:FireServer(face, face.Transparency + 0.2)
+				transparencyevent:FireServer(fakeface, face.Transparency + 0.2)
+	          end
+	        end
+	        if n ~= rot then
+	          transparencyevent:FireServer(n, 1)
+			  transparencyevent:FireServer(face, 1)
+			  transparencyevent:FireServer(fakeface, 1)
+	        end
+	      end))
+		end			
+		untimeerase()
+		human:SetStateEnabled(3, false)
+		human:SetStateEnabled(15, false)
+		diesfx:Play()
+		deathevent:FireServer(false)
+	end
+end)
+
+knockclientevent.OnClientEvent:connect(function(enemyplr)
+	if chr.Block.Value == true then return end
+	knockedevent:FireServer()
+	human:SetStateEnabled(3, false)
+	wait(1.25)
+	if human.Health >= 1 then
+	getupevent:FireServer()
+	human:SetStateEnabled(3, true)
+	end
+end)
+
+tauntevent.OnClientEvent:Connect(function()
+	tauntcd = false
+end)
+
+wait(22.5)
+timeerasecooldown = false
+-- forget about this until i fix it
+--	if randomline == 1 then
+--		tauntevent:FireServer(head, "What you just saw and touched...", "rbxassetid://3272465195", 3, 4.25, 0)
+--		wait(6.2)
+--		tauntevent:FireServer(head, "Was your future self!", "rbxassetid://3272465664", 3, 2.6, 0)
