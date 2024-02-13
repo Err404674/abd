@@ -93,6 +93,8 @@ local tent222 = stand:WaitForChild("Tentacle1011")
 local tent333 = stand:WaitForChild("Tentacle1022")
 local tent444 = stand:WaitForChild("Tentacle1033")
 
+rot.StandAppear.SoundId = 'rbxassetid://5964884135'
+
 local head = chr["Head"]
 local charface = head["face"]
 local ntorso = chr["Torso"]
