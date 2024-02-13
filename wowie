@@ -374,10 +374,12 @@ if covcooldown == true then return end
 	covcooldown = true
 	enragesfx:Play()
 	wait(0.5)
+	dimtentidleanim:Play(0.1, 1, 1.35)
 	tongueoutanim:Play(0.1, 1, 1.35)
 	human.WalkSpeed = 30
 	damagemultiplier = 2
 	wait(30)
+	dimtentidleanim:Stop()
 	tongueoutanim:Stop()
 	human.WalkSpeed = 16
 	damagemultiplier = 1
@@ -640,7 +642,7 @@ if disabled.Value == true then return end
 	if key == "q" then
 		standappear(stand)
 	end
-	if key == "n" then
+	if key == "e" then
 		barrage()
 	end
 	if key == "b" then
