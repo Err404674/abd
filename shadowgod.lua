@@ -32,7 +32,6 @@ function trans0()
     end
 end
 
-game.Players.LocalPlayer.PlayerGui.MobileButtons.Enabled = false
 
 --Abilities:
 --M1: commit die punch. using the 0.1% of power, you do 10k dmg
