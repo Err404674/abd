@@ -32,7 +32,7 @@ TextButton.BorderSizePixel = 0
 TextButton.Position = UDim2.new(0, 0, -0.00173588574, 0)
 TextButton.Size = UDim2.new(0, 275, 0, 37)
 TextButton.Font = Enum.Font.SourceSans
-TextButton.Text = "A Bizarre Day Rp"
+TextButton.Text = "a bidar day reboted"
 TextButton.TextColor3 = Color3.new(1, 1, 1)
 TextButton.TextSize = 24
 
@@ -56,7 +56,7 @@ TextButton_3.Position = UDim2.new(0.0328504108, 0, 0.0485876203, 0)
 TextButton_3.Size = UDim2.new(0, 244, 0, 26)
 TextButton_3.ZIndex = 2
 TextButton_3.Font = Enum.Font.SourceSans
-TextButton_3.Text = "Money Farm"
+TextButton_3.Text = "lair farm"
 TextButton_3.TextColor3 = Color3.new(1, 1, 1)
 TextButton_3.TextSize = 24
 TextButton_3.MouseButton1Click:connect(function()
@@ -114,7 +114,7 @@ TextButton_4.Position = UDim2.new(0.0328504108, 0, 0.342677355, 0)
 TextButton_4.Size = UDim2.new(0, 244, 0, 26)
 TextButton_4.ZIndex = 2
 TextButton_4.Font = Enum.Font.SourceSans
-TextButton_4.Text = "Tp Rak/Arrow/All Tool"
+TextButton_4.Text = "didnt change the cframes here"
 TextButton_4.TextColor3 = Color3.new(1, 1, 1)
 TextButton_4.TextSize = 24
 TextButton_4.MouseButton1Click:connect(function()
