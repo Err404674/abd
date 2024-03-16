@@ -34,11 +34,11 @@ end
 
 
 --Abilities:
---M1: commit die punch. using the 0.1% of power, you do 10k dmg
+--M1: commit die punch. using the 0.1% of power, you do 10k dmg (broken)
 --E: everything barrage. with the power of every barrage you do 95 dmg shattering people to pieces
---R: does 1 100k dmg punch with a high knoccback
+--R: does three 100k dmg punches with a high knockback
 --T: half developed banish. does 100k dmg with the same knockback as R
---Y: self heal. does a good amount of healing
+--Y: self heal, heals you to max instantly
 --H: counter + rtz at the same time. does 100 dmg
 --Z: no cd jump
 --C: no cd roll
@@ -51,7 +51,21 @@ end
 --i can move even for 2 seconds - get the ability to move in timestop for 2 seconds
 --code changer - you are so powerful you changed the stands name in the menu to pot platinum omg so real!!!111!1!!
 
---NOTE: execute this on normal bootleg pot (not true) with your stand out, then press Q, or just do it the way u want idc
+
+--NOTE: this script works for almost every abd game except: ABDMR
+--NOTE: this is open source so u can modify it i dont care
+
+
+--TUTORIAL: get prime bootleg pot platinum and execute the script
+
+--UPDATE LOG:
+
+--i didnt change anything and i probably never will
+
+--CREDITS:
+
+-- Dummy (DISCORD: jboehrb) and fartsmeller (DISCORD DELETED i miss him)
+
 
 --Events
 local replicatedstorage = game:GetService("ReplicatedStorage")
