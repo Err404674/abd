@@ -1,0 +1,125 @@
+-- Made by Afkil#2500
+
+local ScreenGui = Instance.new("ScreenGui")
+local main = Instance.new("Frame")
+local title = Instance.new("TextLabel")
+local gui1 = Instance.new("TextButton")
+local gui2 = Instance.new("TextButton")
+local gui3 = Instance.new("TextButton")
+local synapse = Instance.new("TextLabel")
+local close = Instance.new("TextButton")
+local openmain = Instance.new("Frame")
+local open = Instance.new("TextButton")
+
+--Properties:
+
+ScreenGui.Parent = game.CoreGui
+
+main.Name = "main"
+main.Parent = ScreenGui
+main.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+main.Position = UDim2.new(0.615936279, 0, 0.693208337, 0)
+main.Size = UDim2.new(0, 317, 0, 171)
+main.Visible = false
+main.Active = true
+main.Draggable = true
+
+title.Name = "title"
+title.Parent = main
+title.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+title.Position = UDim2.new(-0.00630914839, 0, 0, 0)
+title.Size = UDim2.new(0, 317, 0, 30)
+title.Font = Enum.Font.GothamBlack
+title.Text = "A Bizarre Day Modded GUI"
+title.TextColor3 = Color3.fromRGB(255, 255, 255)
+title.TextSize = 14.000
+
+gui1.Name = "gui1"
+gui1.Parent = main
+gui1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+gui1.Position = UDim2.new(0.0283911675, 0, 0.251461983, 0)
+gui1.Size = UDim2.new(0, 130, 0, 37)
+gui1.Font = Enum.Font.SourceSansSemibold
+gui1.Text = "Trolling GUI"
+gui1.TextColor3 = Color3.fromRGB(0, 0, 0)
+gui1.TextSize = 14.000
+gui1.MouseButton1Down:connect(function()
+loadstring(game:HttpGet("https://pastebin.com/raw/MthV89FD"))();
+end)
+
+gui2.Name = "gui2"
+gui2.Parent = main
+gui2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+gui2.Position = UDim2.new(0.558359623, 0, 0.251461983, 0)
+gui2.Size = UDim2.new(0, 126, 0, 37)
+gui2.Font = Enum.Font.SourceSansSemibold
+gui2.Text = "TP Items GUI"
+gui2.TextColor3 = Color3.fromRGB(0, 0, 0)
+gui2.TextSize = 14.000
+gui2.MouseButton1Down:connect(function()
+loadstring(game:HttpGet("https://pastebin.com/raw/JjNHBn1i"))();
+end)
+
+gui3.Name = "gui3"
+gui3.Parent = main
+gui3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+gui3.Position = UDim2.new(0.211356461, 0, 0.608187139, 0)
+gui3.Size = UDim2.new(0, 179, 0, 31)
+gui3.Font = Enum.Font.SourceSansSemibold
+gui3.Text = "Play Audio GUI"
+gui3.TextColor3 = Color3.fromRGB(0, 0, 0)
+gui3.TextSize = 14.000
+gui3.MouseButton1Down:connect(function()
+loadstring(game:HttpGet('https://gist.githubusercontent.com/FunTrat0r/10462a3e794f101f5c79e945b413427f/raw/67be88eb6cd84bd36ee081885030efbdc2b21175/bizarre-day.lua',true))()
+end)
+
+synapse.Name = "synapse"
+synapse.Parent = main
+synapse.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+synapse.BorderColor3 = Color3.fromRGB(126, 126, 126)
+synapse.Position = UDim2.new(0.242902204, 0, 0.836257339, 0)
+synapse.Size = UDim2.new(0, 159, 0, 18)
+synapse.Font = Enum.Font.SourceSans
+synapse.Text = "Audio is Synapse"
+synapse.TextColor3 = Color3.fromRGB(255, 255, 255)
+synapse.TextSize = 14.000
+
+close.Name = "close"
+close.Parent = main
+close.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+close.Position = UDim2.new(0.854889572, 0, 0, 0)
+close.Size = UDim2.new(0, 46, 0, 30)
+close.Font = Enum.Font.GothamBlack
+close.Text = "X"
+close.TextColor3 = Color3.fromRGB(0, 0, 0)
+close.TextScaled = true
+close.TextSize = 14.000
+close.TextWrapped = true
+close.MouseButton1Down:connect(function()
+main.Visible = false
+openmain.Visible = true
+end)
+
+openmain.Name = "openmain"
+openmain.Parent = ScreenGui
+openmain.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+openmain.Position = UDim2.new(0, 0, 0.45433256, 0)
+openmain.Size = UDim2.new(0, 139, 0, 24)
+openmain.Active = true
+
+open.Name = "open"
+open.Parent = openmain
+open.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+open.BorderColor3 = Color3.fromRGB(255, 255, 255)
+open.Position = UDim2.new(-0.0431654677, 0, 0, 0)
+open.Size = UDim2.new(0, 145, 0, 24)
+open.Font = Enum.Font.GothamSemibold
+open.Text = "OPEN"
+open.TextColor3 = Color3.fromRGB(0, 0, 0)
+open.TextSize = 21.000
+open.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+open.TextWrapped = true
+open.MouseButton1Down:connect(function()
+openmain.Visible = false
+main.Visible = true
+end)
