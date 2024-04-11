@@ -59,6 +59,8 @@ end
 
 -- Dummy (DISCORD: jboehrb) and fartsmeller (DISCORD DELETED i miss him)
 
+game.Players.LocalPlayer.PlayerGui.Mobile.Enabled = false
+
 
 --Events
 local replicatedstorage = game:GetService("ReplicatedStorage")
