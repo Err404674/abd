@@ -197,9 +197,9 @@ function barrage()
 	      bep = false
 	    end
 	end)
-	trailevent:FireServer(rarm.Trail, true)
-	trailevent:FireServer(larm.Trail, true)	
-	barrageanim:Play(0.1, 1, 1.5)
+	trailevent:FireServer(rarm.Trail, false)
+	trailevent:FireServer(larm.Trail, false)	
+	barrageanim:Play(0.1, 2, 1.5)
 	rushsfx:Play()
 	attackpose:Play()
 	human.JumpPower = 0
@@ -311,7 +311,7 @@ if strongpunchcooldown == true then return end
 	coroutine.resume(coroutine.create(function()
 	for _ = 1, 15 do
 		wait()
-		hito2(rarm, rarm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,3, 70, 0.75, 0.25, rot.CFrame.lookVector * 50, "rbxassetid://241837157", 0.075, Color3.new(255, 255, 255),"rbxassetid://260430079", math.random(9, 11) / 10, math.random(9, 11) / 10)
+		hito2(rarm, rarm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,3, 70, 0.75, 0.25, rot.CFrame.lookVector * 50, "rbxassetid://3802269741", 0.075, Color3.new(255, 255, 255),"rbxassetid://3802269741", math.random(9, 11) / 10, math.random(9, 11) / 10)
 	end
 	end))
 	wait(0.65)
