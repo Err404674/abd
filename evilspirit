@@ -63,7 +63,7 @@ local hrp = chr.HumanoidRootPart
 mouse = plr:GetMouse()
 cam = workspace.CurrentCamera
 
-standevent:FireServer("StarPlatinumStand", 25, 200)
+standevent:FireServer("StarPlatinumStand", 25, 500)
 
 --Values
 local activu = false
@@ -202,8 +202,8 @@ function barrage()
 	human.JumpPower = 0
 	repeat
 		EHMMM = EHMMM + 1
-		hito(rarm, rarm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,2, 30, 0.1, 0.25, rot.CFrame.lookVector * 2.5, "rbxassetid://3802270540", 0.075, Color3.new(255, 255, 255),"rbxassetid://260430079", math.random(9, 11) / 10, math.random(9, 11) / 50)
-		hito(larm, larm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,2, 30, 0.1, 0.25, rot.CFrame.lookVector * 2.5, "rbxassetid://3802270540", 0.075, Color3.new(255, 255, 255),"rbxassetid://260430079", math.random(9, 11) / 10, math.random(9, 11) / 50)		
+		hito(rarm, rarm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,2, 30, 0.1, 0.25, rot.CFrame.lookVector * 2.5, "rbxassetid://3802270540", 0.075, Color3.new(255, 255, 255),"rbxassetid://3802270540", math.random(9, 11) / 10, math.random(9, 11) / 50)
+		hito(larm, larm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,2, 30, 0.1, 0.25, rot.CFrame.lookVector * 2.5, "rbxassetid://3802270540", 0.075, Color3.new(255, 255, 255),"rbxassetid://3802270540", math.random(9, 11) / 10, math.random(9, 11) / 50)		
 		wait(0.1)
 	until bep == false or disabled.Value == true or EHMMM >= 40 
 	EHMMM = 0
