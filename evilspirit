@@ -424,12 +424,12 @@ if chr.TS.Value == true then return end
 	activu = true
 	timestopcooldown = true
 	timestopanim:Play(0.1, 1, 1)
-	human.WalkSpeed = 0
-	human.JumpPower = 0
+	human.WalkSpeed = 16
+	human.JumpPower = 16
 	timestopping = true
 	timestopevent:FireServer(length, "jotaro")
-	wait(1.5)
-	for i = 1,25 do
+	wait(0.1)
+	for i = 1,70 do
     wait()
 	end
 	human.WalkSpeed = 16
@@ -471,7 +471,7 @@ if chr.TS.Value == true then return end
 	repeat
 		aaa = aaa + 1
 		wait(0.1)
-	until aaa == 999
+	until aaa == 99
 	timestopmoving = false
 	coroutine.resume(coroutine.create(function()
 	if game.Lighting.TS.Value == false then return end
