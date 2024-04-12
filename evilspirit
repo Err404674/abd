@@ -200,7 +200,7 @@ function barrage()
 	end)
 	trailevent:FireServer(rarm.Trail, false)
 	trailevent:FireServer(larm.Trail, false)	
-	barrageanim:Play(0.1, 2, 1.5)
+	barrageanim:Play(0.1, 3, 1.5)
 	rushsfx:Play()
 	attackpose:Play()
 	human.JumpPower = 0
@@ -263,7 +263,7 @@ if activu == true then return end
 	human.JumpPower = 0
 	if leftorright == false then
 		leftorright = true
-		rightpunchanim:Play(0.1, 1, 1)
+		rightpunchanim:Play(0.1, 3, 1)
 		trailevent:FireServer(rarm.Trail, true)
 		wait(0.2)
 		coroutine.resume(coroutine.create(function()
@@ -274,7 +274,7 @@ if activu == true then return end
 		end))
 	elseif leftorright == true then
 		leftorright = false
-		leftpunchanim:Play(0.1, 1, 1)
+		leftpunchanim:Play(0.1, 3, 1)
 		trailevent:FireServer(larm.Trail, true)
 		wait(0.2)
 		coroutine.resume(coroutine.create(function()
@@ -305,7 +305,7 @@ if strongpunchcooldown == true then return end
 	heavypunchsfx:Play()
 	attackpose:Play()
 	human.JumpPower = 0
-	strongpunchanim:Play(0.1, 1, 1)
+	strongpunchanim:Play(0.1, 4, 1)
 	trailevent:FireServer(rarm.Trail, true)
 	wait(0.5)
 	strongpunchevent:FireServer(Vector3.new(1, 0.5, 1), Vector3.new(0.3, 0.15, 0.3), BrickColor.new("Black"))
