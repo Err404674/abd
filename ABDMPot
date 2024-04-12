@@ -154,7 +154,7 @@ local heavypunchsfx = rot.HeavyPunch
 local rushsfx = rot.Rush
 local standappearsfx = rot.StandAppear
 local dodgesfx = rot.Dodge
-rot.StandAppear.SoundId = 'rbxassetid://3077287610'
+rot.HeavyPunch.SoundId = 'rbxassetid://3077287610'
 
 local standappearcooldown = false
 function standappear(stand)
