@@ -77,7 +77,7 @@ local stand = chr:WaitForChild("Stand")
 local rot = stand:WaitForChild("StandHumanoidRootPart")
 local hed = stand:WaitForChild("Stand Head")
 local face = hed:WaitForChild("face")
-face.Texture = 'rbxassetid://0'
+face:Destroy()
 local tors = stand:WaitForChild("Stand Torso")
 local rarm = stand:WaitForChild("Stand Right Arm")
 local larm = stand:WaitForChild("Stand Left Arm")
