@@ -89,6 +89,13 @@ local fingerhitbox3 = stand:WaitForChild("StarFingerHitBox3")
 local fingerhitbox4 = stand:WaitForChild("StarFingerHitBox4")
 local fingerhitbox5 = stand:WaitForChild("StarFingerHitBox5")
 
+finger.Transparency = 1
+fingerhitbox.Transparency = 1
+fingerhitbox2.Transparency = 1
+fingerhitbox3.Transparency = 1
+fingerhitbox4.Transparency = 1
+fingerhitbox5.Transparency = 1
+
 local head = chr["Head"]
 local ntorso = chr["Torso"]
 local rightarm = chr["Right Arm"]
