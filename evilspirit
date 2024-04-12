@@ -92,8 +92,6 @@ local lclothes = stand:WaitForChild("LLegClothes"):Destroy()
 local rclothes = stand:WaitForChild("RLegClothes"):Destroy()
 local lhigh = stand:WaitForChild("LLegHighLights"):Destroy()
 local rhigh = stand:WaitForChild("RLegHighLights"):Destroy()
-local kneecaps = stand:WaitForChild("Kneepad"):Destroy()
-local holders = stand:WaitForChild("KneepadHolder"):Destroy()
 
 
 
