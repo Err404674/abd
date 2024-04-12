@@ -268,7 +268,7 @@ if activu == true then return end
 		coroutine.resume(coroutine.create(function()
 		for _ = 1, 5 do
 		wait()
-		hito(rarm, rarm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,2.5, 40, 0.5, 0.25, rot.CFrame.lookVector * 10, "rbxassetid://3908308607", 0.075, Color3.new(255, 255, 255),"rbxassetid://9114225400", math.random(9, 11) / 10, math.random(9, 11) / 25)
+		hito(rarm, rarm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,2.5, 40, 0.5, 0.25, rot.CFrame.lookVector * 10, "rbxassetid://3908308607", 0.075, Color3.new(255, 255, 255),"rbxassetid://8917041751", math.random(9, 11) / 10, math.random(9, 11) / 25)
 		end
 		end))
 	elseif leftorright == true then
@@ -279,7 +279,7 @@ if activu == true then return end
 		coroutine.resume(coroutine.create(function()
 		for _ = 1, 5 do
 		wait()
-		hito(larm, larm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,2.5, 40, 0.5, 0.25, rot.CFrame.lookVector * 10, "rbxassetid://3908308607", 0.075, Color3.new(255, 255, 255),"rbxassetid://9114225400", math.random(9, 11) / 10, math.random(9, 11) / 25)
+		hito(larm, larm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,2.5, 40, 0.5, 0.25, rot.CFrame.lookVector * 10, "rbxassetid://3908308607", 0.075, Color3.new(255, 255, 255),"rbxassetid://8917041751", math.random(9, 11) / 10, math.random(9, 11) / 25)
 		end
 		end))
 	end
