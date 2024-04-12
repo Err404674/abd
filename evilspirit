@@ -88,6 +88,12 @@ local fingerhitbox2 = stand:WaitForChild("StarFingerHitBox2"):Destroy()
 local fingerhitbox3 = stand:WaitForChild("StarFingerHitBox3"):Destroy()
 local fingerhitbox4 = stand:WaitForChild("StarFingerHitBox4"):Destroy()
 local fingerhitbox5 = stand:WaitForChild("StarFingerHitBox5"):Destroy()
+local lclothes = stand:WaitForChild("LLegClothes"):Destroy()
+local rclothes = stand:WaitForChild("RLegClothes"):Destroy()
+local lhigh = stand:WaitForChild("LLegHighLights"):Destroy()
+local rhigh = stand:WaitForChild("RLegHighLights"):Destroy()
+local kneecaps = stand:WaitForChild("Kneepad"):Destroy()
+local holders = stand:WaitForChild("KneepadHolder"):Destroy()
 
 
 
@@ -200,8 +206,8 @@ function barrage()
 	human.JumpPower = 0
 	repeat
 		EHMMM = EHMMM + 1
-		hito(rarm, rarm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,2, 30, 0.1, 0.25, rot.CFrame.lookVector * 2.5, "rbxassetid://241837157", 0.075, Color3.new(255, 255, 255),"rbxassetid://260430079", math.random(9, 11) / 10, math.random(9, 11) / 50)
-		hito(larm, larm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,2, 30, 0.1, 0.25, rot.CFrame.lookVector * 2.5, "rbxassetid://241837157", 0.075, Color3.new(255, 255, 255),"rbxassetid://260430079", math.random(9, 11) / 10, math.random(9, 11) / 50)		
+		hito(rarm, rarm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,2, 30, 0.1, 0.25, rot.CFrame.lookVector * 2.5, "rbxassetid://3802270540", 0.075, Color3.new(255, 255, 255),"rbxassetid://260430079", math.random(9, 11) / 10, math.random(9, 11) / 50)
+		hito(larm, larm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,2, 30, 0.1, 0.25, rot.CFrame.lookVector * 2.5, "rbxassetid://3802270540", 0.075, Color3.new(255, 255, 255),"rbxassetid://260430079", math.random(9, 11) / 10, math.random(9, 11) / 50)		
 		wait(0.1)
 	until bep == false or disabled.Value == true or EHMMM >= 40 
 	EHMMM = 0
