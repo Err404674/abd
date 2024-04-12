@@ -1,7 +1,8 @@
-			for _ = 1,1 do
+			for _ = 1,2 do
 		wait()
 		game:GetService("ReplicatedStorage").Slam:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 5, "", 1, 1)
-		end
+		game:GetService("ReplicatedStorage").KCRSlam:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 5, "", 1, 1)
+                end
 function trans1()
     for i,v in pairs(game.Players.LocalPlayer.Character.Stand:GetDescendants()) do
         if v:IsA("BasePart") or v:IsA("MeshPart") or v:IsA("Texture") or v:IsA("Decal") then
@@ -100,14 +101,14 @@ local hrp = chr.HumanoidRootPart
 mouse = plr:GetMouse()
 cam = workspace.CurrentCamera
 
-standevent:FireServer("PotPlatinumStand", 0, 1000)
+standevent:FireServer("PotPlatinumStand", 0, 500)
 
 --Values
 local activu = false
 local appeared = false
 local disabled = chr:WaitForChild("Disabled")
 local timestopper = false
-local length = 10000000
+local length = 10
 playerservice = game:GetService("Players")
 
 local stand = chr:WaitForChild("Stand")
@@ -405,14 +406,15 @@ if activu == true then return end
 	activu = true
 	attackpose:Play(0.1, 1, 1)
 	strongpunchanim:Play(0.1, 1, 2)
+        heavypunchsfx:Play()
 	trailevent:FireServer(rarm.Trail, true)
 		wait(0.25)
 	coroutine.resume(coroutine.create(function()
 	for _ = 1, 15 do
 		wait()
-		hito3(rarm, rarm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,3, 211, 0.75, 0.25, rot.CFrame.lookVector * 300, 0.25,"rbxassetid://1044088048", math.random(9, 11) / 10, math.random(9, 11) / 10)
-        hito3(larm, larm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,3, 211, 0.75, 0.25, rot.CFrame.lookVector * 300, 0.25,"rbxassetid://1044088048", math.random(9, 11) / 10, math.random(9, 11) / 10)
-        hito3(rarm, rarm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,3, 211, 0.75, 0.25, rot.CFrame.lookVector * 300, 0.25,"rbxassetid://1044088048", math.random(9, 11) / 10, math.random(9, 11) / 10)
+		hito3(rarm, rarm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,3, 2111, 0.75, 0.25, rot.CFrame.lookVector * 300, 0.25,"rbxassetid://1044088048", math.random(9, 11) / 10, math.random(9, 11) / 10)
+        hito3(larm, larm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,3, 2111, 0.75, 0.25, rot.CFrame.lookVector * 300, 0.25,"rbxassetid://1044088048", math.random(9, 11) / 10, math.random(9, 11) / 10)
+        hito3(rarm, rarm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,3, 2111, 0.75, 0.25, rot.CFrame.lookVector * 300, 0.25,"rbxassetid://1044088048", math.random(9, 11) / 10, math.random(9, 11) / 10)
 	end
 	end))
 	wait(0.325)
