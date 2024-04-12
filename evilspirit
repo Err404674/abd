@@ -20,7 +20,7 @@ for i,v in pairs(game.Players.LocalPlayer.Character.Stand:GetDescendants()) do
 	if v.Name == "StandHumanoidRootPart" then
 	game.ReplicatedStorage.Transparency:FireServer(v,1)
 	else
-	game.ReplicatedStorage.Transparency:FireServer(v,0)
+	game.ReplicatedStorage.Transparency:FireServer(v,0.5)
 	end
 	end
 end
@@ -90,8 +90,6 @@ local fingerhitbox4 = stand:WaitForChild("StarFingerHitBox4"):Destroy()
 local fingerhitbox5 = stand:WaitForChild("StarFingerHitBox5"):Destroy()
 local lclothes = stand:WaitForChild("LLegClothes"):Destroy()
 local rclothes = stand:WaitForChild("RLegClothes"):Destroy()
-local lhigh = stand:WaitForChild("LLegHighLights"):Destroy()
-local rhigh = stand:WaitForChild("RLegHighLights"):Destroy()
 
 
 
