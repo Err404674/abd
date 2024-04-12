@@ -88,12 +88,6 @@ local fingerhitbox2 = stand:WaitForChild("StarFingerHitBox2"):Destroy()
 local fingerhitbox3 = stand:WaitForChild("StarFingerHitBox3"):Destroy()
 local fingerhitbox4 = stand:WaitForChild("StarFingerHitBox4"):Destroy()
 local fingerhitbox5 = stand:WaitForChild("StarFingerHitBox5"):Destroy()
-local lclothes = stand:WaitForChild("LLegClothes"):Destroy()
-local rclothes = stand:WaitForChild("RLegClothes"):Destroy()
-local lhigh = stand:WaitForChild("LLegHighLights"):Destroy()
-local rhigh = stand:WaitForChild("RLegHighLights"):Destroy()
-local kneecaps = stand:WaitForChild("Kneepad"):Destroy()
-local holders = stand:WaitForChild("KneepadHolder"):Destroy()
 
 
 
