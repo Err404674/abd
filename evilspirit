@@ -93,9 +93,7 @@ local rclothes = stand:WaitForChild("RLegClothes"):Destroy()
 local lhigh = stand:WaitForChild("LLegHighLights"):Destroy()
 local rhigh = stand:WaitForChild("RLegHighLights"):Destroy()
 local kneecaps = stand:WaitForChild("Kneepad"):Destroy()
-local kneecaps2 = stand:WaitForChild("Kneepad"):Destroy()
 local holders = stand:WaitForChild("KneepadHolder"):Destroy()
-local holders2 = stand:WaitForChild("KneepadHolder"):Destroy()
 
 hed.face:Remove()
 
