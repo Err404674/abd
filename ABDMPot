@@ -795,7 +795,7 @@ rtzclientevent.OnClientEvent:connect(function(enemyplr)
 	zerocooldown = true
 	local char = enemyplr.Character
 	local hums = char.Humanoid
-	rtzdamageevent:FireServer(hums, 10000000)
+	rtzdamageevent:FireServer(hums, 100000)
 	zerocooldown = false
 	end
 end)
@@ -808,7 +808,7 @@ game.Lighting.TS.Changed:Connect(function()
 			zerocooldown = true
 			local charr = game.Lighting.TSer.Value
 			local humss = charr.Humanoid
-			rtzdamageevent:FireServer(humss, 10000000)
+			rtzdamageevent:FireServer(humss, 100000)
 			zerocooldown = false
 		end
 	end
@@ -823,7 +823,7 @@ game.Lighting.TE.Changed:Connect(function()
 			zerocooldown = true
 			local charrr = game.Lighting.TEer.Value
 			local humsss = charrr.Humanoid
-			rtzdamageevent:FireServer(humsss, 10000000)
+			rtzdamageevent:FireServer(humsss, 100000)
 			zerocooldown = false
 		end
 		end
