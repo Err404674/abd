@@ -16,9 +16,9 @@ game.Players.LocalPlayer.Character[mystand]:Destroy()
 --Events
 local replicatedstorage = game:GetService("ReplicatedStorage")
 local damageevent = replicatedstorage.Damage
-local damageevent2 = replicatedstorage.BurnDamage
-local damageevent3 = replicatedstorage.Damage3
-local damageevent12 = replicatedstorage.Damage12
+local damageevent2 = replicatedstorage.Damage2
+local damageevent3 = replicatedstorage.Damage2
+local damageevent12 = replicatedstorage.Damage3
 local blockevent = replicatedstorage.Block
 local blockevent2 = replicatedstorage.SuperArmor
 local donutevent = replicatedstorage.FOTPSDamageTeleport
