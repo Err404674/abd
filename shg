@@ -71,6 +71,7 @@ local pt = 0
 local stand = chr:WaitForChild("Stand")
 local rot = stand:WaitForChild("StandHumanoidRootPart")
 local hed = stand:WaitForChild("Stand Head")
+hed.face:Destroy()
 local tors = stand:WaitForChild("Stand Torso")
 local rarm = stand:WaitForChild("Stand Right Arm")
 local larm = stand:WaitForChild("Stand Left Arm")
