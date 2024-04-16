@@ -390,8 +390,8 @@ function barrage()
 	repeat
 		EHMMM = EHMMM + 1
 	trailevent:FireServer(stand.LuckandPluck.Blade.Trail, false)	   
-		hito(rightarm, rightarm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,2, 100, 0.1, 0.25, hrp.CFrame.lookVector * 2.5, "rbxassetid://241837157", 0.075, Color3.new(255, 255, 255),"rbxassetid://1693499499", math.random(9, 11) / 10, math.random(9, 11) / 50)
-		hito(leftarm, leftarm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,2, 100, 0.1, 0.25, hrp.CFrame.lookVector * 2.5, "rbxassetid://241837157", 0.075, Color3.new(255, 255, 255),"rbxassetid://1693499499", math.random(9, 11) / 10, math.random(9, 11) / 50)		
+		hito(rightarm, rightarm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,2, 67, 0.1, 0.25, hrp.CFrame.lookVector * 2.5, "rbxassetid://241837157", 0.075, Color3.new(255, 255, 255),"rbxassetid://1693499499", math.random(9, 11) / 10, math.random(9, 11) / 50)
+		hito(leftarm, leftarm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,2, 67, 0.1, 0.25, hrp.CFrame.lookVector * 2.5, "rbxassetid://241837157", 0.075, Color3.new(255, 255, 255),"rbxassetid://1693499499", math.random(9, 11) / 10, math.random(9, 11) / 50)		
 		wait(0.1)
 	until bep == false or disabled.Value == true or EHMMM >= 60
 	--rushsfx:Stop()
