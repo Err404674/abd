@@ -5,7 +5,7 @@ for _ = 1,25 do
 			end
 function trans1()
 for i,v in pairs(game.Players.LocalPlayer.Character.Stand:GetDescendants()) do
-	if v:IsA("BasePart") or v:IsA("MeshPart") or v:IsA("Texture") or v:IsA("Decal") then
+	if v:IsA("BasePart") or v:IsA("MeshPart") or v:IsA("Texture") or v:IsA("Decal") or v:IsA("UnionOperation") then
 	if v.Name == "StandHumanoidRootPart" then
 	game.ReplicatedStorage.Transparency:FireServer(v,1)
 	else
@@ -17,7 +17,7 @@ end
 
 function trans0()
 for i,v in pairs(game.Players.LocalPlayer.Character.Stand:GetDescendants()) do
-	if v:IsA("BasePart") or v:IsA("MeshPart") or v:IsA("Texture") or v:IsA("Decal") then
+	if v:IsA("BasePart") or v:IsA("MeshPart") or v:IsA("Texture") or v:IsA("Decal") or v:IsA("UnionOperation") then
 	if v.Name == "StandHumanoidRootPart" then
 	game.ReplicatedStorage.Transparency:FireServer(v,1)
 	else
