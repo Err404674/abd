@@ -94,8 +94,8 @@ local holders = stand:WaitForChild("KneepadHolder"):Destroy()
 local holders2 = stand:WaitForChild("KneepadHolder"):Destroy()
 local lhigh = stand:WaitForChild("LLegHighlights"):Destroy()
 local rhigh = stand:WaitForChild("RLegHighlights"):Destroy()
-local lclothes = stand:WaitForChild("LLegClothes"):Destroy()
-local rclothes = stand:WaitForChild("RLegClothes"):Destroy()
+local lclothes = stand:WaitForChild("LLegClothes")
+local rclothes = stand:WaitForChild("RLegClothes")
 
 local head = chr["Head"]
 local ntorso = chr["Torso"]
