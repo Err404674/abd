@@ -416,7 +416,7 @@ function chopcombo()
 		local v23 = 1 - 1;
 		while true do
 			wait();
-			hito5(rarm, rarm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)), 3, 43, 0.35, 0.25, rot.CFrame.lookVector * 1, "rbxassetid://241837157", 0.075, Color3.new(255, 255, 255), "rbxassetid://260430079", math.random(9, 11) / 10, math.random(9, 11) / 10);
+			hito5(rarm, rarm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)), 3, 63, 0.35, 0.25, rot.CFrame.lookVector * 1, "rbxassetid://241837157", 0.075, Color3.new(255, 255, 255), "rbxassetid://260430079", math.random(9, 11) / 10, math.random(9, 11) / 10);
 			if 0 <= 1 then
 				if v23 < 20 then
 
@@ -436,7 +436,7 @@ function chopcombo()
 		local v24 = 1 - 1;
 		while true do
 			wait();
-			hito5(larm, larm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)), 3, 23, 0.35, 0.25, rot.CFrame.lookVector * 1, "rbxassetid://241837157", 0.075, Color3.new(255, 255, 255), "rbxassetid://260430079", math.random(9, 11) / 10, math.random(9, 11) / 10);
+			hito5(larm, larm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)), 3, 33, 0.35, 0.25, rot.CFrame.lookVector * 1, "rbxassetid://241837157", 0.075, Color3.new(255, 255, 255), "rbxassetid://260430079", math.random(9, 11) / 10, math.random(9, 11) / 10);
 			if 0 <= 1 then
 				if v24 < 20 then
 
@@ -457,7 +457,7 @@ function chopcombo()
 		local v25 = 1 - 1;
 		while true do
 			wait();
-			hito5(rarm, rarm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)), 3, 38, 0.75, 0.25, rot.CFrame.lookVector * 10, "rbxassetid://241837157", 0.075, Color3.new(255, 255, 255), "rbxassetid://260430079", math.random(9, 11) / 10, math.random(9, 11) / 10);
+			hito5(rarm, rarm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)), 3, 48, 0.75, 0.25, rot.CFrame.lookVector * 10, "rbxassetid://241837157", 0.075, Color3.new(255, 255, 255), "rbxassetid://260430079", math.random(9, 11) / 10, math.random(9, 11) / 10);
 			if 0 <= 1 then
 				if v25 < 15 then
 
@@ -475,6 +475,7 @@ function chopcombo()
 	wait(0.475);
 	trailevent:FireServer(rarm.Trail, false);
 	activu = false;
+	trans1()
 	wait(3.5);
 	chopcd = false;
 end;
