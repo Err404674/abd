@@ -86,7 +86,7 @@ local rarm = stand:WaitForChild("Stand Right Arm")
 local larm = stand:WaitForChild("Stand Left Arm")
 local rleg = stand:WaitForChild("Stand Right Leg"):Destroy()
 local lleg = stand:WaitForChild("Stand Left Leg"):Destroy()
-local acid23 = stand:WaitForChild("Acid")
+local acid23 = stand:WaitForChild("Acid"):Destroy()
 
 local head = chr["Head"]
 local ntorso = chr["Torso"]
@@ -249,8 +249,9 @@ if acidspitcd == true then return end
 	punchsfx:Play()
 	wait(0.5)
 	activu = false
+	trans1()
 	human.JumpPower = 50
-	wait(15)
+	wait(1)
 	bep = true
 	acid = 0
 	acidspitcd = false
@@ -278,7 +279,7 @@ if discthrowcd == true then return end
 	trans1()
 	activu = false
 	human.JumpPower = 50
-	wait(2.5)
+	wait(0.5)
 	discthrowcd = false
 end	
 
@@ -344,12 +345,12 @@ if strongpunchcooldown == true then return end
 	end
 	end))
 	wait(0.65)
-	trans1()
 	trailevent:FireServer(rarm.Trail, false)
 	attackpose:Stop()
 	human.JumpPower = 50
 	activu = false
-	wait(2.5)
+	trans1()
+	wait(1.5)
 	strongpunchcooldown = false
 end	
 local EHMMM = 0
