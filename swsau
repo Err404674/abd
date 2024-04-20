@@ -38,7 +38,7 @@ local blockevent = replicatedstorage.Block
 local transparencyevent = replicatedstorage.Transparency
 local strongpunchevent = replicatedstorage.StrongPunch
 local dodgeevent = replicatedstorage.Dodge
-local uzievent = replicatedstorage.Uzi
+local uzievent = replicatedstorage.DiscThrow
 local scorpionevent = replicatedstorage.AcidSpit
 local anchorevent = replicatedstorage.Anchor
 local trailevent = replicatedstorage.Trail
@@ -279,7 +279,7 @@ if discthrowcd == true then return end
 	trans1()
 	activu = false
 	human.JumpPower = 50
-	wait(0.5)
+	wait(0.01)
 	discthrowcd = false
 end	
 
