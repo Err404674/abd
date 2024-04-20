@@ -1,9 +1,3 @@
-for _ = 1,2 do
-	wait()
-	game:GetService("ReplicatedStorage").KCRSlam:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 10, "", 1, 1)
-			end
-
-
 function trans1()
 	for i,v in pairs(game.Players.LocalPlayer.Character.Stand:GetDescendants()) do
 		if v:IsA("BasePart") or v:IsA("MeshPart") or v:IsA("Texture") or v:IsA("Decal") then
@@ -179,7 +173,6 @@ function standappear(stand)
 	wait(2.5)
 	standappearcooldown = false	
 end
-local EHMMM = 0
 local barragecooldown = false
 function barrage()
 	if activu == true then return end
@@ -196,28 +189,27 @@ function barrage()
 	      bep = false
 	    end
 	end)
-	rushsfx:Play()
-	attackpose:Play()
-	human.JumpPower = 0
 	trailevent:FireServer(rarm.Trail, true)
 	trailevent:FireServer(larm.Trail, true)	
 	barrageanim:Play(0.1, 1, 1.75)
+	human.JumpPower = 0
+	rushsfx:Play()
+	attackpose:Play()
 	repeat
 		EHMMM = EHMMM + 0.5
 		hito(rarm, rarm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,2, 16.25, 0.05, 0.25, rot.CFrame.lookVector * 2.5, 0.075,"rbxassetid://137579113", math.random(9, 11) / 10, math.random(9, 11) / 50)
 		hito(larm, larm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,2, 16.25, 0.05, 0.25, rot.CFrame.lookVector * 2.5, 0.075,"rbxassetid://137579113", math.random(9, 11) / 10, math.random(9, 11) / 50)		
 		wait(0.05)
 	until bep == false or disabled.Value == true or EHMMM >= 40 
-	end 
+	trans1()
 	EHMMM = 0
 	rushsfx:Stop()
 	attackpose:Stop()
+	human.JumpPower = 50
 	barrageanim:Stop(0.1)
 	trailevent:FireServer(rarm.Trail, false)
 	trailevent:FireServer(larm.Trail, false)
-	human.JumpPower = 50
 	activu = false
-	trans1()
 	wait(1)
 	barragecooldown = false
 end
