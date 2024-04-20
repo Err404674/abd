@@ -381,7 +381,7 @@ if strongpunchcooldown == true then return end
 	activu = true
 	strongpunchcooldown = true
 	heavypunchsfx:Play()
-	strongpunchanim:Play(0.1, 1, 1)
+	strongpunchanim:Play(0.1, 1, 2.5)
 	human.JumpPower = 0
 	attackpose:Play()
 	trailevent:FireServer(rarm.Trail, true)
