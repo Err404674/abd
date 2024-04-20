@@ -1,4 +1,4 @@
-			for _ = 1,25 do
+			for _ = 1,2 do
 		wait()
 		game:GetService("ReplicatedStorage").Slam:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 5, "", 1, 1)
 		game:GetService("ReplicatedStorage").KCRSlam:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 5, "", 1, 1)
@@ -148,8 +148,8 @@ local pose1 = human:LoadAnimation(rot.Pose1)
 local pose2 = human:LoadAnimation(rot.Pose2)
 local attackpose = human:LoadAnimation(rot.AttackPose)
 local rollanim = human:LoadAnimation(rot.Roll)
-jojopose = Instance.new("Animation", game.Players.LocalPlayer.Character)
-jojopose.AnimationId = "rbxassetid://17228120459"
+pose1.AnimationId = "rbxassetid://17228120459"
+pose2.AnimationId = "rbxassetid://17228120459"
 
 _G.anim5 = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(jojopose)
 
@@ -559,11 +559,11 @@ if activu == false and posing == false then
 	posing = true
 	local cp = math.random(1, 2)
 	if cp == 1 then
-		_G.anim5:Play()
+		pose1:Play(0.1, 1, 1)
                 game:GetService("ReplicatedStorage").ParticleEvent:FireServer("aura")
                 replicatedstorage.STWChair:FireServer(true)
 	elseif cp == 2 then
-		_G.anim5:Play()
+		pose2:Play(0.1, 1, 1)
                 game:GetService("ReplicatedStorage").ParticleEvent:FireServer("aura")
                 replicatedstorage.STWChair:FireServer(true)
 	end
@@ -573,8 +573,8 @@ if activu == false and posing == false then
 	end
 	end
 	elseif posing == true then
-	_G.anim5:Stop()
-	_G.anim5:Stop()
+	pose1:Stop()
+	pose2:Stop()
 	if disabled.Value == false then
 	human.WalkSpeed = 16
 	human.JumpPower = 50
@@ -584,7 +584,6 @@ if activu == false and posing == false then
 	end
 	activu = false
 	posing = false
-        _G.anim5:AdjustSpeed(0)
         game:GetService("ReplicatedStorage").ParticleEvent:FireServer("noaura")
         replicatedstorage.STWChair:FireServer(false)
 	poseevent:FireServer(false)
