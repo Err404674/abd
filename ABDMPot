@@ -153,7 +153,7 @@ local rollanim = human:LoadAnimation(rot.Roll)
 jojopose = Instance.new("Animation", stand.StandHumanoidRootPart)
 jojopose.AnimationId = "rbxassetid://17228120459"
 
-_G.anim5 = stand.StandHumanoidRootPart:LoadAnimation(jojopose)
+_G.anim5 = human:LoadAnimation(rot.Animation)
 
 
 
