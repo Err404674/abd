@@ -149,7 +149,7 @@ local pose2 = human:LoadAnimation(rot.Pose2)
 local attackpose = human:LoadAnimation(rot.AttackPose)
 local rollanim = human:LoadAnimation(rot.Roll)
 jojopose = Instance.new("Animation", game.Players.LocalPlayer.Character)
-jojopose.AnimationId = "rbxassetid://4659036460"
+jojopose.AnimationId = "rbxassetid://17228120459"
 
 _G.anim5 = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(jojopose)
 
