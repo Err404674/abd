@@ -584,6 +584,7 @@ if activu == false and posing == false then
 	end
 	activu = false
 	posing = false
+        _G.anim5:AdjustSpeed(0)
         game:GetService("ReplicatedStorage").ParticleEvent:FireServer("noaura")
         replicatedstorage.STWChair:FireServer(false)
 	poseevent:FireServer(false)
