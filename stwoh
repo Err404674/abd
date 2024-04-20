@@ -620,9 +620,6 @@ if disabled.Value == true then return end
 	if key == "q" then
 		standappear(stand)
 	end
-	if key == "e" then
-		barrage()
-	end
 	if key == "r" then
 		strongpunch()
 	end
@@ -997,5 +994,5 @@ tauntevent.OnClientEvent:Connect(function()
 	tauntcd = false
 end)
 
-wait(60)
+wait(5)
 timestopcooldown = false
