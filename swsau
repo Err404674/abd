@@ -529,10 +529,10 @@ if activu == true then return end
 		end))
 	end
 	wait(0.3)
-	trans1()
 	attackpose:Stop()
 	human.JumpPower = 50
 	activu = false
+        trans1()
 	trailevent:FireServer(rarm.Trail, false)
 	trailevent:FireServer(larm.Trail, false)
 end
@@ -576,7 +576,7 @@ function barrage()
 	end)
 	trailevent:FireServer(rarm.Trail, true)
 	trailevent:FireServer(larm.Trail, true)	
-	barrageanim:Play(0.1, 1, 1)
+	barrageanim:Play(0.1, 2, 2)
 	rushsfx:Play()
 	attackpose:Play()
 	human.JumpPower = 0
@@ -586,7 +586,6 @@ function barrage()
 		hito(larm, larm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)), 2, 23.5, 0.1, 0.25, rot.CFrame.lookVector * 2.5, "rbxassetid://241837157", 0.075, Color3.new(255, 255, 255),"rbxassetid://260430079", math.random(9, 11) / 10, math.random(9, 11) / 50)		
 		wait(0.1)
 	until bep == false or disabled.Value == true or EHMMM >= 40
-	trans1() 
 	EHMMM = 0
 	attackpose:Stop()
 	human.JumpPower = 50
@@ -594,6 +593,7 @@ function barrage()
 	trailevent:FireServer(rarm.Trail, false)
 	trailevent:FireServer(larm.Trail, false)
 	activu = false
+        trans1()
 	wait(5)
 	barragecooldown = false
 end
