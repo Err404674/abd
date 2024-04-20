@@ -44,6 +44,7 @@ local TS = game:GetService("ReplicatedStorage").Timestop
 local uis = game:GetService("UserInputService")
 local buff = game:GetService("ReplicatedStorage").TWGHDeath
 local armor = game:GetService("ReplicatedStorage").SuperArmor
+local joseph = game:GetService("ReplicatedStorage").JosephHamon.Event
 local r = "boom"
 local g = "molotov"
 local e = "volley"
@@ -55,6 +56,8 @@ local mih2 =
 {
 }
 local mih3 = true
+local mih4 = game:GetService("ReplicatedStorage").MadeInHeavenHandler
+local mihtime1 = game:GetService("ReplicatedStorage").MadeInHeavenHandler
 local yell = replicatedstorage.Yell
 local donutevent = replicatedstorage.FOTPSDamageTeleport
 local dodgeevent = replicatedstorage.Dodge
@@ -694,15 +697,19 @@ mouse.KeyDown:Connect(function(key)
 	    	active = true
             game.ReplicatedStorage.Damage:FireServer(ezkill.Humanoid, ezkill.HumanoidRootPart.CFrame, 0, 0.6, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector * 0 + Vector3.new(0, 0, 0), "rbxassetid://241837157", 0, Color3.new(0, 255, 0), "rbxassetid://321398701", 1, 1)
             chr.HumanoidRootPart.CFrame = ezkill.HumanoidRootPart.CFrame  * CFrame.new(6, 0, 0)
+            game:GetService("ReplicatedStorage").MadeInHeavenHandler:FireServer(limbuchoppa,limbuchoppa2)
             game:GetService("ReplicatedStorage").TwentyMeterSplash:FireServer()
             wait(0.2)
             chr.HumanoidRootPart.CFrame = ezkill.HumanoidRootPart.CFrame  * CFrame.new(0, 0, -6)
+            game:GetService("ReplicatedStorage").MadeInHeavenHandler:FireServer(limbuchoppa,limbuchoppa2)
             game:GetService("ReplicatedStorage").TwentyMeterSplash:FireServer()
             wait(0.2)
             chr.HumanoidRootPart.CFrame = ezkill.HumanoidRootPart.CFrame  * CFrame.new(-6, 0, 0)
+            game:GetService("ReplicatedStorage").MadeInHeavenHandler:FireServer(limbuchoppa,limbuchoppa2)
             game:GetService("ReplicatedStorage").TwentyMeterSplash:FireServer()
             wait(0.2)
             chr.HumanoidRootPart.CFrame = ezkill.HumanoidRootPart.CFrame  * CFrame.new(0, 0, 6)
+            game:GetService("ReplicatedStorage").MadeInHeavenHandler:FireServer(limbuchoppa,limbuchoppa2)
             game:GetService("ReplicatedStorage").TwentyMeterSplash:FireServer()
 	        active = false
 	    end
@@ -878,58 +885,61 @@ _G.punchmove = function()
             game:GetService("ReplicatedStorage").Damage11:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 999, "", 1, 1)
             game:GetService("ReplicatedStorage").Damage11:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 999, "", 1, 1)
             chr.HumanoidRootPart.CFrame = hit.Parent.HumanoidRootPart.CFrame  * CFrame.new(0, 0, 6)
+            game:GetService("ReplicatedStorage").MadeInHeavenHandler:FireServer(limbuchoppa,limbuchoppa2)
             wait(0.1)
             game:GetService("ReplicatedStorage").Damage11:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 999, "", 1, 1)
             game:GetService("ReplicatedStorage").Damage11:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 999, "", 1, 1)
             game:GetService("ReplicatedStorage").Damage11:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 999, "", 1, 1)
             chr.HumanoidRootPart.CFrame = hit.Parent.HumanoidRootPart.CFrame  * CFrame.new(6, 0, 0)
+            game:GetService("ReplicatedStorage").MadeInHeavenHandler:FireServer(limbuchoppa,limbuchoppa2)
             wait(0.1)
             game:GetService("ReplicatedStorage").Damage11:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 999, "", 1, 1)
             game:GetService("ReplicatedStorage").Damage11:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 999, "", 1, 1)
             game:GetService("ReplicatedStorage").Damage11:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 999, "", 1, 1)
             chr.HumanoidRootPart.CFrame = hit.Parent.HumanoidRootPart.CFrame  * CFrame.new(0, 0, -6)
+            game:GetService("ReplicatedStorage").MadeInHeavenHandler:FireServer(limbuchoppa,limbuchoppa2)
             wait(0.1)
             game:GetService("ReplicatedStorage").Damage11:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 999, "", 1, 1)
             game:GetService("ReplicatedStorage").Damage11:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 999, "", 1, 1)
             game:GetService("ReplicatedStorage").Damage11:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 999, "", 1, 1)
             chr.HumanoidRootPart.CFrame = hit.Parent.HumanoidRootPart.CFrame  * CFrame.new(-6, 0, 0)
-             
+            game:GetService("ReplicatedStorage").MadeInHeavenHandler:FireServer(limbuchoppa,limbuchoppa2)
             wait(0.1)
             game:GetService("ReplicatedStorage").Damage11:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 999, "", 1, 1)
             game:GetService("ReplicatedStorage").Damage11:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 999, "", 1, 1)
             game:GetService("ReplicatedStorage").Damage11:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 999, "", 1, 1)
             chr.HumanoidRootPart.CFrame = hit.Parent.HumanoidRootPart.CFrame  * CFrame.new(0, 0, 6)
-             
+            game:GetService("ReplicatedStorage").MadeInHeavenHandler:FireServer(limbuchoppa,limbuchoppa2)
             wait(0.1)
             game:GetService("ReplicatedStorage").Damage11:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 999, "", 1, 1)
             game:GetService("ReplicatedStorage").Damage11:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 999, "", 1, 1)
             game:GetService("ReplicatedStorage").Damage11:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 999, "", 1, 1)
             chr.HumanoidRootPart.CFrame = hit.Parent.HumanoidRootPart.CFrame  * CFrame.new(0, 0, 6)
-             
+            game:GetService("ReplicatedStorage").MadeInHeavenHandler:FireServer(limbuchoppa,limbuchoppa2)
             wait(0.1)
             game:GetService("ReplicatedStorage").Damage11:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 999, "", 1, 1)
             game:GetService("ReplicatedStorage").Damage11:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 999, "", 1, 1)
             game:GetService("ReplicatedStorage").Damage11:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 999, "", 1, 1)
             chr.HumanoidRootPart.CFrame = hit.Parent.HumanoidRootPart.CFrame  * CFrame.new(6, 0, 0)
-             
+            game:GetService("ReplicatedStorage").MadeInHeavenHandler:FireServer(limbuchoppa,limbuchoppa2)
             wait(0.1)
             game:GetService("ReplicatedStorage").Damage11:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 999, "", 1, 1)
             game:GetService("ReplicatedStorage").Damage11:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 999, "", 1, 1)
             game:GetService("ReplicatedStorage").Damage11:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 999, "", 1, 1)
             chr.HumanoidRootPart.CFrame = hit.Parent.HumanoidRootPart.CFrame  * CFrame.new(0, 0, -6)
-             
+            game:GetService("ReplicatedStorage").MadeInHeavenHandler:FireServer(limbuchoppa,limbuchoppa2)
             wait(0.1)
             game:GetService("ReplicatedStorage").Damage11:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 999, "", 1, 1)
             game:GetService("ReplicatedStorage").Damage11:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 999, "", 1, 1)
             game:GetService("ReplicatedStorage").Damage11:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 999, "", 1, 1)
             chr.HumanoidRootPart.CFrame = hit.Parent.HumanoidRootPart.CFrame  * CFrame.new(-6, 0, 0)
-             
+            game:GetService("ReplicatedStorage").MadeInHeavenHandler:FireServer(limbuchoppa,limbuchoppa2)
             wait(0.1)
             game:GetService("ReplicatedStorage").Damage11:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 999, "", 1, 1)
             game:GetService("ReplicatedStorage").Damage11:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 999, "", 1, 1)
             game:GetService("ReplicatedStorage").Damage11:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 999, "", 1, 1)
             chr.HumanoidRootPart.CFrame = hit.Parent.HumanoidRootPart.CFrame  * CFrame.new(0, 0, 6)
-             
+            game:GetService("ReplicatedStorage").MadeInHeavenHandler:FireServer(limbuchoppa,limbuchoppa2)
             end
         elseif(hit.Parent.Parent:FindFirstChild("Humanoid")) and hit.Parent.Name ~= game.Players.LocalPlayer.Name then
                 if debounce == false then
@@ -950,61 +960,61 @@ _G.punchmove = function()
             game:GetService("ReplicatedStorage").Damage11:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 999, "", 1, 1)
             game:GetService("ReplicatedStorage").Damage11:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 999, "", 1, 1)
             chr.HumanoidRootPart.CFrame = hit.Parent.HumanoidRootPart.CFrame  * CFrame.new(0, 0, 6)
-             
+            game:GetService("ReplicatedStorage").MadeInHeavenHandler:FireServer(limbuchoppa,limbuchoppa2)
             wait(0.1)
             game:GetService("ReplicatedStorage").Damage11:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 999, "", 1, 1)
             game:GetService("ReplicatedStorage").Damage11:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 999, "", 1, 1)
             game:GetService("ReplicatedStorage").Damage11:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 999, "", 1, 1)
             chr.HumanoidRootPart.CFrame = hit.Parent.HumanoidRootPart.CFrame  * CFrame.new(6, 0, 0)
-             
+            game:GetService("ReplicatedStorage").MadeInHeavenHandler:FireServer(limbuchoppa,limbuchoppa2)
             wait(0.1)
             game:GetService("ReplicatedStorage").Damage11:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 999, "", 1, 1)
             game:GetService("ReplicatedStorage").Damage11:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 999, "", 1, 1)
             game:GetService("ReplicatedStorage").Damage11:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 999, "", 1, 1)
             chr.HumanoidRootPart.CFrame = hit.Parent.HumanoidRootPart.CFrame  * CFrame.new(0, 0, -6)
-             
+            game:GetService("ReplicatedStorage").MadeInHeavenHandler:FireServer(limbuchoppa,limbuchoppa2)
             wait(0.1)
             game:GetService("ReplicatedStorage").Damage11:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 999, "", 1, 1)
             game:GetService("ReplicatedStorage").Damage11:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 999, "", 1, 1)
             game:GetService("ReplicatedStorage").Damage11:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 999, "", 1, 1)
             chr.HumanoidRootPart.CFrame = hit.Parent.HumanoidRootPart.CFrame  * CFrame.new(-6, 0, 0)
-             
+            game:GetService("ReplicatedStorage").MadeInHeavenHandler:FireServer(limbuchoppa,limbuchoppa2)
             wait(0.1)
             game:GetService("ReplicatedStorage").Damage11:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 999, "", 1, 1)
             game:GetService("ReplicatedStorage").Damage11:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 999, "", 1, 1)
             game:GetService("ReplicatedStorage").Damage11:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 999, "", 1, 1)
             chr.HumanoidRootPart.CFrame = hit.Parent.HumanoidRootPart.CFrame  * CFrame.new(0, 0, 6)
-             
+            game:GetService("ReplicatedStorage").MadeInHeavenHandler:FireServer(limbuchoppa,limbuchoppa2)
             wait(0.1)
             game:GetService("ReplicatedStorage").Damage11:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 999, "", 1, 1)
             game:GetService("ReplicatedStorage").Damage11:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 999, "", 1, 1)
             game:GetService("ReplicatedStorage").Damage11:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 999, "", 1, 1)
             chr.HumanoidRootPart.CFrame = hit.Parent.HumanoidRootPart.CFrame  * CFrame.new(0, 0, 6)
-             
+            game:GetService("ReplicatedStorage").MadeInHeavenHandler:FireServer(limbuchoppa,limbuchoppa2)
             wait(0.1)
             game:GetService("ReplicatedStorage").Damage11:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 999, "", 1, 1)
             game:GetService("ReplicatedStorage").Damage11:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 999, "", 1, 1)
             game:GetService("ReplicatedStorage").Damage11:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 999, "", 1, 1)
             chr.HumanoidRootPart.CFrame = hit.Parent.HumanoidRootPart.CFrame  * CFrame.new(6, 0, 0)
-             
+            game:GetService("ReplicatedStorage").MadeInHeavenHandler:FireServer(limbuchoppa,limbuchoppa2)
             wait(0.1)
             game:GetService("ReplicatedStorage").Damage11:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 999, "", 1, 1)
             game:GetService("ReplicatedStorage").Damage11:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 999, "", 1, 1)
             game:GetService("ReplicatedStorage").Damage11:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 999, "", 1, 1)
             chr.HumanoidRootPart.CFrame = hit.Parent.HumanoidRootPart.CFrame  * CFrame.new(0, 0, -6)
-             
+            game:GetService("ReplicatedStorage").MadeInHeavenHandler:FireServer(limbuchoppa,limbuchoppa2)
             wait(0.1)
             game:GetService("ReplicatedStorage").Damage11:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 999, "", 1, 1)
             game:GetService("ReplicatedStorage").Damage11:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 999, "", 1, 1)
             game:GetService("ReplicatedStorage").Damage11:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 999, "", 1, 1)
             chr.HumanoidRootPart.CFrame = hit.Parent.HumanoidRootPart.CFrame  * CFrame.new(-6, 0, 0)
-             
+            game:GetService("ReplicatedStorage").MadeInHeavenHandler:FireServer(limbuchoppa,limbuchoppa2)
             wait(0.1)
             game:GetService("ReplicatedStorage").Damage11:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 999, "", 1, 1)
             game:GetService("ReplicatedStorage").Damage11:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 999, "", 1, 1)
             game:GetService("ReplicatedStorage").Damage11:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 999, "", 1, 1)
             chr.HumanoidRootPart.CFrame = hit.Parent.HumanoidRootPart.CFrame  * CFrame.new(0, 0, 6)
-             
+            game:GetService("ReplicatedStorage").MadeInHeavenHandler:FireServer(limbuchoppa,limbuchoppa2)
             end
         end
     end)
@@ -2159,7 +2169,7 @@ _G.standslash1 = function()
 	    	[2] = hit.Parent.Parent.Torso.CFrame
 }
 	    	active = true
-             
+            game:GetService("ReplicatedStorage").MadeInHeavenHandler:FireServer(limbuchoppa,limbuchoppa2)
             hitbox1:Destroy()
             game:GetService("ReplicatedStorage").Damage11:FireServer(hit.Parent.Parent.Humanoid, hit.Parent.Parent.Torso.CFrame, 99, 0, Vector3.new(0,0,0), 1, "rbxassetid://2320331820", 1, 1)
             end
@@ -2175,7 +2185,7 @@ _G.standslash1 = function()
 	    	[2] = hit.Parent.Parent.Torso.CFrame
 }
 	    	active = true
-             
+            game:GetService("ReplicatedStorage").MadeInHeavenHandler:FireServer(limbuchoppa,limbuchoppa2)
             hitbox1:Destroy()
             game:GetService("ReplicatedStorage").Damage11:FireServer(hit.Parent.Parent.Humanoid, hit.Parent.Parent.Torso.CFrame, 99, 0, Vector3.new(0,0,0), 1, "rbxassetid://2320331820", 1, 1)
             end
@@ -2235,7 +2245,7 @@ _G.standslash2 = function()
 	    	[2] = hit.Parent.Parent.Torso.CFrame
 }
 	    	active = true
-             
+            game:GetService("ReplicatedStorage").MadeInHeavenHandler:FireServer(limbuchoppa,limbuchoppa2)
             hitbox1:Destroy()
             game:GetService("ReplicatedStorage").Damage11:FireServer(hit.Parent.Parent.Humanoid, hit.Parent.Parent.Torso.CFrame, 99, 0, Vector3.new(0,0,0), 1, "rbxassetid://2320331820", 1, 1)
             end
@@ -2251,7 +2261,7 @@ _G.standslash2 = function()
 	    	[2] = hit.Parent.Parent.Torso.CFrame
 }
 	    	active = true
-             
+            game:GetService("ReplicatedStorage").MadeInHeavenHandler:FireServer(limbuchoppa,limbuchoppa2)
             hitbox1:Destroy()
             game:GetService("ReplicatedStorage").Damage11:FireServer(hit.Parent.Parent.Humanoid, hit.Parent.Parent.Torso.CFrame, 99, 0, Vector3.new(0,0,0), 1, "rbxassetid://2320331820", 1, 1)
             end
@@ -4458,22 +4468,22 @@ _G.kcChoppa = function()
 	    	[1] = hit.Parent.Parent.Humanoid, 
 	    	[2] = hit.Parent.Parent.Torso.CFrame
 }
-             
-             
-             
-             
-             
-             
-             
-             
-             
-             
-             
-             
-             
-             
-             
-             
+            game:GetService("ReplicatedStorage").MadeInHeavenHandler:FireServer(limbuchoppa,limbuchoppa2)
+            game:GetService("ReplicatedStorage").MadeInHeavenHandler:FireServer(limbuchoppa,limbuchoppa2)
+            game:GetService("ReplicatedStorage").MadeInHeavenHandler:FireServer(limbuchoppa,limbuchoppa2)
+            game:GetService("ReplicatedStorage").MadeInHeavenHandler:FireServer(limbuchoppa,limbuchoppa2)
+            game:GetService("ReplicatedStorage").MadeInHeavenHandler:FireServer(limbuchoppa,limbuchoppa2)
+            game:GetService("ReplicatedStorage").MadeInHeavenHandler:FireServer(limbuchoppa,limbuchoppa2)
+            game:GetService("ReplicatedStorage").MadeInHeavenHandler:FireServer(limbuchoppa,limbuchoppa2)
+            game:GetService("ReplicatedStorage").MadeInHeavenHandler:FireServer(limbuchoppa,limbuchoppa2)
+            game:GetService("ReplicatedStorage").MadeInHeavenHandler:FireServer(limbuchoppa,limbuchoppa2)
+            game:GetService("ReplicatedStorage").MadeInHeavenHandler:FireServer(limbuchoppa,limbuchoppa2)
+            game:GetService("ReplicatedStorage").MadeInHeavenHandler:FireServer(limbuchoppa,limbuchoppa2)
+            game:GetService("ReplicatedStorage").MadeInHeavenHandler:FireServer(limbuchoppa,limbuchoppa2)
+            game:GetService("ReplicatedStorage").MadeInHeavenHandler:FireServer(limbuchoppa,limbuchoppa2)
+            game:GetService("ReplicatedStorage").MadeInHeavenHandler:FireServer(limbuchoppa,limbuchoppa2)
+            game:GetService("ReplicatedStorage").MadeInHeavenHandler:FireServer(limbuchoppa,limbuchoppa2)
+            game:GetService("ReplicatedStorage").MadeInHeavenHandler:FireServer(limbuchoppa,limbuchoppa2)
             hitbox1:Destroy()
             end
         elseif(hit.Parent.Parent:FindFirstChild("Humanoid")) and hit.Parent.Name ~= game.Players.LocalPlayer.Name then
@@ -4486,22 +4496,22 @@ _G.kcChoppa = function()
 	    	[1] = hit.Parent.Parent.Humanoid, 
 	    	[2] = hit.Parent.Parent.Torso.CFrame
 }
-             
-             
-             
-             
-             
-             
-             
-             
-             
-             
-             
-             
-             
-             
-             
-             
+            game:GetService("ReplicatedStorage").MadeInHeavenHandler:FireServer(limbuchoppa,limbuchoppa2)
+            game:GetService("ReplicatedStorage").MadeInHeavenHandler:FireServer(limbuchoppa,limbuchoppa2)
+            game:GetService("ReplicatedStorage").MadeInHeavenHandler:FireServer(limbuchoppa,limbuchoppa2)
+            game:GetService("ReplicatedStorage").MadeInHeavenHandler:FireServer(limbuchoppa,limbuchoppa2)
+            game:GetService("ReplicatedStorage").MadeInHeavenHandler:FireServer(limbuchoppa,limbuchoppa2)
+            game:GetService("ReplicatedStorage").MadeInHeavenHandler:FireServer(limbuchoppa,limbuchoppa2)
+            game:GetService("ReplicatedStorage").MadeInHeavenHandler:FireServer(limbuchoppa,limbuchoppa2)
+            game:GetService("ReplicatedStorage").MadeInHeavenHandler:FireServer(limbuchoppa,limbuchoppa2)
+            game:GetService("ReplicatedStorage").MadeInHeavenHandler:FireServer(limbuchoppa,limbuchoppa2)
+            game:GetService("ReplicatedStorage").MadeInHeavenHandler:FireServer(limbuchoppa,limbuchoppa2)
+            game:GetService("ReplicatedStorage").MadeInHeavenHandler:FireServer(limbuchoppa,limbuchoppa2)
+            game:GetService("ReplicatedStorage").MadeInHeavenHandler:FireServer(limbuchoppa,limbuchoppa2)
+            game:GetService("ReplicatedStorage").MadeInHeavenHandler:FireServer(limbuchoppa,limbuchoppa2)
+            game:GetService("ReplicatedStorage").MadeInHeavenHandler:FireServer(limbuchoppa,limbuchoppa2)
+            game:GetService("ReplicatedStorage").MadeInHeavenHandler:FireServer(limbuchoppa,limbuchoppa2)
+            game:GetService("ReplicatedStorage").MadeInHeavenHandler:FireServer(limbuchoppa,limbuchoppa2)
             hitbox1:Destroy()
             end
         end
