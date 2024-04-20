@@ -150,10 +150,10 @@ local attackpose = human:LoadAnimation(rot.AttackPose)
 local rollanim = human:LoadAnimation(rot.Roll)
 
 
-jojopose = Instance.new("Animation", stand.StandHumanoidRootPart)
-jojopose.AnimationId = "rbxassetid://17228120459"
+jojopose = Instance.new("Animation", game.Players.LocalPlayer.Character)
+jojopose.AnimationId = "rbxassetid://4659036460"
 
-_G.anim5 = human:LoadAnimation(rot.Animation)
+_G.anim5 = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(jojopose)
 
 
 
@@ -551,48 +551,42 @@ function resettozero()
 	rtzcooldown = false
 	end
 end
-local posing = false
-function posefunc()
-if activu == false and posing == false then
-	if appeared == true then
-		return
-	end
-	trans0()
-	if posing == false then do
-	activu = true
-	posing = true
-	local cp = math.random(1, 2)
-	if cp == 1 then
-		_G.anim5:Play()
-                game:GetService("ReplicatedStorage").ParticleEvent:FireServer("aura")
-                replicatedstorage.STWChair:FireServer(true)
-	elseif cp == 2 then
-		_G.anim5:Stop()
-                game:GetService("ReplicatedStorage").ParticleEvent:FireServer("aura")
-                replicatedstorage.STWChair:FireServer(true)
-	end
-	human.WalkSpeed = 0
-	human.JumpPower = 0
-	poseevent:FireServer(true)
-	end
-	end
-	elseif posing == true then
-	if disabled.Value == false then
-	human.WalkSpeed = 16
-	human.JumpPower = 50
-	elseif disabled.Value == true then
-	human.WalkSpeed = 4
-	human.JumpPower = 10
-	end
-	activu = false
-	posing = false
-        _G.anim5:Stop()
-        game:GetService("ReplicatedStorage").ParticleEvent:FireServer("noaura")
-        replicatedstorage.STWChair:FireServer(false)
-	poseevent:FireServer(false)
-	trans1()
-	end
-end
+local posething = false
+
+local debounce = false
+mouse.KeyDown:connect(function(key)
+    if key == "p" then
+    if posething == true then return end
+    if death == true then return end
+    if loading == true then return end
+    if secretmodeon == true then return end
+       Humanoid.WalkSpeed = 0
+       Humanoid.JumpPower = 0
+       game:GetService("ReplicatedStorage").Menacing:FireServer(true)
+        if not debounce then
+            debounce = true
+            trans0()
+            game:GetService("ReplicatedStorage").ParticleEvent:FireServer("aura")
+            _G.anim5:Play()
+            replicatedstorage.STWChair:FireServer(true)
+            posething = true
+            wait(2)
+            _G.anim5:AdjustSpeed(0)
+            wait(1)
+            posething = false
+        elseif posething == false then
+            replicatedstorage.STWChair:FireServer(false)
+            game:GetService("ReplicatedStorage").ParticleEvent:FireServer("noaura")
+            _G.anim5:Stop()
+            theme:Stop()
+            trans1()
+       game:GetService("ReplicatedStorage").Menacing:FireServer(false)
+       Humanoid.WalkSpeed = 20
+       Humanoid.JumpPower = 50 
+            debounce = false
+        end
+    end 
+end)
 dodgecooldown = false
 function dodge()
 	rollanim:Play()
