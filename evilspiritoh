@@ -479,7 +479,7 @@ if slamcooldown == true then return end
 	trailevent:FireServer(rarm.Trail, false)
 	attackpose:Stop()
 	activu = false
-	trans0()
+	trans1()
 	human.JumpPower = 50
 	human.WalkSpeed = 16
 	wait(6)
