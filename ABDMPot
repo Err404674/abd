@@ -577,7 +577,6 @@ if activu == false and posing == false then
 	end
 	end
 	elseif posing == true then
-        _G.anim5:Stop()
 	if disabled.Value == false then
 	human.WalkSpeed = 16
 	human.JumpPower = 50
