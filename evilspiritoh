@@ -659,13 +659,6 @@ if disabled.Value == true then return end
 	if key == "x" then
 		block()
 	end
-	if key == "f" then
-		if game.Lighting.TS.Value == false then
-		timestop()		
-		elseif game.Lighting.TS.Value == true then
-		untimestop()	
-		end	
-	end
 	if key == "z" then
 		movement()
 	end
