@@ -564,10 +564,12 @@ if activu == false and posing == false then
 	local cp = math.random(1, 2)
 	if cp == 1 then
 		pose1:Play(0.1, 1, 1)
-                game.Players.LocalPlayer.Character.Stand.StandHumanoidRootPart.PageMusic:Play()
+                game:GetService("ReplicatedStorage").ParticleEvent:FireServer("aura")
+                replicatedstorage.STWChair:FireServer(true)
 	elseif cp == 2 then
 		pose2:Play(0.1, 1, 1)
-                game.Players.LocalPlayer.Character.Stand.StandHumanoidRootPart.PageMusic:Play()
+                game:GetService("ReplicatedStorage").ParticleEvent:FireServer("aura")
+                replicatedstorage.STWChair:FireServer(true)
 	end
 	human.WalkSpeed = 0
 	human.JumpPower = 0
