@@ -193,8 +193,6 @@ function barrage()
 	rushsfx:Play()
 	attackpose:Play()
 	human.JumpPower = 0
-	local punchorkick = math.random(1,55555555)
-	if punchorkick == 1 then
 	trailevent:FireServer(rarm.Trail, true)
 	trailevent:FireServer(larm.Trail, true)	
 	barrageanim:Play(0.1, 1, 1.75)
@@ -204,23 +202,13 @@ function barrage()
 		hito(larm, larm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,2, 16.25, 0.05, 0.25, rot.CFrame.lookVector * 2.5, 0.075,"rbxassetid://137579113", math.random(9, 11) / 10, math.random(9, 11) / 50)		
 		wait(0.05)
 	until bep == false or disabled.Value == true or EHMMM >= 40 
-	elseif punchorkick == 555555 then
-	trailevent:FireServer(rleg.Trail, true)	
-	kickbarrageanim:Play(0.1, 1, 1.75)
-	repeat
-		EHMMM = EHMMM + 0.5
-		hito(rleg, rleg.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,3, 6.25, 0.05, 0.25, rot.CFrame.lookVector * 2.5, 0.075,"rbxassetid://137579113", math.random(9, 11) / 10, math.random(9, 11) / 50)
-	wait(0.05)
-	until bep == false or disabled.Value == true or EHMMM >= 40 
 	end 
 	EHMMM = 0
 	rushsfx:Stop()
 	attackpose:Stop()
 	barrageanim:Stop(0.1)
-	kickbarrageanim:Stop(0.1)
 	trailevent:FireServer(rarm.Trail, false)
 	trailevent:FireServer(larm.Trail, false)
-	trailevent:FireServer(rleg.Trail, false)
 	human.JumpPower = 50
 	activu = false
 	trans1()
