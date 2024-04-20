@@ -1,3 +1,9 @@
+for _ = 1,2 do
+	wait()
+	game:GetService("ReplicatedStorage").KCRSlam:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 10, "", 1, 1)
+			end
+
+
 function trans1()
 	for i,v in pairs(game.Players.LocalPlayer.Character.Stand:GetDescendants()) do
 		if v:IsA("BasePart") or v:IsA("MeshPart") or v:IsA("Texture") or v:IsA("Decal") then
