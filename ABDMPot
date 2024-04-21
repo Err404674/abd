@@ -585,10 +585,14 @@ if activu == false and posing == false then
                 _G.anim5:Play()
                 game:GetService("ReplicatedStorage").ParticleEvent:FireServer("aura")
                 replicatedstorage.STWChair:FireServer(true)
+                wait(2)
+                _G.anim5:AdjustSpeed(0)
 	elseif cp == 2 then
                 _G.anim5:Play()
                 game:GetService("ReplicatedStorage").ParticleEvent:FireServer("aura")
                 replicatedstorage.STWChair:FireServer(true)
+                wait(2)
+                _G.anim5:AdjustSpeed(0)
 	end
 	human.WalkSpeed = 0
 	human.JumpPower = 0
