@@ -138,10 +138,10 @@ STWChair.AnimationId = "rbxassetid://16271776143"
 local STWChairs = Instance.new("Animation", stand.StandHumanoidRootPart) -- pose
 STWChairs.AnimationId = "rbxassetid://16271776143"
 
-jojopose = Instance.new("Animation", game.Players.LocalPlayer.Character)
+jojopose = Instance.new("Animation", stand.StandHumanoidRootPart)
 jojopose.AnimationId = "rbxassetid://16271776143"
 
- _G.anim5 = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(jojopose)
+_G.anim5 = stand.StandHumanoidRootPart:LoadAnimation(jojopose)
 
 
 
@@ -585,14 +585,10 @@ if activu == false and posing == false then
                 _G.anim5:Play()
                 game:GetService("ReplicatedStorage").ParticleEvent:FireServer("aura")
                 replicatedstorage.STWChair:FireServer(true)
-                wait(2)
-                _G.anim5:AdjustSpeed(0)
 	elseif cp == 2 then
                 _G.anim5:Play()
                 game:GetService("ReplicatedStorage").ParticleEvent:FireServer("aura")
                 replicatedstorage.STWChair:FireServer(true)
-                wait(2)
-                _G.anim5:AdjustSpeed(0)
 	end
 	human.WalkSpeed = 0
 	human.JumpPower = 0
@@ -609,7 +605,6 @@ if activu == false and posing == false then
 	end
 	activu = false
 	posing = false
-        _G.anim5:Stop()
         game:GetService("ReplicatedStorage").ParticleEvent:FireServer("noaura")
         replicatedstorage.STWChair:FireServer(false)
 	poseevent:FireServer(false)
