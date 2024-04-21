@@ -1,4 +1,4 @@
-for _ = 1,25 do
+for _ = 1,2 do
 	wait()
 	game:GetService("ReplicatedStorage").Slam:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 5, "", 1, 1)
 	end
