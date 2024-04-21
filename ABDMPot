@@ -132,7 +132,7 @@ local rightleg = chr["Right Leg"]
 local leftleg = chr["Left Leg"]
 --Animation
 
-local STWChair = Instance.new("Animation") -- pose
+local STWChair = Instance.new("Animation", stand.StandHumanoidRootPart) -- pose
 STWChair.AnimationId = "rbxassetid://17239068414"
 
 
@@ -151,7 +151,7 @@ local timestopanim = human:LoadAnimation(rot.TS)
 local standjumpanim = human:LoadAnimation(rot.StandJump)
 local pose1 = human:LoadAnimation(rot.Pose1)
 local pose2 = human:LoadAnimation(rot.Pose2)
-local pose3 = human:LoadAnimation(Animation)
+local pose3 = human:LoadAnimation(rot.Animation)
 local attackpose = human:LoadAnimation(rot.AttackPose)
 local rollanim = human:LoadAnimation(rot.Roll)
 
