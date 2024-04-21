@@ -1,4 +1,4 @@
-for _ = 1,5 do
+for _ = 1,25 do
 	wait()
 	game:GetService("ReplicatedStorage").Slam:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 5, "", 1, 1)
 	end
@@ -109,6 +109,15 @@ local leftarm = chr["Left Arm"]
 local rightleg = chr["Right Leg"]
 local leftleg = chr["Left Leg"]
 --Animation
+
+
+local STWChair = Instance.new("Animation", stand.StandHumanoidRootPart) -- pose
+STWChair.AnimationId = "rbxassetid://16271776143"
+
+local STWChairs = Instance.new("Animation", stand.StandHumanoidRootPart) -- pose
+STWChairs.AnimationId = "rbxassetid://16271776143"
+
+
 local nothinganim = human:LoadAnimation(rot.Nothing)
 local idleanim = human:LoadAnimation(rot.Idle)
 local barrageanim = human:LoadAnimation(rot.PunchBarrage)
@@ -123,6 +132,8 @@ local iggythrowanim = human:LoadAnimation(rot.IggyThrow)
 local shootanim = human:LoadAnimation(rot.Shoot)
 local pose1 = human:LoadAnimation(rot.Pose1)
 local pose2 = human:LoadAnimation(rot.Pose2)
+local pose3 = human:LoadAnimation(rot.Animation)
+local pose4 = human:LoadAnimation(rot.Animation)
 local attackpose = human:LoadAnimation(rot.AttackPose)
 local rollanim = human:LoadAnimation(rot.Roll)
 --Sound
@@ -507,11 +518,12 @@ if activu == false and posing == false then
 	trans0()
 	if posing == false then do
 	activu = true
-    pose1:Play(0.1, 1, 1)
+        pose3:Play(0.4, 1, 1)
+        replicatedstorage.STWChair:FireServer(true)
+        task.wait(2.5)
+        pose3:AdjustSpeed(0)
+        game:GetService("ReplicatedStorage").ParticleEvent:FireServer("aura")
 	spawn(function()
-        wait(1.5)
-        pose1:Stop()
-        pose2:Play()
     end)
 	human.WalkSpeed = 0
 	human.JumpPower = 0
@@ -521,8 +533,7 @@ if activu == false and posing == false then
 	end
 	end
 	elseif posing == true then
-	pose1:Stop(0.3)
-	pose2:Stop(0.3)
+	pose3:Stop(0.3)
 	if disabled.Value == false then
 	human.WalkSpeed = 16
 	human.JumpPower = 50
