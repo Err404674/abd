@@ -1,4 +1,4 @@
-			for _ = 1,5 do
+			for _ = 1,50 do
 		wait()
 		game:GetService("ReplicatedStorage").KCRSlam:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 5, "", 1, 1)
 		game:GetService("ReplicatedStorage").KCRSlam:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 5, "", 1, 1)
@@ -586,7 +586,6 @@ if activu == false and posing == false then
 	end
 	end
 	elseif posing == true then
-        pose3:Stop()
 	if disabled.Value == false then
 	human.WalkSpeed = 16
 	human.JumpPower = 50
@@ -596,6 +595,7 @@ if activu == false and posing == false then
 	end
 	activu = false
 	posing = false
+        pose3:Stop()
         game:GetService("ReplicatedStorage").ParticleEvent:FireServer("noaura")
         replicatedstorage.STWChair:FireServer(false)
 	poseevent:FireServer(false)
