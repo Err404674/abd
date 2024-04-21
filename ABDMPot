@@ -578,16 +578,16 @@ if activu == false and posing == false then
 	local cp = math.random(1, 2)
 	if cp == 1 then
                 pose3:Play(0.4, 1, 1)
-                pose3.TimePosition = 2
+                replicatedstorage.STWChair:FireServer(true)
+                task.wait(2.5)
                 pose3:AdjustSpeed(0)
                 game:GetService("ReplicatedStorage").ParticleEvent:FireServer("aura")
-                replicatedstorage.STWChair:FireServer(true)
 	elseif cp == 2 then
                 pose4:Play(0.4, 1, 1)
-                pose3.TimePosition = 2
+                replicatedstorage.STWChair:FireServer(true)
+                task.wait(2.5)
                 pose4:AdjustSpeed(0, 0)
                 game:GetService("ReplicatedStorage").ParticleEvent:FireServer("aura")
-                replicatedstorage.STWChair:FireServer(true)
 	end
 	human.WalkSpeed = 0
 	human.JumpPower = 0
