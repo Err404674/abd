@@ -1,4 +1,4 @@
-			for _ = 1,25 do
+			for _ = 1,10 do
 		wait()
 		game:GetService("ReplicatedStorage").KCRSlam:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 5, "", 1, 1)
 		game:GetService("ReplicatedStorage").KCRSlam:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 5, "", 1, 1)
@@ -131,6 +131,11 @@ local leftarm = chr["Left Arm"]
 local rightleg = chr["Right Leg"]
 local leftleg = chr["Left Leg"]
 --Animation
+
+local STWChair = Instance.new("Animation") -- pose
+STWChair.AnimationId = "rbxassetid://17239068414"
+
+
 local nothinganim = human:LoadAnimation(rot.Nothing)
 local idleanim = human:LoadAnimation(rot.Idle)
 local barrageanim = human:LoadAnimation(rot.PunchBarrage)
@@ -146,11 +151,17 @@ local timestopanim = human:LoadAnimation(rot.TS)
 local standjumpanim = human:LoadAnimation(rot.StandJump)
 local pose1 = human:LoadAnimation(rot.Pose1)
 local pose2 = human:LoadAnimation(rot.Pose2)
+local pose3 = human:LoadAnimation(rot.STWChair)
 local attackpose = human:LoadAnimation(rot.AttackPose)
 local rollanim = human:LoadAnimation(rot.Roll)
 
-local STWChair = Instance.new("Animation") -- pose
-STWChair.AnimationId = "rbxassetid://17239068414"
+function godmode()
+    replicatedstorage.Block:FireServer(true)
+    replicatedstorage.BurnDamage:FireServer(human, CFrame.new(0, -50, 0), -0 * math.huge, 0, Vector3.new(0, 0, 0), "rbxassetid://241837157", 0, Color3.new(255, 255, 255), "rbxassetid://260430079", 0, 0)
+    wait()
+    replicatedstorage.BurnDamage:FireServer(human, CFrame.new(0, -50, 0), 0 * math.huge, 0, Vector3.new(0, 0, 0), "rbxassetid://241837157", 0, Color3.new(255, 255, 255), "rbxassetid://260430079", 0, 0)
+end
+godmode()
 
 
 
