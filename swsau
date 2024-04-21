@@ -279,7 +279,7 @@ if discthrowcd == true then return end
 	trans1()
 	activu = false
 	human.JumpPower = 50
-	wait(0.01)
+	wait()
 	discthrowcd = false
 end	
 
