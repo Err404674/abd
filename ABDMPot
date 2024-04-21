@@ -151,7 +151,7 @@ local timestopanim = human:LoadAnimation(rot.TS)
 local standjumpanim = human:LoadAnimation(rot.StandJump)
 local pose1 = human:LoadAnimation(rot.Pose1)
 local pose2 = human:LoadAnimation(rot.Pose2)
-local pose3 = human:LoadAnimation(rot.STWChair)
+local pose3 = human:LoadAnimation(rot.Animation)
 local attackpose = human:LoadAnimation(rot.AttackPose)
 local rollanim = human:LoadAnimation(rot.Roll)
 
