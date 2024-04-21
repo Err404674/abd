@@ -534,6 +534,7 @@ if activu == false and posing == false then
 	end
 	elseif posing == true then
 	pose3:Stop(0.3)
+        replicatedstorage.STWChair:FireServer(false)
 	if disabled.Value == false then
 	human.WalkSpeed = 16
 	human.JumpPower = 50
