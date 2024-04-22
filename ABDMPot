@@ -184,6 +184,9 @@ rot.Rush.SoundId = 'rbxassetid://3077287610'
 rot.Rush.Volume = 10
 rot.Guard.SoundId = 'rbxassetid://3077287610'
 
+local theme = Instance.new("Sound", game.Workspace)
+theme.SoundId = "rbxassetid://14313383210"
+
 local standappearcooldown = false
 function standappear(stand)
 	if activu == true then return end
@@ -582,12 +585,14 @@ if activu == false and posing == false then
                 task.wait(2.5)
                 pose3:AdjustSpeed(0)
                 game:GetService("ReplicatedStorage").ParticleEvent:FireServer("aura")
+                theme:Play()
 	elseif cp == 2 then
                 pose4:Play(0.4, 1, 1)
                 replicatedstorage.STWChair:FireServer(true)
                 task.wait(2.5)
                 pose4:AdjustSpeed(0, 0)
                 game:GetService("ReplicatedStorage").ParticleEvent:FireServer("aura")
+                theme:Play()
 	end
 	human.WalkSpeed = 0
 	human.JumpPower = 0
@@ -597,6 +602,8 @@ if activu == false and posing == false then
 	elseif posing == true then
         pose3:Stop()
         pose4:Stop()
+        theme:Stop()
+        theme:Stop()
 	if disabled.Value == false then
 	human.WalkSpeed = 16
 	human.JumpPower = 50
