@@ -467,11 +467,11 @@ if activu == true then return end
 	coroutine.resume(coroutine.create(function()
 	for _ = 1, 15 do
 		wait()
-		hito3(rarm, rarm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,3, 100000, 0.75, 0.25, rot.CFrame.lookVector * 300, 0.25,"rbxassetid://5711265448", math.random(9, 11) / 10, math.random(9, 11) / 10)
-        hito3(rarm, rarm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,3, 100000, 0.75, 0.25, rot.CFrame.lookVector * 300, 0.25,"rbxassetid://5711265448", math.random(9, 11) / 10, math.random(9, 11) / 10)
-        hito3(rarm, rarm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,3, 100000, 0.75, 0.25, rot.CFrame.lookVector * 300, 0.25,"rbxassetid://5711265448", math.random(9, 11) / 10, math.random(9, 11) / 10)
-        hito3(rarm, rarm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,3, 100000, 0.75, 0.25, rot.CFrame.lookVector * 300, 0.25,"rbxassetid://5711265448", math.random(9, 11) / 10, math.random(9, 11) / 10)
-        hito3(rarm, rarm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,3, 100000, 0.75, 0.25, rot.CFrame.lookVector * 300, 0.25,"rbxassetid://5711265448", math.random(9, 11) / 10, math.random(9, 11) / 10)
+		hito3(rarm, rarm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,3, 100000, 0.75, 0.25, rot.CFrame.lookVector * 300, 0.25,"rbxassetid://2695634285", math.random(9, 11) / 10, math.random(9, 11) / 10)
+        hito3(rarm, rarm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,3, 100000, 0.75, 0.25, rot.CFrame.lookVector * 300, 0.25,"rbxassetid://2695634285", math.random(9, 11) / 10, math.random(9, 11) / 10)
+        hito3(rarm, rarm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,3, 100000, 0.75, 0.25, rot.CFrame.lookVector * 300, 0.25,"rbxassetid://2695634285", math.random(9, 11) / 10, math.random(9, 11) / 10)
+        hito3(rarm, rarm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,3, 100000, 0.75, 0.25, rot.CFrame.lookVector * 300, 0.25,"rbxassetid://2695634285", math.random(9, 11) / 10, math.random(9, 11) / 10)
+        hito3(rarm, rarm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,3, 100000, 0.75, 0.25, rot.CFrame.lookVector * 300, 0.25,"rbxassetid://2695634285", math.random(9, 11) / 10, math.random(9, 11) / 10)
 	end
 	end))
 	wait(0.35)
