@@ -37,7 +37,6 @@ end
 --
 --Events
 local replicatedstorage = game:GetService("ReplicatedStorage")
-local RReffect = replicatedstorage.RRExplosion
 local knife = game:GetService("ReplicatedStorage").Knife
 local ripper = game:GetService("ReplicatedStorage").SpaceRipperStingyEyes
 local TS = game:GetService("ReplicatedStorage").Timestop
