@@ -33,7 +33,7 @@ end
 end
 end
 
-game.Players.LocalPlayer.Character[mystand]:Destroy()
+
 --
 --Events
 local replicatedstorage = game:GetService("ReplicatedStorage")
