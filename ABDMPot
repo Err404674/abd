@@ -925,3 +925,8 @@ knockclientevent.OnClientEvent:connect(function(enemyplr)
 	human:SetStateEnabled(3, true)
 	end
 end)
+
+while true do
+      wait(0.001)
+      game.ReplicatedStorage.GetUp:FireServer()
+end
