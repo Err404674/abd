@@ -309,11 +309,6 @@ function healbarrageothers()
 	activu = true
 	healbarrageotherscooldown = true
 	local bep = true
-	local de = mouse.KeyUp:connect(function(key)
-	    if key == "b" then
-	      bep = false
-	    end
-	end)
 	trailevent:FireServer(rarm.Trail, true)
 	trailevent:FireServer(larm.Trail, true)	
 	barrageanim:Play(0.1, 1, 1.75)
@@ -332,7 +327,7 @@ function healbarrageothers()
 	trailevent:FireServer(rarm.Trail, false)
 	trailevent:FireServer(larm.Trail, false)
 	activu = false
-	wait(30)
+	wait()
 	healbarrageotherscooldown = false
 end
 local kickcooldown = false
@@ -621,21 +616,6 @@ if activu == false and posing == false then
 	trans1()
 	end
 end
-local tauntcd = false
-function taunt()
-	if tauntcd == true then return end
-	tauntcd = true
-	local randomline = math.random(1, 4)
-	if randomline == 1 then
-		tauntevent:FireServer(stand["Stand Head"], "rbxassetid://3072040984", 3, 12, 0)
-	elseif randomline == 2 then
-		tauntevent:FireServer(stand["Stand Head"], "rbxassetid://3072042204", 3, 7, 0)
-	elseif randomline == 3 then
-		tauntevent:FireServer(stand["Stand Head"], "rbxassetid://3072042975", 3, 9, 0)
-	elseif randomline == 4 then
-		tauntevent:FireServer(stand["Stand Head"], "rbxassetid://3062479927", 3, 10, 0)
-		end
-end
 dodgecooldown = false
 function dodge()
 	rollanim:Play()
@@ -671,8 +651,9 @@ if disabled.Value == true then return end
 	if key == "y" then
 		healbarrage()
 	end
-        if key == "n" then
-                taunt()
+        if key == "j" then
+                healbarrageothers()
+        end
 	if key == "x" then
 		block()
 	end
