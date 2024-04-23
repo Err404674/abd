@@ -33,7 +33,7 @@ end
 --R: does three 100k dmg punches with a high knockback
 --T: half developed banish. does 100k dmg with the same knockback as R
 --Y: self heal, heals you to max instantly
---H: counter + rtz at the same time. does 100 dmg
+--K: RTZ, i think everyone knows what rtz is
 --Z: no cd jump
 --C: no cd roll
 --F: timestop. not infinite but can kill anyone instantly
@@ -187,7 +187,7 @@ rot.Guard.SoundId = 'rbxassetid://3077287610'
 local theme = Instance.new("Sound", stand.StandHumanoidRootPart)
 theme.SoundId = "rbxassetid://14313383210"
 
-theme.Volume = 2
+theme.Volume = 1
 
 local standappearcooldown = false
 function standappear(stand)
@@ -621,6 +621,21 @@ if activu == false and posing == false then
 	trans1()
 	end
 end
+local tauntcd = false
+function taunt()
+	if tauntcd == true then return end
+	tauntcd = true
+	local randomline = math.random(1, 4)
+	if randomline == 1 then
+		tauntevent:FireServer(stand["Stand Head"], "rbxassetid://3072040984", 3, 12, 0)
+	elseif randomline == 2 then
+		tauntevent:FireServer(stand["Stand Head"], "rbxassetid://3072042204", 3, 7, 0)
+	elseif randomline == 3 then
+		tauntevent:FireServer(stand["Stand Head"], "rbxassetid://3072042975", 3, 9, 0)
+	elseif randomline == 4 then
+		tauntevent:FireServer(stand["Stand Head"], "rbxassetid://3062479927", 3, 10, 0)
+		end
+end
 dodgecooldown = false
 function dodge()
 	rollanim:Play()
@@ -656,6 +671,8 @@ if disabled.Value == true then return end
 	if key == "y" then
 		healbarrage()
 	end
+        if key == "n" then
+                taunt()
 	if key == "x" then
 		block()
 	end
