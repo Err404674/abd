@@ -110,6 +110,11 @@ uppercut.AnimationId = "rbxassetid://17313157354"
 
 _G.anim6 = chr.Humanoid:LoadAnimation(uppercut)
 
+triple = Instance.new("Animation", plr.Character.Humanoid)
+triple.AnimationId = "rbxassetid://17045816397"
+
+_G.anim7 = chr.Humanoid:LoadAnimation(triple)
+
 
 
 local nothinganim = human:LoadAnimation(rot.Nothing)
@@ -228,8 +233,8 @@ function barrage()
 	attackpose:Play()
 	repeat
 		EHMMM = EHMMM + 0.5
-		hito(rarm, rarm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,2, 78, 0.05, 0.025, rot.CFrame.lookVector * 2.5, 0.075,"rbxassetid://137579113", math.random(9, 11) / 10, math.random(9, 11) / 50)
-		hito(larm, larm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,2, 78, 0.05, 0.025, rot.CFrame.lookVector * 2.5, 0.075,"rbxassetid://137579113", math.random(9, 11) / 10, math.random(9, 11) / 50)		
+		hito(rarm, rarm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,2, 78, 0.05, 0.025, rot.CFrame.lookVector * 2.5, 0.4,"rbxassetid://137579113", math.random(9, 11) / 10, math.random(9, 11) / 50)
+		hito(larm, larm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,2, 78, 0.05, 0.025, rot.CFrame.lookVector * 2.5, 0.4,"rbxassetid://137579113", math.random(9, 11) / 10, math.random(9, 11) / 50)		
 		wait(0.05)
 	until bep == false or disabled.Value == true or EHMMM >= 45 
     trans1()
@@ -268,8 +273,8 @@ function healbarrageothers()
 	attackpose:Play()
 	repeat
 		EHMMM = EHMMM + 0.5
-		healo(rarm, rarm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,2, 50.7, 0.05, 0.25, rot.CFrame.lookVector * 2.5, 0.075,"rbxassetid://137579113", math.random(9, 11) / 5, math.random(9, 11) / 50)
-		healo(larm, larm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,2, 50.7, 0.05, 0.25, rot.CFrame.lookVector * 2.5, 0.075,"rbxassetid://137579113", math.random(9, 11) / 5, math.random(9, 11) / 50)
+		healo(rarm, rarm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,2, 50.7, 0.05, 0.25, rot.CFrame.lookVector * 2.5, 0.4,"rbxassetid://137579113", math.random(9, 11) / 5, math.random(9, 11) / 50)
+		healo(larm, larm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,2, 50.7, 0.05, 0.25, rot.CFrame.lookVector * 2.5, 0.4,"rbxassetid://137579113", math.random(9, 11) / 5, math.random(9, 11) / 50)
 		wait(0.05)
 	until bep == false or disabled.Value == true or EHMMM >= 41 
     trans1()
@@ -367,24 +372,26 @@ if activu == true then return end
 	attackpose:Play()
 	if leftorright == false then
 		leftorright = true
-		rightpunchanim:Play(0.1, 1, 1)
+		_G.anim7:Play(0.1, 1, 2)
 		trailevent:FireServer(rarm.Trail, true)
 		wait(0.2)
 		coroutine.resume(coroutine.create(function()
-		for _ = 1, 5 do
+		for _ = 1, 15 do
 		wait()
 		hito2(rarm, rarm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,2.5, 32.5, 0.5, 0.25, rot.CFrame.lookVector * 15, 0.075,"rbxassetid://137579113", math.random(9, 11) / 10, math.random(9, 11) / 25)
+        hito2(larm, larm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,2.5, 32.5, 0.5, 0.25, rot.CFrame.lookVector * 15, 0.075,"rbxassetid://137579113", math.random(9, 11) / 10, math.random(9, 11) / 25)
 		end
 		end))
 	elseif leftorright == true then
 		leftorright = false
-		leftpunchanim:Play(0.1, 1, 1)
+		_G.anim7:Play(0.1, 1, 2)
 		trailevent:FireServer(larm.Trail, true)
 		wait(0.2)
 		coroutine.resume(coroutine.create(function()
-		for _ = 1, 5 do
+		for _ = 1, 15 do
 		wait()
-		hito2(larm, larm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,2.5, 32.5, 0.5, 0.25, rot.CFrame.lookVector * 15, 0.075,"rbxassetid://137579113", math.random(9, 11) / 10, math.random(9, 11) / 25)
+		hito2(rarm, rarm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,2.5, 32.5, 0.5, 0.25, rot.CFrame.lookVector * 15, 0.075,"rbxassetid://137579113", math.random(9, 11) / 10, math.random(9, 11) / 25)
+        hito2(larm, larm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,2.5, 32.5, 0.5, 0.25, rot.CFrame.lookVector * 15, 0.075,"rbxassetid://137579113", math.random(9, 11) / 10, math.random(9, 11) / 25)
 		end
 		end))
 	end
@@ -441,7 +448,7 @@ function tsteleport()
 			game.Lighting.SPTWEffect.Enabled = true
 			spawn(function()
 				wait(.2)
-				game.Lighting.STWEffect.Enabled = false
+				game.Lighting.SPTWEffect.Enabled = false
 			end)
 		end
 		wait(1)
@@ -490,7 +497,7 @@ if overwritecooldown == true then return end
 	coroutine.resume(coroutine.create(function()
 	for _ = 1, 15 do
 		wait()
-		hito4(rarm, rarm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,3.5, 87.5, 0.75, 0.25, rot.CFrame.lookVector * 50, 0.25,"rbxassetid://1202656211", math.random(9, 11) / 10, math.random(9, 11) / 10)
+		hito4(rarm, rarm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,3.5, 94.999, 0.75, 0.25, rot.CFrame.lookVector * 50, 0.5,"rbxassetid://1202656211", math.random(9, 11) / 10, math.random(9, 11) / 10)
 	end
 	end))
 	wait(0.65)
@@ -1081,4 +1088,3 @@ end)
 
 wait(60)
 timestopcooldown = false
-
