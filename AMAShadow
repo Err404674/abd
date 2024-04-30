@@ -1,0 +1,1084 @@
+for _ = 1,3 do
+		wait()
+		game:GetService("ReplicatedStorage").Slam:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 5, "", 1, 1)
+		game:GetService("ReplicatedStorage").Slam:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 5, "", 1, 1)
+    end
+
+
+function trans1()
+    for i,v in pairs(game.Players.LocalPlayer.Character.Stand:GetDescendants()) do
+        if v:IsA("BasePart") or v:IsA("MeshPart") or v:IsA("Texture") or v:IsA("Decal") then
+        if v.Name == "StandHumanoidRootPart" then
+        game.ReplicatedStorage.Transparency:FireServer(v,1)
+        else
+        game.ReplicatedStorage.Transparency:FireServer(v,1)
+        end
+        end
+    end
+end
+
+function trans0()
+    for i,v in pairs(game.Players.LocalPlayer.Character.Stand:GetDescendants()) do
+        if v:IsA("BasePart") or v:IsA("MeshPart") or v:IsA("Texture") or v:IsA("Decal") then
+        if v.Name == "StandHumanoidRootPart" then
+        game.ReplicatedStorage.Transparency:FireServer(v,1)
+        else
+        game.ReplicatedStorage.Transparency:FireServer(v,0)
+        end
+        end
+    end
+end
+
+
+
+--Events
+local replicatedstorage = game:GetService("ReplicatedStorage")
+local standevent = replicatedstorage.Stand
+local healevent = replicatedstorage.Heal
+local healevent2 = replicatedstorage.Heal6
+local damageevent = replicatedstorage.Damage2CPP
+local damageevent2 = replicatedstorage.Damage3
+local damageevent3 = replicatedstorage.Damage5
+local damageevent4 = replicatedstorage.Damage13
+local blastevent = replicatedstorage.OHBlast
+local blockevent = replicatedstorage.Block
+local timestopevent = replicatedstorage.Timestop
+local untimestopevent = replicatedstorage.Untimestop
+local transparencyevent = replicatedstorage.Transparency
+local strongpunchevent = replicatedstorage.StrongPunch
+local dodgeevent = replicatedstorage.Dodge
+local slamevent = replicatedstorage.Slam
+local anchorevent = replicatedstorage.Anchor
+local trailevent = replicatedstorage.Trail
+local jumpevent = replicatedstorage.Jump
+local velocityevent = replicatedstorage.Velocity
+local poseevent = replicatedstorage.Menacing
+local tauntevent = replicatedstorage.Taunt
+local knockevent = replicatedstorage.KnockAdvanced
+local knockclientevent = replicatedstorage.KnockClient
+local knockedevent = replicatedstorage.Knocked
+local getupevent = replicatedstorage.GetUp
+local berserkclientevent = replicatedstorage.BerserkClient
+
+local plr = game:GetService("Players").LocalPlayer
+repeat
+	wait()
+until plr.Character and plr.Character.Humanoid
+local chr = plr.Character
+local human = chr.Humanoid
+local hrp = chr.HumanoidRootPart
+mouse = plr:GetMouse()
+cam = workspace.CurrentCamera
+local T = {"♈", "♉", "♊", "♋", "♌", "♍", "♎", "♏", "♐", "♑", "♒", "♓"}
+local Key = (T[math.random(#T)]) .. "" .. (T[math.random(#T)]) .. "" .. (T[math.random(#T)]) .. "" .. (T[math.random(#T)]) .. "" .. (T[math.random(#T)]) .. "" .. (T[math.random(#T)]) .. "" .. (T[math.random(#T)]) .. "" .. (T[math.random(#T)]) .. "" .. (T[math.random(#T)]) .. "" .. (T[math.random(#T)])
+game.ReplicatedStorage.RPR:FireServer(Key)
+wait()
+standevent:FireServer("PPP", 70, 650)
+
+--Values
+local activu = false
+local appeared = false
+local timestopper = false
+local length = 7.5
+local disabled = chr:WaitForChild("Disabled")
+local pt = 0
+
+local stand = chr:WaitForChild("Stand")
+local rot = stand:WaitForChild("StandHumanoidRootPart")
+local hed = stand:WaitForChild("ShadowHead")
+local tors = stand:WaitForChild("Stand Torso")
+local rarm = stand:WaitForChild("Stand Right Arm")
+local larm = stand:WaitForChild("Stand Left Arm")
+local legs = stand:WaitForChild("Union")
+
+local head = chr["Head"]
+local ntorso = chr["Torso"]
+local rightarm = chr["Right Arm"]
+local leftarm = chr["Left Arm"]
+local rightleg = chr["Right Leg"]
+local leftleg = chr["Left Leg"]
+--Animation
+
+local STWChair = Instance.new("Animation", stand.StandHumanoidRootPart) -- pose
+STWChair.AnimationId = "rbxassetid://17313162259"
+
+local STWChairs = Instance.new("Animation", stand.StandHumanoidRootPart) -- pose
+STWChairs.AnimationId = "rbxassetid://17313162259"
+
+uppercut = Instance.new("Animation", plr.Character.Humanoid)
+uppercut.AnimationId = "rbxassetid://17313157354"
+
+_G.anim6 = chr.Humanoid:LoadAnimation(uppercut)
+
+
+
+local nothinganim = human:LoadAnimation(rot.Nothing)
+local idleanim = human:LoadAnimation(rot.Idle)
+local barrageanim = human:LoadAnimation(rot.PunchBarrage)
+local healbarrageanim = human:LoadAnimation(rot.HealBarrage)
+local blockanim = human:LoadAnimation(rot.Block)
+local leftpunchanim = human:LoadAnimation(rot.LeftPunch)
+local rightpunchanim = human:LoadAnimation(rot.RightPunch)
+local strongpunchanim = human:LoadAnimation(rot.StrongPunch)
+local overwriteanim = human:LoadAnimation(rot.Overwrite)
+local slamanim = human:LoadAnimation(rot.Slam)
+local timestopanim = human:LoadAnimation(rot.TS)
+local standjumpanim = human:LoadAnimation(rot.StandJump)
+local blastanim = human:LoadAnimation(rot.BlastFire)
+local pose1 = human:LoadAnimation(rot.Pose1)
+local pose2 = human:LoadAnimation(rot.Pose2)
+local pose3 = human:LoadAnimation(rot.Animation)
+local pose4 = human:LoadAnimation(rot.Animation)
+local attackpose = human:LoadAnimation(rot.AttackPose)
+local rollanim = human:LoadAnimation(rot.Roll)
+
+
+function godmode()
+    replicatedstorage.Block:FireServer(true)
+    replicatedstorage.Damage2:FireServer(human, CFrame.new(0, -50, 0), -0 * math.huge, 0, Vector3.new(0, 0, 0), "rbxassetid://241837157", 0, Color3.new(255, 255, 255), "rbxassetid://260430079", 0, 0)
+    wait()
+    replicatedstorage.Damage2:FireServer(human, CFrame.new(0, -50, 0), 0 * math.huge, 0, Vector3.new(0, 0, 0), "rbxassetid://241837157", 0, Color3.new(255, 255, 255), "rbxassetid://260430079", 0, 0)
+end
+godmode()
+
+
+
+
+--Sound
+local dodgesfx = rot.Dodge
+local diesfx = rot.Die
+local blocksfx = rot.Guard
+local punchsfx = rot.Punch
+local heavypunchsfx = rot.HeavyPunch
+local overwritesfx = rot.Overwritten
+local rushsfx = rot.Rush
+local standappearsfx = rot.StandAppear
+local shootsfx = rot.Blast
+local jumpsfx = rot.StandJumpSFX
+local standappearcooldown = false
+function standappear(stand)
+	if activu == true then return end
+	if standappearcooldown == true then return end
+	standappearcooldown = true
+	if appeared == false then
+		appeared = true
+		nothinganim:Stop()
+		idleanim:Play(0.2, 1, 1)
+		standappearsfx:Play()
+		for _, n in pairs(stand:GetChildren()) do
+	      coroutine.resume(coroutine.create(function()
+	        for _ = 1, 5 do
+	          if n ~= rot and n.ClassName ~= "Sound" then
+	            wait()
+	            transparencyevent:FireServer(n, n.Transparency - 0.2)
+				transparencyevent:FireServer(face, n.Transparency - 0.2)
+	          end
+	        end
+	        if n ~= rot then
+	          transparencyevent:FireServer(n, 0)
+			  transparencyevent:FireServer(face, 0)
+	        end
+	      end))
+		end
+	elseif appeared == true then
+		appeared = false
+		idleanim:Stop()
+		nothinganim:Play(0.2, 1, 1)
+		for _, n in pairs(stand:GetChildren()) do
+	      coroutine.resume(coroutine.create(function()
+	        for _ = 1, 5 do
+	          if n ~= rot and n.ClassName ~= "Sound" then
+	            wait()
+	            transparencyevent:FireServer(n, n.Transparency + 0.2)
+				transparencyevent:FireServer(face, n.Transparency + 0.2)
+	          end
+	        end
+	        if n ~= rot then
+	          transparencyevent:FireServer(n, 1)
+			  transparencyevent:FireServer(face, 1)
+	        end
+	      end))
+		end			
+	end	
+	wait(2.5)
+	standappearcooldown = false	
+end
+local EHMMM = 0
+local barragecooldown = false
+function barrage()
+	if activu == true then return end
+	if barragecooldown == true then return end
+	if appeared == false then
+		return
+	end
+    trans0()
+	activu = true
+	barragecooldown = true
+	local bep = true
+	local de = mouse.KeyUp:connect(function(key)
+	    if key == "e" then
+	      bep = false
+	    end
+	end)
+	trailevent:FireServer(rarm.Trail, true)
+	trailevent:FireServer(larm.Trail, true)	
+	barrageanim:Play(0.1, 1, 1.75)
+	human.JumpPower = 0
+	rushsfx:Play()
+	attackpose:Play()
+	repeat
+		EHMMM = EHMMM + 0.5
+		hito(rarm, rarm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,2, 78, 0.05, 0.025, rot.CFrame.lookVector * 2.5, 0.075,"rbxassetid://137579113", math.random(9, 11) / 10, math.random(9, 11) / 50)
+		hito(larm, larm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,2, 78, 0.05, 0.025, rot.CFrame.lookVector * 2.5, 0.075,"rbxassetid://137579113", math.random(9, 11) / 10, math.random(9, 11) / 50)		
+		wait(0.05)
+	until bep == false or disabled.Value == true or EHMMM >= 45 
+    trans1()
+	EHMMM = 0
+	rushsfx:Stop()
+	attackpose:Stop()
+	human.JumpPower = 50
+	barrageanim:Stop(0.1)
+	trailevent:FireServer(rarm.Trail, false)
+	trailevent:FireServer(larm.Trail, false)
+	activu = false
+	wait(3)
+	barragecooldown = false
+end
+local healbarrageotherscooldown = false
+function healbarrageothers()
+	if activu == true then return end
+	if healbarrageotherscooldown == true then return end
+	if appeared == false then
+		return
+	end
+    trans0()
+	activu = true
+	healbarrageotherscooldown = true
+	local bep = true
+	local de = mouse.KeyUp:connect(function(key)
+	    if key == "y" then
+	      bep = false
+	    end
+	end)
+	trailevent:FireServer(rarm.Trail, true)
+	trailevent:FireServer(larm.Trail, true)	
+	barrageanim:Play(0.1, 1, 1.75)
+	rushsfx:Play()
+	human.JumpPower = 0
+	attackpose:Play()
+	repeat
+		EHMMM = EHMMM + 0.5
+		healo(rarm, rarm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,2, 50.7, 0.05, 0.25, rot.CFrame.lookVector * 2.5, 0.075,"rbxassetid://137579113", math.random(9, 11) / 5, math.random(9, 11) / 50)
+		healo(larm, larm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,2, 50.7, 0.05, 0.25, rot.CFrame.lookVector * 2.5, 0.075,"rbxassetid://137579113", math.random(9, 11) / 5, math.random(9, 11) / 50)
+		wait(0.05)
+	until bep == false or disabled.Value == true or EHMMM >= 41 
+    trans1()
+	EHMMM = 0
+	rushsfx:Stop()
+	attackpose:Stop()
+	human.JumpPower = 50
+	barrageanim:Stop(0.1)
+	trailevent:FireServer(rarm.Trail, false)
+	trailevent:FireServer(larm.Trail, false)
+	activu = false
+	wait(17)
+	healbarrageotherscooldown = false
+end
+local healbarragecooldown = false
+function healbarrage()
+	if activu == true then return end
+	if healbarragecooldown == true then return end
+	if appeared == false then
+		return
+	end
+    trans0()
+	activu = true
+	healbarragecooldown = true
+	local bep = true
+	local de = mouse.KeyUp:connect(function(key)
+	    if key == "y" then
+	      bep = false
+	    end
+	end)
+	trailevent:FireServer(rarm.Trail, true)
+	trailevent:FireServer(larm.Trail, true)	
+	human.JumpPower = 0
+	healbarrageanim:Play(0.1, 1, 1.75)
+	rushsfx:Play()
+	attackpose:Play()
+	repeat
+		EHMMM = EHMMM + 0.5
+		heal(ntorso.CFrame * CFrame.new(0, 1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)), 41.2,"rbxassetid://137579113", math.random(9, 11) / 5, math.random(9, 11) / 50)
+		wait(0.05)
+	until bep == false or disabled.Value == true or EHMMM >= 49 
+    trans1()
+	EHMMM = 0
+	rushsfx:Stop()
+	attackpose:Stop()
+	healbarrageanim:Stop(0.1)
+	human.JumpPower = 50
+	trailevent:FireServer(rarm.Trail, false)
+	trailevent:FireServer(larm.Trail, false)
+	activu = false
+	wait(12)
+	healbarragecooldown = false
+end
+local EHMMM = 0
+local blockcooldown = false
+function block()
+	if blockcooldown == true then return end
+	if activu == true then return end
+	if appeared == false then return end
+    trans0()
+	activu = true
+	local bep = true
+	local de = mouse.KeyUp:connect(function(key)
+	    if key == "x" then
+	      bep = false
+	    end
+	end)
+	blockanim:Play(0.1, 1,1)
+	blockevent:FireServer(true)
+	blockcooldown = true
+	blocksfx:Play()
+	human.JumpPower = 0
+	repeat
+	EHMMM = EHMMM + 1
+		wait()
+	until bep == false
+    trans1()
+	blockevent:FireServer(false)
+	blockanim:Stop(0.1)
+	human.JumpPower = 50
+	activu = false
+	wait(3)
+	blockcooldown = false	
+end
+local leftorright = false
+function punch()
+if activu == true then return end
+	if appeared == false then
+		return
+	end
+    trans0()
+	activu = true
+	punchsfx:Play()
+	human.JumpPower = 0
+	attackpose:Play()
+	if leftorright == false then
+		leftorright = true
+		rightpunchanim:Play(0.1, 1, 1)
+		trailevent:FireServer(rarm.Trail, true)
+		wait(0.2)
+		coroutine.resume(coroutine.create(function()
+		for _ = 1, 5 do
+		wait()
+		hito2(rarm, rarm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,2.5, 32.5, 0.5, 0.25, rot.CFrame.lookVector * 15, 0.075,"rbxassetid://137579113", math.random(9, 11) / 10, math.random(9, 11) / 25)
+		end
+		end))
+	elseif leftorright == true then
+		leftorright = false
+		leftpunchanim:Play(0.1, 1, 1)
+		trailevent:FireServer(larm.Trail, true)
+		wait(0.2)
+		coroutine.resume(coroutine.create(function()
+		for _ = 1, 5 do
+		wait()
+		hito2(larm, larm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,2.5, 32.5, 0.5, 0.25, rot.CFrame.lookVector * 15, 0.075,"rbxassetid://137579113", math.random(9, 11) / 10, math.random(9, 11) / 25)
+		end
+		end))
+	end
+	wait(0.3)
+    trans1()
+	attackpose:Stop()
+	activu = false
+	trailevent:FireServer(rarm.Trail, false)
+	trailevent:FireServer(larm.Trail, false)
+	human.JumpPower = 50
+end
+local strongpunchcooldown = false
+function strongpunch()
+if activu == true then return end
+if strongpunchcooldown == true then return end
+	if appeared == false then
+		return
+	end
+    trans0()
+	activu = true
+	strongpunchcooldown = true
+	heavypunchsfx:Play()
+	_G.anim6:Play(0.1, 0.8, 0.8)
+	human.JumpPower = 0
+	attackpose:Play()
+	trailevent:FireServer(rarm.Trail, true)
+		wait(0.1)
+	strongpunchevent:FireServer(Vector3.new(1, 0.5, 1), Vector3.new(0.3, 0.15, 0.3), BrickColor.new("Really black"))
+	coroutine.resume(coroutine.create(function()
+	for _ = 1, 20 do
+		wait()
+		hito3(rarm, rarm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,3, 45, 0.75, 0.25, rot.CFrame.lookVector * 50, 0.075,"rbxassetid://137579113", math.random(9, 11) / 10, math.random(9, 11) / 10)
+	end
+	end))
+	wait(0.35)
+    trans1()
+	trailevent:FireServer(rarm.Trail, false)
+    _G.anim6:Stop()
+	attackpose:Stop()
+	activu = false
+	human.JumpPower = 50
+	wait(4.5)
+	strongpunchcooldown = false
+end	
+local tsteleportcooldown = false
+function tsteleport()
+	if activu == true then return end
+	if tsteleportcooldown == true then return end
+	local location = mouse.Hit.p
+	if (chr.HumanoidRootPart.Position - location).magnitude < 95 then
+		tsteleportcooldown = true
+		chr.HumanoidRootPart.CFrame = CFrame.new(location) + Vector3.new(0,2,0)
+		if game.Lighting.TS.Value == false then
+			game.Lighting.SPTWEffect.Enabled = true
+			spawn(function()
+				wait(.2)
+				game.Lighting.STWEffect.Enabled = false
+			end)
+		end
+		wait(1)
+		tsteleportcooldown = false
+	end
+end
+local blastcooldown = false
+function ohblast()
+if activu == true then return end
+if blastcooldown == true then return end
+	if appeared == false then
+		return
+	end
+    trans0()
+	blastcooldown = true
+	activu = true
+	blastanim:Play(0.1, 1, 1)
+	human.JumpPower = 0
+	blastevent:FireServer()
+	wait(0.7)
+	shootsfx:Play()
+	wait(0.5)
+    trans1()
+	activu = false
+	human.JumpPower = 50
+	wait(45)
+	blastcooldown = false
+end	
+local overwritecooldown = false
+function overwrite()
+if activu == true then return end
+if overwritecooldown == true then return end
+	if appeared == false then
+		return
+	end
+    trans0()
+	activu = true
+	overwritecooldown = true
+	overwritesfx:Play()
+	overwriteanim:Play(0.1, 1, 1)
+	human.JumpPower = 0
+	attackpose:Play()
+	trailevent:FireServer(rarm.Trail, true)
+		wait(1.5)
+	strongpunchevent:FireServer(Vector3.new(1, 0.5, 1), Vector3.new(0.3, 0.15, 0.3), BrickColor.new("Institutional white"))
+	coroutine.resume(coroutine.create(function()
+	for _ = 1, 15 do
+		wait()
+		hito4(rarm, rarm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,3.5, 87.5, 0.75, 0.25, rot.CFrame.lookVector * 50, 0.25,"rbxassetid://1202656211", math.random(9, 11) / 10, math.random(9, 11) / 10)
+	end
+	end))
+	wait(0.65)
+    trans1()
+	trailevent:FireServer(rarm.Trail, false)
+	attackpose:Stop()
+	human.JumpPower = 50
+	activu = false
+	wait(2)
+	overwritecooldown = false
+end	
+local slamcooldown = false
+function slam()
+if activu == true then return end
+if slamcooldown == true then return end
+	if appeared == false then
+		return
+	end
+    trans0()
+	activu = true
+	slamcooldown = true
+	overwritesfx:Play()
+	human.JumpPower = 0
+	human.WalkSpeed = 4
+	slamanim:Play(0.1, 1, 1)
+	attackpose:Play()
+	trailevent:FireServer(rarm.Trail, true)
+	wait(1.5)
+	slamevent:FireServer()
+	hito5(rot, 22.5, 150, 0.75, 0.25, Vector3.new(0, 75, 0))
+	wait(0.65)
+    trans1()
+	trailevent:FireServer(rarm.Trail, false)
+	attackpose:Stop()
+	activu = false
+	human.JumpPower = 50
+	human.WalkSpeed = 16
+	wait(3)
+	slamcooldown = false
+end	
+local movementcooldown = false
+function movement()
+	if activu == true then return end
+	if movementcooldown == true then return end
+	if appeared == false then
+		return
+	end
+	movementcooldown = true
+	activu = true
+	standjumpanim:Play(0.1, 1, 1)
+	jumpsfx:Play()
+	jumpevent:FireServer(BrickColor.new("Really black"))
+	local Bod = Instance.new("BodyPosition", hrp)
+    Bod.maxForce = Vector3.new(100000, 100000, 100000)
+    Bod.Position = hrp.CFrame*CFrame.new(0, 26, -26).p
+	game.Debris:AddItem(Bod, 1)
+	wait(1)
+	activu = false
+	wait(1.99)
+	movementcooldown = false
+end
+local timestopping = false
+local timestopcooldown = true
+function timestop()
+if activu == true then return end
+if timestopcooldown == true then return end
+if timestopping == true then return end
+if game.Lighting.TS.Value == true then return end
+if game.Lighting.TE.Value == true then return end
+if game.Lighting.TSing.Value == true then return end
+if game.Lighting.TS.Value == true then return end
+	if appeared == false then
+		return
+	end	
+    trans0()
+	activu = true
+	timestopcooldown = true
+	timestopanim:Play(0.1, 1, 1)
+	human.WalkSpeed = 0
+	human.JumpPower = 0
+	timestopping = true
+	timestopevent:FireServer(length, "jotaro")
+	wait(1.5)
+	for i = 1,25 do
+    wait()
+	end
+	human.WalkSpeed = 16
+	human.JumpPower = 50
+	timestopping = false
+	activu = false
+    trans1()
+	wait(10)
+	timestopcooldown = false
+end
+function untimestop()
+	untimestopevent:FireServer()
+end
+local posing = false
+function posefunc()
+if activu == false and posing == false then
+	if appeared == false then
+		return
+	end
+    trans0()
+	if posing == false then do
+	activu = true
+	posing = true
+	local cp = math.random(1, 2)
+	if cp == 1 then
+		pose3:Play(0.4, 1, 1)
+        replicatedstorage.STWChair:FireServer(true)
+        game:GetService("ReplicatedStorage").ParticleEvent:FireServer("aura")
+        game:GetService("ReplicatedStorage").VaporPPPose:FireServer("aura")
+        task.wait(1.7)
+        pose3:AdjustSpeed(0)
+	elseif cp == 2 then
+		pose4:Play(0.4, 1, 1)
+        replicatedstorage.STWChair:FireServer(true)
+        game:GetService("ReplicatedStorage").ParticleEvent:FireServer("aura")
+        game:GetService("ReplicatedStorage").VaporPPPose:FireServer("aura")
+        task.wait(1.7)
+        pose3:AdjustSpeed(0)
+	end
+	human.WalkSpeed = 0
+	human.JumpPower = 0
+	poseevent:FireServer(true)
+	end
+	end
+	elseif posing == true then
+	pose3:Stop(0.3)
+	pose4:Stop(0.3)
+	if disabled.Value == false then
+	human.WalkSpeed = 16
+	human.JumpPower = 50
+	elseif disabled.Value == true then
+	human.WalkSpeed = 4
+	human.JumpPower = 10	
+	end
+	activu = false
+	posing = false
+    trans1()
+    game:GetService("ReplicatedStorage").ParticleEvent:FireServer("noaura")
+    game:GetService("ReplicatedStorage").VaporPPPose:FireServer("noaura")
+    replicatedstorage.STWChair:FireServer(false)
+	poseevent:FireServer(false)
+	end
+end
+dodgecooldown = false
+function dodge()
+if activu == true then return end
+if dodgecooldown == true then return end
+	activu = true
+	dodgecooldown = true
+	rollanim:Play()
+	dodgesfx:Play()
+	dodgeevent:FireServer()
+	local boopyve = Instance.new("BodyVelocity")
+    boopyve.MaxForce = Vector3.new(100000, 0, 100000)
+    boopyve.P = math.huge
+    boopyve.Velocity = hrp.CFrame.lookVector * 50
+    boopyve.Parent = chr.HumanoidRootPart
+	game.Debris:AddItem(boopyve, 0.25)
+	wait(0.4)
+	activu = false
+	wait(3)
+	dodgecooldown = false	
+end
+local tauntcd = false
+function taunt()
+	if tauntcd == true then return end
+	tauntcd = true
+	local randomline = math.random(1, 3)
+	if randomline == 1 then
+		tauntevent:FireServer(head, "rbxassetid://3249080921", 3, 1.42, 0)
+	elseif randomline == 2 then
+		tauntevent:FireServer(head, "rbxassetid://2740829879", 3, 3.1, 0)
+	elseif randomline == 3 then
+		tauntevent:FireServer(head, "rbxassetid://3249105512", 3, 0.75, 0)
+	end
+end
+local bhold = false
+function holdingb()
+	bhold = true
+	local de = mouse.KeyUp:connect(function(key)
+	    if key == "b" then
+	      bhold = false
+	    end
+	end)
+end
+mouse.Button1Down:connect(function()
+if ntorso.Anchored == true then return end
+if disabled.Value == true then return end
+	punch()
+end)
+mouse.KeyDown:connect(function(key)
+if ntorso.Anchored == true then return end
+if disabled.Value == true then return end
+	if key == "q" then
+		standappear(stand)
+	end
+	if key == "e" then
+		barrage()
+	end
+	if key == "r" then
+		strongpunch()
+	end
+    if key == "v" then
+        tsteleport()
+    end
+	if key == "t" then
+		overwrite()
+	end
+	if key == "y" then
+		if bhold == false then
+			healbarrageothers()
+	end
+		if bhold == true then
+			healbarrage()
+			end
+	end
+	if key == "h" then
+		slam()
+	end
+	if key == "j" then
+		ohblast()
+	end
+	if key == "x" then
+		block()
+	end
+	if key == "f" then
+		if game.Lighting.TS.Value == false then
+		timestop()		
+		elseif game.Lighting.TS.Value == true then
+		untimestop()	
+		end	
+	end
+	if key == "z" then
+		movement()
+	end
+	if key == "c" then
+		dodge()
+	end
+	if key == "g" then
+		posefunc()
+	end
+	if key == "n" then
+		taunt()
+	end
+	if key == "b" then
+		holdingb()
+	end
+end)
+function hito(partoz, partcfr, magn, dmg, debtim, debtime, bodyfdire, grow, sound, pitch, volume)
+  for _, guy in pairs(workspace:GetChildren()) do
+	if partoz.Anchored == true then return end
+    if guy:FindFirstChild("Humanoid") and guy:FindFirstChild("HumanoidRootPart") and guy ~= chr and magn > (guy:FindFirstChild("HumanoidRootPart").Position - partoz.Position).magnitude and guy:FindFirstChild("HumanoidRootPart"):FindFirstChild("alabo") == nil then
+      do
+		if partoz.Anchored then return end
+        local humz = guy:FindFirstChild("Humanoid")
+        local horp = guy:FindFirstChild("HumanoidRootPart")
+        damageevent:FireServer(humz, partcfr, dmg, debtime, bodyfdire, grow, sound, pitch, volume)
+        local db = Instance.new("StringValue")
+        db.Name = "alabo"
+        db.Parent = horp
+        delay(debtim, function()
+          db:Destroy()
+        end)
+      end
+    end
+
+	if guy:FindFirstChild("Stand") and guy["Stand"]:FindFirstChild("Stand Torso") and guy ~= chr and guy ~= chr[stand.Name] and magn > (guy["Stand"]:FindFirstChild("Stand Torso").Position - partoz.Position).magnitude and guy:FindFirstChild("HumanoidRootPart"):FindFirstChild("alabo") == nil then
+		do 
+		if partoz.Anchored then return end
+        local humz = guy:FindFirstChild("Humanoid")
+        local horp = guy:FindFirstChild("HumanoidRootPart")
+        damageevent:FireServer(humz, partcfr, dmg, debtime, bodyfdire, grow, sound, pitch, volume)
+        local db = Instance.new("StringValue")
+        db.Name = "alabo"
+        db.Parent = horp
+        delay(debtim, function()
+          db:Destroy()
+        end)
+      end
+    end
+
+  end
+end
+
+function hito2(partoz, partcfr, magn, dmg, debtim, debtime, bodyfdire, grow, sound, pitch, volume)
+  for _, guy in pairs(workspace:GetChildren()) do
+	if partoz.Anchored == true then return end
+    if guy:FindFirstChild("Humanoid") and guy:FindFirstChild("HumanoidRootPart") and guy ~= chr and magn > (guy:FindFirstChild("HumanoidRootPart").Position - partoz.Position).magnitude and guy:FindFirstChild("HumanoidRootPart"):FindFirstChild("alabo") == nil then
+      do
+		if partoz.Anchored then return end
+        local humz = guy:FindFirstChild("Humanoid")
+        local horp = guy:FindFirstChild("HumanoidRootPart")
+        damageevent2:FireServer(humz, partcfr, dmg, debtime, bodyfdire, grow, sound, pitch, volume)
+        local db = Instance.new("StringValue")
+        db.Name = "alabo"
+        db.Parent = horp
+        delay(debtim, function()
+          db:Destroy()
+        end)
+      end
+    end
+
+	if guy:FindFirstChild("Stand") and guy["Stand"]:FindFirstChild("Stand Torso") and guy ~= chr and guy ~= chr[stand.Name] and magn > (guy["Stand"]:FindFirstChild("Stand Torso").Position - partoz.Position).magnitude and guy:FindFirstChild("HumanoidRootPart"):FindFirstChild("alabo") == nil then
+		do 
+		if partoz.Anchored then return end
+        local humz = guy:FindFirstChild("Humanoid")
+        local horp = guy:FindFirstChild("HumanoidRootPart")
+        damageevent2:FireServer(humz, partcfr, dmg, debtime, bodyfdire, grow, sound, pitch, volume)
+        local db = Instance.new("StringValue")
+        db.Name = "alabo"
+        db.Parent = horp
+        delay(debtim, function()
+          db:Destroy()
+        end)
+      end
+    end
+
+  end
+end
+
+function hito3(partoz, partcfr, magn, dmg, debtim, debtime, bodyfdire, grow, sound, pitch, volume)
+  for _, guy in pairs(workspace:GetChildren()) do
+	if partoz.Anchored == true then return end
+    if guy:FindFirstChild("Humanoid") and guy:FindFirstChild("HumanoidRootPart") and guy ~= chr and magn > (guy:FindFirstChild("HumanoidRootPart").Position - partoz.Position).magnitude and guy:FindFirstChild("HumanoidRootPart"):FindFirstChild("alabo") == nil then
+      do
+		if partoz.Anchored then return end
+        local humz = guy:FindFirstChild("Humanoid")
+        local horp = guy:FindFirstChild("HumanoidRootPart")
+        damageevent2:FireServer(humz, partcfr, dmg, debtime, bodyfdire, grow, sound, pitch, volume)
+		knockevent:FireServer(humz)
+        local db = Instance.new("StringValue")
+        db.Name = "alabo"
+        db.Parent = horp
+        delay(debtim, function()
+          db:Destroy()
+        end)
+      end
+    end
+
+	if guy:FindFirstChild("Stand") and guy["Stand"]:FindFirstChild("Stand Torso") and guy ~= chr and guy ~= chr[stand.Name] and magn > (guy["Stand"]:FindFirstChild("Stand Torso").Position - partoz.Position).magnitude and guy:FindFirstChild("HumanoidRootPart"):FindFirstChild("alabo") == nil then
+		do 
+		if partoz.Anchored then return end
+        local humz = guy:FindFirstChild("Humanoid")
+        local horp = guy:FindFirstChild("HumanoidRootPart")
+        damageevent2:FireServer(humz, partcfr, dmg, debtime, bodyfdire, grow, sound, pitch, volume)
+        knockevent:FireServer(humz)
+		local db = Instance.new("StringValue")
+        db.Name = "alabo"
+        db.Parent = horp
+        delay(debtim, function()
+          db:Destroy()
+        end)
+      end
+    end
+
+  end
+end
+
+function hito4(partoz, partcfr, magn, dmg, debtim, debtime, bodyfdire, grow, sound, pitch, volume)
+  for _, guy in pairs(workspace:GetChildren()) do
+	if partoz.Anchored == true then return end
+    if guy:FindFirstChild("Humanoid") and guy:FindFirstChild("HumanoidRootPart") and guy ~= chr and magn > (guy:FindFirstChild("HumanoidRootPart").Position - partoz.Position).magnitude and guy:FindFirstChild("HumanoidRootPart"):FindFirstChild("alabo") == nil then
+      do
+		if partoz.Anchored then return end
+        local humz = guy:FindFirstChild("Humanoid")
+        local horp = guy:FindFirstChild("HumanoidRootPart")
+        damageevent3:FireServer(humz, partcfr, dmg, debtime, bodyfdire, grow, sound, pitch, volume)
+        knockevent:FireServer(humz)
+		local db = Instance.new("StringValue")
+        db.Name = "alabo"
+        db.Parent = horp
+        delay(debtim, function()
+          db:Destroy()
+        end)
+      end
+    end
+
+	if guy:FindFirstChild("Stand") and guy["Stand"]:FindFirstChild("Stand Torso") and guy ~= chr and guy ~= chr[stand.Name] and magn > (guy["Stand"]:FindFirstChild("Stand Torso").Position - partoz.Position).magnitude and guy:FindFirstChild("HumanoidRootPart"):FindFirstChild("alabo") == nil then
+		do   
+		if partoz.Anchored then return end
+        local humz = guy:FindFirstChild("Humanoid")
+        local horp = guy:FindFirstChild("HumanoidRootPart")
+        damageevent3:FireServer(humz, partcfr, dmg, debtime, bodyfdire, grow, sound, pitch, volume)
+        knockevent:FireServer(humz)
+		local db = Instance.new("StringValue")
+        db.Name = "alabo"
+        db.Parent = horp
+        delay(debtim, function()
+          db:Destroy()
+        end)
+      end
+    end
+
+  end
+end
+
+function hito5(partoz, magn, dmg, debtim, debtime, bodyfdire)
+  for _, guy in pairs(workspace:GetChildren()) do
+	if partoz.Anchored == true then return end
+    if guy:FindFirstChild("Humanoid") and guy:FindFirstChild("HumanoidRootPart") and guy ~= chr and magn > (guy:FindFirstChild("HumanoidRootPart").Position - partoz.Position).magnitude and guy:FindFirstChild("HumanoidRootPart"):FindFirstChild("alabo") == nil then
+      do
+		if partoz.Anchored then return end
+        local humz = guy:FindFirstChild("Humanoid")
+        local horp = guy:FindFirstChild("HumanoidRootPart")
+        damageevent4:FireServer(humz, dmg, debtime, bodyfdire)
+        knockevent:FireServer(humz)
+		local db = Instance.new("StringValue")
+        db.Name = "alabo"
+        db.Parent = horp
+        delay(debtim, function()
+          db:Destroy()
+        end)
+      end
+    end
+
+	if guy:FindFirstChild("Stand") and guy["Stand"]:FindFirstChild("Stand Torso") and guy ~= chr and guy ~= chr[stand.Name] and magn > (guy["Stand"]:FindFirstChild("Stand Torso").Position - partoz.Position).magnitude and guy:FindFirstChild("HumanoidRootPart"):FindFirstChild("alabo") == nil then
+		do   
+		if partoz.Anchored then return end
+        local humz = guy:FindFirstChild("Humanoid")
+        local horp = guy:FindFirstChild("HumanoidRootPart")
+        damageevent4:FireServer(humz, dmg, debtime, bodyfdire)
+        knockevent:FireServer(humz)
+		local db = Instance.new("StringValue")
+        db.Name = "alabo"
+        db.Parent = horp
+        delay(debtim, function()
+          db:Destroy()
+        end)
+      end
+    end
+
+  end
+end
+
+function healo(partoz, partcfr, magn, dmg, debtim, debtime, bodyfdire, effect, grow, color, sound, pitch, volume)
+if disabled.Value == true then return end
+  for _, guy in pairs(workspace:GetChildren()) do
+	if partoz.Anchored == true then return end
+    if guy:FindFirstChild("Humanoid") and guy:FindFirstChild("HumanoidRootPart") and guy ~= chr and magn > (guy:FindFirstChild("HumanoidRootPart").Position - partoz.Position).magnitude and guy:FindFirstChild("HumanoidRootPart"):FindFirstChild("alabo") == nil then
+      do
+		if partoz.Anchored then return end
+        local humz = guy:FindFirstChild("Humanoid")
+        local horp = guy:FindFirstChild("HumanoidRootPart")
+        healevent2:FireServer(humz, partcfr, dmg, debtime, bodyfdire, effect, grow, color, sound, pitch, volume)
+        local db = Instance.new("StringValue")
+        db.Name = "alabo"
+        db.Parent = horp
+        delay(debtim, function()
+          db:Destroy()
+        end)
+      end
+    end
+
+	if guy:FindFirstChild("Stand") and guy["Stand"]:FindFirstChild("Stand Torso") and guy ~= chr and guy ~= chr[stand.Name] and magn > (guy["Stand"]:FindFirstChild("Stand Torso").Position - partoz.Position).magnitude and guy:FindFirstChild("HumanoidRootPart"):FindFirstChild("alabo") == nil then
+		do   
+		if partoz.Anchored then return end
+        local humz = guy:FindFirstChild("Humanoid")
+        local horp = guy:FindFirstChild("HumanoidRootPart")
+        healevent2:FireServer(humz, partcfr, dmg, debtime, bodyfdire, effect, grow, color, sound, pitch, volume)
+        local db = Instance.new("StringValue")
+        db.Name = "alabo"
+        db.Parent = horp
+        delay(debtim, function()
+          db:Destroy()
+        end)
+      end
+    end
+
+  end
+end
+
+function heal(partcfr, heal, sound, pitch, volume)
+	if ntorso.Anchored == true then return end
+       healevent:FireServer(partcfr, heal, sound, pitch, volume)
+end
+game.Lighting.TS.Changed:Connect(function()
+	if game.Lighting.TS.Value == true then
+	if timestopping == true then return end
+	anchorevent:FireServer(tors ,false)
+	anchorevent:FireServer(rarm ,false)
+	anchorevent:FireServer(larm ,false)
+	anchorevent:FireServer(rleg ,false)
+	anchorevent:FireServer(lleg ,false)
+	anchorevent:FireServer(hed ,false)
+	anchorevent:FireServer(ntorso ,false)
+	anchorevent:FireServer(rightarm ,false)
+	anchorevent:FireServer(leftarm ,false)
+	anchorevent:FireServer(rightleg ,false)
+	anchorevent:FireServer(leftleg ,false)
+	anchorevent:FireServer(head ,false)
+	
+	elseif game.Lighting.TS.Value == false then
+	anchorevent:FireServer(tors ,false)
+	anchorevent:FireServer(rarm ,false)
+	anchorevent:FireServer(larm ,false)
+	anchorevent:FireServer(rleg ,false)
+	anchorevent:FireServer(lleg ,false)
+	anchorevent:FireServer(hed ,false)
+	anchorevent:FireServer(ntorso ,false)
+	anchorevent:FireServer(rightarm ,false)
+	anchorevent:FireServer(leftarm ,false)
+	anchorevent:FireServer(rightleg ,false)
+	anchorevent:FireServer(leftleg ,false)
+	anchorevent:FireServer(head ,false)
+	end
+end)
+
+
+
+if game.Lighting.TS.Value == true then
+	anchorevent:FireServer(tors ,false)
+	anchorevent:FireServer(rarm ,false)
+	anchorevent:FireServer(larm ,false)
+	anchorevent:FireServer(rleg ,false)
+	anchorevent:FireServer(lleg ,false)
+	anchorevent:FireServer(hed ,false)
+	
+	anchorevent:FireServer(ntorso ,false)
+	anchorevent:FireServer(rightarm ,false)
+	anchorevent:FireServer(leftarm ,false)
+	anchorevent:FireServer(rightleg ,false)
+	anchorevent:FireServer(leftleg ,false)
+	anchorevent:FireServer(head ,false)
+end
+	if game.Lighting.TimeAccel.Enabled == true then
+	human.WalkSpeed = 5
+	human.JumpPower = 0
+	elseif game.Lighting.TimeAccel.Enabled == false then
+	human.WalkSpeed = 16
+	human.JumpPower = 50
+end
+
+berserkclientevent.OnClientEvent:connect(function()
+	game.Lighting.Ambient = Color3.fromRGB(0, 0, 122)
+	game.Lighting.Berserk.Enabled = true
+	human.WalkSpeed = 4
+	human:SetStateEnabled(3, false)
+	wait(2.5)
+	human.WalkSpeed = 16
+	human:SetStateEnabled(3, true)
+	game.Lighting.Ambient = Color3.fromRGB(150, 150, 150)
+	game.Lighting.Berserk.Enabled = false
+end)
+
+local deathevent = replicatedstorage.Death
+human.HealthChanged:connect(function()
+	if human.Health < 1 then
+		for _, n in pairs(stand:GetChildren()) do
+	      coroutine.resume(coroutine.create(function()
+	        for _ = 1, 5 do
+	          if n ~= rot and n.ClassName ~= "Sound" then
+	            wait()
+	            transparencyevent:FireServer(n, n.Transparency + 0.2)
+				transparencyevent:FireServer(face, n.Transparency + 0.2)
+	          end
+	        end
+	        if n ~= rot then
+	          transparencyevent:FireServer(n, 1)
+			  transparencyevent:FireServer(face, 1)
+	        end
+	      end))
+		end			
+		human:SetStateEnabled(3, false)
+		human:SetStateEnabled(15, false)
+		diesfx:Play()
+		deathevent:FireServer(false)
+	end
+end)
+
+knockclientevent.OnClientEvent:connect(function(enemyplr)
+	if chr.Block.Value == true then return end
+	knockedevent:FireServer()
+	human:SetStateEnabled(3, false)
+	wait(1.25)
+	if human.Health >= 1 then
+	getupevent:FireServer()
+	human:SetStateEnabled(3, true)
+	end
+end)
+
+tauntevent.OnClientEvent:Connect(function()
+	tauntcd = false
+end)
+
+wait(60)
+timestopcooldown = false
+
