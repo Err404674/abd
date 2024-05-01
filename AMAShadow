@@ -414,7 +414,7 @@ if activu == true then return end
 	attackpose:Play()
 	if leftorright == false then
 		leftorright = true
-		_G.anim7:Play(0.1, 1, 1)
+		_G.anim7:Play(0.1, 1, 2)
 		trailevent:FireServer(rarm.Trail, true)
         trailevent:FireServer(larm.Trail, true)
 		wait(0.2)
@@ -431,7 +431,7 @@ if activu == true then return end
 		end))
 	elseif leftorright == true then
 		leftorright = false
-		_G.anim7:Play(0.1, 1, 1)
+		_G.anim7:Play(0.1, 1, 2)
 		trailevent:FireServer(larm.Trail, true)
         trailevent:FireServer(rarm.Trail, true)
 		wait(0.2)
@@ -608,7 +608,7 @@ function movement()
 	game.Debris:AddItem(Bod, 1)
 	wait(1)
 	activu = false
-	wait(1.99)
+	wait()
 	movementcooldown = false
 end
 local timestopping = false
@@ -714,7 +714,7 @@ if dodgecooldown == true then return end
 	game.Debris:AddItem(boopyve, 0.25)
 	wait(0.4)
 	activu = false
-	wait(3)
+	wait()
 	dodgecooldown = false	
 end
 local tauntcd = false
