@@ -1,8 +1,9 @@
-for i = 1,100 do
-    wait()
-    Damage11Sans:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.Head.CFrame * CFrame.new(0, 0.85, -0.1), 0.0001, 0, Vector3.new(9e999, 9e999, 0), 3, "rbxassetid://5153845714", 1, 20)
-    Damage11:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.Head.CFrame * CFrame.new(0, 0.85, -0.1), 0.0001, 0, Vector3.new(9e999, 9e999, 0), 3, "rbxassetid://5153845714", 1, 20)
-end
+for _ = 1,100 do
+	wait()
+	game:GetService("ReplicatedStorage").Damage2:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 5, "rbxassetid://5153845714", 1, 1)
+	game:GetService("ReplicatedStorage").Damage11Sans:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 5, "rbxassetid://5153845714", 1, 1)
+    game:GetService("ReplicatedStorage").Heal:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 5, "rbxassetid://5153845714", 1, 1)
+	game:GetService("ReplicatedStorage").Heal6:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 5, "rbxassetid://5153845714", 1, 1)
 end
 
 
@@ -234,8 +235,8 @@ function barrage()
 	attackpose:Play()
 	repeat
 		EHMMM = EHMMM + 0.5
-		hito(rarm, rarm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,2, 78, 0.05, 0.025, rot.CFrame.lookVector * 2.5, 0.4,"rbxassetid://137579113", math.random(9, 11) / 10, math.random(9, 11) / 50)
-		hito(larm, larm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,2, 78, 0.05, 0.025, rot.CFrame.lookVector * 2.5, 0.4,"rbxassetid://137579113", math.random(9, 11) / 10, math.random(9, 11) / 50)		
+		hito(rarm, rarm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,2, 78, 0.05, 0.025, rot.CFrame.lookVector * 2.5, 2,"rbxassetid://2695634285", math.random(9, 11) / 10, math.random(9, 11) / 50)
+		hito(larm, larm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,2, 78, 0.05, 0.025, rot.CFrame.lookVector * 2.5, 2,"rbxassetid://2695634285", math.random(9, 11) / 10, math.random(9, 11) / 50)		
 		wait(0.05)
 	until bep == false or disabled.Value == true or EHMMM >= 45 
     trans1()
