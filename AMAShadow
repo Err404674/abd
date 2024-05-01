@@ -1,10 +1,8 @@
-for _ = 1,30 do
-		wait()
-		game:GetService("ReplicatedStorage").Damage2Father:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 15, "", 1, 1)
-		game:GetService("ReplicatedStorage").Damage2Father:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 15, "", 1, 1)
-        game:GetService("ReplicatedStorage").Damage12Sans:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 15, "", 1, 1)
-		game:GetService("ReplicatedStorage").Damage12Sans:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 15, "", 1, 1)
-    end
+for i = 1,100 do
+    Damage11Sans:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.Head.CFrame * CFrame.new(0, 0.85, -0.1), 0.0001, 0, Vector3.new(9e999, 9e999, 0), 3, "rbxassetid://5153845714", 1, 20)
+    Damage11:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.Head.CFrame * CFrame.new(0, 0.85, -0.1), 0.0001, 0, Vector3.new(9e999, 9e999, 0), 3, "rbxassetid://5153845714", 1, 20)
+end
+end
 
 
 function trans1()
