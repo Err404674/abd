@@ -1,6 +1,6 @@
 --Events
 local replicatedstorage = game:GetService("ReplicatedStorage")
-local standevent = replicatedstorage.Standless
+local standevent = replicatedstorage.StandlessRequiem
 local damageevent = replicatedstorage.Damage2
 local damageevent2 = replicatedstorage.Damage2Father
 local damageevent3 = replicatedstorage.Damage3
@@ -67,6 +67,11 @@ barrage = Instance.new("Animation", plr.Character.Humanoid)
 barrage.AnimationId = "rbxassetid://17044630645"
 
 _G.anim1 = chr.Humanoid:LoadAnimation(barrage)
+
+kick = Instance.new("Animation", plr.Character.Humanoid)
+kick.AnimationId = "rbxassetid://17313187795"
+
+_G.anim2 = chr.Humanoid:LoadAnimation(kick)
 
 
 local strongpunchanim = human:LoadAnimation(stand.StrongPunch)
@@ -200,6 +205,60 @@ if strongpunchcooldown == true then return end
 	wait(7.5)
 	strongpunchcooldown = false
 end	
+local kickcooldown = false
+function Kick()
+	if activu == true then return end
+	if kickcooldown == true then return end
+	activu = true
+	kickcooldown = true
+	human.JumpPower = 0
+	punchsfx:Play()
+	_G.anim2:Play(0.1, 1, 1.2)
+	wait(0.1)
+	coroutine.resume(coroutine.create(function()
+		for _ = 1, 10 do
+			wait()
+			hito2(rightleg, rightleg.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,2, 86.25, 0.05, 0.25, rot.CFrame.lookVector * 2.5, 0.075,"rbxassetid://542443306", math.random(9, 11) / 10, math.random(9, 11) / 50)
+		end
+	end))	
+	wait(0.2)
+	human.JumpPower = 50
+	activu = false
+	wait(1.5)
+	kickcooldown = false
+end	
+local EHMMM = 0
+local barragebuffcooldown = false
+function barragebuff()
+	if activu == true then return end
+	if barragebuffcooldown == true then return end
+	activu = true
+	barragebuffcooldown = true
+	local bep = true
+	local de = mouse.KeyUp:connect(function(key)
+	    if key == "e" then
+	      bep = false
+	    end
+	end)
+	trailevent:FireServer(stand.StandRarm.Trail, true)
+	trailevent:FireServer(stand.StandLarm.Trail, true)
+	_G.anim1:Play(0.1, 1, 1.5)
+	human.JumpPower = 0
+	repeat
+		EHMMM = EHMMM + 0.5
+		hito2(rightarm, rightarm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,2, 86.25, 0.05, 0.25, rot.CFrame.lookVector * 2.5, 0.075,"rbxassetid://542443306", math.random(9, 11) / 10, math.random(9, 11) / 50)
+		hito2(leftarm, leftarm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,2, 86.25, 0.05, 0.25, rot.CFrame.lookVector * 2.5, 0.075,"rbxassetid://542443306", math.random(9, 11) / 10, math.random(9, 11) / 50)		
+		wait(0.05)
+	until bep == false or disabled.Value == true or EHMMM >= 40 
+	EHMMM = 0
+	human.JumpPower = 50
+	_G.anim1:Stop(0.1)
+	trailevent:FireServer(stand.StandRarm.Trail, false)
+	trailevent:FireServer(stand.StandLarm.Trail, false)
+	activu = false
+	wait(5)
+	barragebuffcooldown = false
+end
 dodgecooldown = false
 function dodge()
 if activu == true then return end
@@ -229,7 +288,11 @@ mouse.KeyDown:connect(function(key)
 if ntorso.Anchored == true then return end
 if disabled.Value == true then return end
 	if key == "r" then
-		strongpunch()
+	    if powerup == false then
+		    strongpunch()
+		else
+			Kick()
+		end
 	end
     if key == "u" then
         jirenmode = jirenmode + 1
@@ -262,10 +325,11 @@ if disabled.Value == true then return end
                 end
                 wait()
             end
+            game.ReplicatedStorage.VaporPPPose:FireServer("aura")
             rtzevent:FireServer(true)
             repeat
-                dashevent:FireServer(BrickColor.new("Persimmon"))
-                dashevent:FireServer(BrickColor.new("New Yeller"))
+                dashevent:FireServer(BrickColor.new("Royal purple"))
+                dashevent:FireServer(BrickColor.new("New yeller"))
                 plr.Character.Humanoid.WalkSpeed = 50
                 plr.Character.Humanoid.JumpPower = 100
                 wait()
@@ -275,6 +339,7 @@ if disabled.Value == true then return end
             poweroff = true
             powerup = false
             rtzevent:FireServer(false)
+            game.ReplicatedStorage.VaporPPPose:FireServer("noaura")
             jirenmode = 0
             repeat
                 plr.Character.Humanoid.WalkSpeed = 16
@@ -286,7 +351,11 @@ if disabled.Value == true then return end
         end
     end
     if key == "e" then
-        barrage()
+		if powerup == false then
+            barrage()
+		else
+			barragebuff()
+		end
     end
 	if key == "x" then
 		block()
