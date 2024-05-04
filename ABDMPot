@@ -1,4 +1,20 @@
-			for _ = 1,3 do
+        swing = Instance.new("Animation", game.Players.LocalPlayer.Character.Humanoid)
+        swing.AnimationId = "rbxassetid://15896310278"
+
+        _G.anim66 = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(swing)
+
+        local lego = game.Players.LocalPlayer.Character
+
+
+        _G.anim66:Play()
+        lego.Star.Handle.HeavenParticles.Enabled = true
+        lego.Star.Handle.StandEnergy:Play()
+        lego.Star.Handle.Swing:Play()
+        wait(2)
+        _G.anim66:Stop()
+        lego.Star.Handle.HeavenParticles.Enabled = false
+        lego.Star.Handle.StandEnergy:Stop()
+        for i = 1,3 do
 		wait()
 		game:GetService("ReplicatedStorage").KCRSlam:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 5, "", 1, 1)
 		game:GetService("ReplicatedStorage").KCRSlam:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 5, "", 1, 1)
@@ -48,7 +64,7 @@ end
 --NOTE: this is open source so u can modify it i dont care
 
 
---TUTORIAL: get prime bootleg pot platinum and execute the script
+--TUTORIAL: get bootleg pot platinum and execute the script
 
 --UPDATE LOG:
 
