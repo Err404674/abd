@@ -1705,11 +1705,11 @@ end
 _G.humanityDestroy = function()
     fatfuck()
     damageevent:FireServer()
-    game:GetService("ReplicatedStorage").Damage12:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 0, "rbxassetid://3673187353", 2, 10)
+    game:GetService("ReplicatedStorage").Damage4Bootleg:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 0, "rbxassetid://3673187353", 2, 10)
     for i,v in pairs(game.Workspace:GetChildren()) do
         if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Name ~= game.Players.LocalPlayer.Name then
             if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.HumanoidRootPart.Position).Magnitude < math.huge then
-            game.ReplicatedStorage.Damage2Cosmic:FireServer(v.Humanoid, 1, math.huge, Vector3.new(0,math.huge,0))
+            game.ReplicatedStorage.Damage4Bootleg:FireServer(v.Humanoid, 1, 10000, Vector3.new(0,math.huge,0))
             game:GetService("ReplicatedStorage").Damage12:FireServer(v.Humanoid, v.Head.CFrame, 0, 0, Vector3.new(0, 0, 0), 1.5, "", 1, 1)
             end
         end
