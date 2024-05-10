@@ -1704,13 +1704,13 @@ end
 
 _G.humanityDestroy = function()
     fatfuck()
-    damageevent:FireServer()
+    damageevent2:FireServer()
     game:GetService("ReplicatedStorage").Damage4Bootleg:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 0, "rbxassetid://3673187353", 2, 10)
     for i,v in pairs(game.Workspace:GetChildren()) do
         if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Name ~= game.Players.LocalPlayer.Name then
-            if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.HumanoidRootPart.Position).Magnitude < math.huge then
-            game.ReplicatedStorage.Damage4Bootleg:FireServer(v.Humanoid, 1, 10000, Vector3.new(0,math.huge,0))
-            game:GetService("ReplicatedStorage").Damage12:FireServer(v.Humanoid, v.Head.CFrame, 0, 0, Vector3.new(0, 0, 0), 1.5, "", 1, 1)
+            if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.HumanoidRootPart.Position).Magnitude < 1000 then
+            game.ReplicatedStorage.Damage4Bootleg:FireServer(v.Humanoid, 1, 1000, Vector3.new(0,1000,0))
+            game:GetService("ReplicatedStorage").Damage4Bootleg:FireServer(v.Humanoid, v.Head.CFrame, 0, 0, Vector3.new(0, 0, 0), 1.5, "", 1, 1)
             end
         end
     end
@@ -1721,10 +1721,6 @@ local nukedestroy = false
 mouse.KeyDown:connect(function(key)
 	if key == "4" then
     if nukedestroy == true then return end
-    if loading == true then return end
-	if attackmode == true then return end
-	if standmodecooler == false then return end
-    if death == true then return end
         nukedestroy = true
 		human.WalkSpeed = 0
 		human.JumpPower = 0
