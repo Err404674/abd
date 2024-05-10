@@ -292,7 +292,7 @@ repeat
 	wait(0.01)
 	game:GetService("ReplicatedStorage").Damage11Sans:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(1.2,-3,-0.5), 0, 0, nil, 0, "", 1, 1)
 	wait(0.01)
-	game:GetService("ReplicatedStorage").Damage11:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(1.5,-3,0), 0, 0, nil, 0, "", 1, 1)
+	game:GetService("ReplicatedStorage").Damage11Sans:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character["Head"].CFrame * CFrame.new(1.5,-3,0), 0, 0, nil, 0, "", 1, 1)
 until human2.Health == 1 or human2.Health < 1
 end))
 
@@ -1592,7 +1592,7 @@ function Uppercut()
 	coroutine.resume(coroutine.create(function()
 		for _ = 1, 15 do
 			wait()
-			hito3(rarm, rarm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,3, 861, 0.75, 0.25, rot.CFrame.lookVector * 300, 0.25,"rbxassetid://1044088048", math.random(9, 11) / 10, math.random(9, 11) / 10)
+			hito(rarm, rarm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,3, 861, 0.75, 0.25, rot.CFrame.lookVector * 300, 0.25,"rbxassetid://1044088048", math.random(9, 11) / 10, math.random(9, 11) / 10)
 		end
 	end))
 	wait(0.65)
