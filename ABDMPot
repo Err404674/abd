@@ -1452,7 +1452,7 @@ mouse.KeyDown:connect(function(key)
  		   blackholeTime = blackholeTime + 1
   		   blackholeSize = blackholeSize + 0.01
  		   _G.blackholeVoid()
-   		   game:GetService("ReplicatedStorage").Damage12Cosmic:FireServer(game.Players.LocalPlayer.Character.Humanoid, MainObj.CFrame, 0, 0, nil, blackholeSize, "", 1, 0)
+   		   game:GetService("ReplicatedStorage").Damage5Cosmic:FireServer(game.Players.LocalPlayer.Character.Humanoid, MainObj.CFrame, 0, 0, nil, blackholeSize, "", 1, 0)
    		   wait()
 		until human.Health == 0 or human.Health < 0 or blackholeTime == 400
         MainObj:Destroy()
