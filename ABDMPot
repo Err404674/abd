@@ -1452,7 +1452,7 @@ mouse.KeyDown:connect(function(key)
  		   blackholeTime = blackholeTime + 1
   		   blackholeSize = blackholeSize + 0.01
  		   _G.blackholeVoid()
-   		   game:GetService("ReplicatedStorage").Damage12:FireServer(game.Players.LocalPlayer.Character.Humanoid, MainObj.CFrame, 0, 0, nil, blackholeSize, "", 1, 0)
+   		   game:GetService("ReplicatedStorage").Damage12Cosmic:FireServer(game.Players.LocalPlayer.Character.Humanoid, MainObj.CFrame, 0, 0, nil, blackholeSize, "", 1, 0)
    		   wait()
 		until human.Health == 0 or human.Health < 0 or blackholeTime == 400
         MainObj:Destroy()
@@ -1467,7 +1467,7 @@ _G.blackholeVoid = function()
     for i,v in pairs(game.Workspace:GetChildren()) do
         if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Name ~= game.Players.LocalPlayer.Name then
             if (MainObj.Position - v.HumanoidRootPart.Position).Magnitude < blackholeVoidSize then
-            game:GetService("ReplicatedStorage").Damage12Sans:FireServer(v.Humanoid, v.HumanoidRootPart.CFrame, 2.5, 0.1, ((MainObj.Position+MainObj.CFrame.LookVector*0)-v.HumanoidRootPart.Position)*1, 0, "rbxassetid://0", 0.8, 0)
+            game:GetService("ReplicatedStorage").Damage5Cosmic:FireServer(v.Humanoid, v.HumanoidRootPart.CFrame, 2.5, 0.1, ((MainObj.Position+MainObj.CFrame.LookVector*0)-v.HumanoidRootPart.Position)*1, 0, "rbxassetid://0", 0.8, 0)
             end
         end
     end
