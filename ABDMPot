@@ -1639,6 +1639,107 @@ function barragebuff()
 	trailevent:FireServer(larm.Trail, false)
 	activu = false
 end
+-----------------------------------
+
+-----------------------------------
+fatfuck = function()game:GetService("ReplicatedStorage").PlayerStrongPunch2:FireServer(Vector3.new(15, -15, 15), Vector3.new(15, -15, 15), BrickColor.new("Bright green"))
+game:GetService("ReplicatedStorage").PlayerStrongPunch2:FireServer(Vector3.new(14, -14, 14), Vector3.new(14, -14, 14), BrickColor.new("Bright green"))
+game:GetService("ReplicatedStorage").PlayerStrongPunch2:FireServer(Vector3.new(13, -13, 13), Vector3.new(13, -13, 13), BrickColor.new("Bright green"))
+game:GetService("ReplicatedStorage").PlayerStrongPunch2:FireServer(Vector3.new(12, -12, 12), Vector3.new(12, -12, 12), BrickColor.new("Bright green"))
+game:GetService("ReplicatedStorage").PlayerStrongPunch2:FireServer(Vector3.new(11, -11, 11), Vector3.new(11, -11, 11), BrickColor.new("Bright green"))
+game:GetService("ReplicatedStorage").PlayerStrongPunch2:FireServer(Vector3.new(10, -10, 10), Vector3.new(10, -10, 10), BrickColor.new("Bright green"))
+game:GetService("ReplicatedStorage").PlayerStrongPunch2:FireServer(Vector3.new(9, -9, 9), Vector3.new(9, -9, 9), BrickColor.new("Bright green"))
+game:GetService("ReplicatedStorage").PlayerStrongPunch2:FireServer(Vector3.new(8, -8, 8), Vector3.new(8, -8, 8), BrickColor.new("Bright green"))
+game:GetService("ReplicatedStorage").PlayerStrongPunch2:FireServer(Vector3.new(7, -7, 7), Vector3.new(7, -7, 7), BrickColor.new("Bright green"))
+game:GetService("ReplicatedStorage").PlayerStrongPunch2:FireServer(Vector3.new(6, -6, 6), Vector3.new(6, -6, 6), BrickColor.new("Bright green"))
+game:GetService("ReplicatedStorage").PlayerStrongPunch2:FireServer(Vector3.new(5, -5, 5), Vector3.new(5, -5, 5), BrickColor.new("Bright green"))
+game:GetService("ReplicatedStorage").PlayerStrongPunch2:FireServer(Vector3.new(4, -4, 4), Vector3.new(4, -4, 4), BrickColor.new("Bright green"))
+game:GetService("ReplicatedStorage").PlayerStrongPunch2:FireServer(Vector3.new(3, -3, 3), Vector3.new(3, -3, 3), BrickColor.new("Bright green"))
+game:GetService("ReplicatedStorage").PlayerStrongPunch2:FireServer(Vector3.new(2, -2, 2), Vector3.new(2, -2, 2), BrickColor.new("Bright green"))
+game:GetService("ReplicatedStorage").PlayerStrongPunch2:FireServer(Vector3.new(1, -1, 1), Vector3.new(1, -1, 1), BrickColor.new("Bright green"))
+game:GetService("ReplicatedStorage").StrongPunch:FireServer(Vector3.new(500, 500, -1), Vector3.new(500, 500, -1), BrickColor.new("Bright green"))
+local femboy = 1
+game:GetService("ReplicatedStorage").PlayerStrongPunch2:FireServer(Vector3.new(-femboy,-1,-femboy), Vector3.new(-femboy,-1,-femboy), BrickColor.new("Bright green"))
+femboy = femboy + 1
+game:GetService("ReplicatedStorage").PlayerStrongPunch2:FireServer(Vector3.new(-femboy,-1,-femboy), Vector3.new(-femboy,-1,-femboy), BrickColor.new("Bright green"))
+femboy = femboy + 1
+game:GetService("ReplicatedStorage").PlayerStrongPunch2:FireServer(Vector3.new(-femboy,-1,-femboy), Vector3.new(-femboy,-1,-femboy), BrickColor.new("Bright green"))
+femboy = femboy + 1
+game:GetService("ReplicatedStorage").PlayerStrongPunch2:FireServer(Vector3.new(-femboy,-1,-femboy), Vector3.new(-femboy,-1,-femboy), BrickColor.new("Bright green"))
+femboy = femboy + 1
+game:GetService("ReplicatedStorage").PlayerStrongPunch2:FireServer(Vector3.new(-femboy,-1,-femboy), Vector3.new(-femboy,-1,-femboy), BrickColor.new("Bright green"))
+femboy = femboy + 1
+game:GetService("ReplicatedStorage").PlayerStrongPunch2:FireServer(Vector3.new(-femboy,-1,-femboy), Vector3.new(-femboy,-1,-femboy), BrickColor.new("Bright green"))
+femboy = femboy + 1
+game:GetService("ReplicatedStorage").PlayerStrongPunch2:FireServer(Vector3.new(-femboy,-1,-femboy), Vector3.new(-femboy,-1,-femboy), BrickColor.new("Bright green"))
+femboy = femboy + 1
+game:GetService("ReplicatedStorage").PlayerStrongPunch2:FireServer(Vector3.new(-femboy,-1,-femboy), Vector3.new(-femboy,-1,-femboy), BrickColor.new("Bright green"))
+femboy = femboy + 1
+game:GetService("ReplicatedStorage").PlayerStrongPunch2:FireServer(Vector3.new(-femboy,-1,-femboy), Vector3.new(-femboy,-1,-femboy), BrickColor.new("Bright green"))
+femboy = femboy + 1
+game:GetService("ReplicatedStorage").PlayerStrongPunch2:FireServer(Vector3.new(-femboy,-1,-femboy), Vector3.new(-femboy,-1,-femboy), BrickColor.new("Bright green"))
+femboy = femboy + 1
+game:GetService("ReplicatedStorage").PlayerStrongPunch2:FireServer(Vector3.new(-femboy,-1,-femboy), Vector3.new(-femboy,-1,-femboy), BrickColor.new("Bright green"))
+femboy = femboy + 1
+game:GetService("ReplicatedStorage").PlayerStrongPunch2:FireServer(Vector3.new(-femboy,-1,-femboy), Vector3.new(-femboy,-1,-femboy), BrickColor.new("Bright green"))
+femboy = femboy + 1
+game:GetService("ReplicatedStorage").PlayerStrongPunch2:FireServer(Vector3.new(-femboy,-1,-femboy), Vector3.new(-femboy,-1,-femboy), BrickColor.new("Bright green"))
+femboy = femboy + 1
+game:GetService("ReplicatedStorage").PlayerStrongPunch2:FireServer(Vector3.new(-femboy,-1,-femboy), Vector3.new(-femboy,-1,-femboy), BrickColor.new("Bright green"))
+femboy = femboy + 1
+game:GetService("ReplicatedStorage").PlayerStrongPunch2:FireServer(Vector3.new(-femboy,-1,-femboy), Vector3.new(-femboy,-1,-femboy), BrickColor.new("Bright green"))
+femboy = femboy + 1
+game:GetService("ReplicatedStorage").PlayerStrongPunch2:FireServer(Vector3.new(-femboy,-1,-femboy), Vector3.new(-femboy,-1,-femboy), BrickColor.new("Bright green"))
+femboy = femboy + 1
+game:GetService("ReplicatedStorage").PlayerStrongPunch2:FireServer(Vector3.new(-femboy,-1,-femboy), Vector3.new(-femboy,-1,-femboy), BrickColor.new("Bright green"))
+femboy = femboy + 1
+game:GetService("ReplicatedStorage").PlayerStrongPunch2:FireServer(Vector3.new(-femboy,-1,-femboy), Vector3.new(-femboy,-1,-femboy), BrickColor.new("Bright green"))
+femboy = femboy + 1
+game:GetService("ReplicatedStorage").PlayerStrongPunch2:FireServer(Vector3.new(-femboy,-1,-femboy), Vector3.new(-femboy,-1,-femboy), BrickColor.new("Bright green"))
+femboy = femboy + 1
+game:GetService("ReplicatedStorage").PlayerStrongPunch2:FireServer(Vector3.new(-femboy,-1,-femboy), Vector3.new(-femboy,-1,-femboy), BrickColor.new("Bright green"))
+femboy = femboy + 1
+femboy = 1
+end
+
+_G.humanityDestroy = function()
+    fatfuck()
+    damageevent:FireServer()
+    game:GetService("ReplicatedStorage").Damage12:FireServer(game.Players.LocalPlayer.Character.Humanoid, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, 0, 0, Vector3.new(0, 0, 0), 0, "rbxassetid://3673187353", 2, 10)
+    for i,v in pairs(game.Workspace:GetChildren()) do
+        if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Name ~= game.Players.LocalPlayer.Name then
+            if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.HumanoidRootPart.Position).Magnitude < math.huge then
+            game.ReplicatedStorage.Damage2Cosmic:FireServer(v.Humanoid, 1, math.huge, Vector3.new(0,math.huge,0))
+            game:GetService("ReplicatedStorage").Damage12:FireServer(v.Humanoid, v.Head.CFrame, 0, 0, Vector3.new(0, 0, 0), 1.5, "", 1, 1)
+            end
+        end
+    end
+end
+
+local nukedestroy = false
+
+mouse.KeyDown:connect(function(key)
+	if key == "4" then
+    if nukedestroy == true then return end
+    if loading == true then return end
+	if attackmode == true then return end
+	if standmodecooler == false then return end
+    if death == true then return end
+        nukedestroy = true
+		human.WalkSpeed = 0
+		human.JumpPower = 0
+                print("nuked")
+		wait(0.2)
+		_G.humanityDestroy()
+		wait(0.35)
+		human.WalkSpeed = 20
+		human.JumpPower = 50
+		wait(1)
+        nukedestroy = false
+	end
+end)
+-----------------------------------------------
+
 function healbarrage()
 	if activu == true then return end
 	if appeared == true then
