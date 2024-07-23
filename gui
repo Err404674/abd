@@ -60,40 +60,18 @@ TextButton_3.Text = "lair farm"
 TextButton_3.TextColor3 = Color3.new(1, 1, 1)
 TextButton_3.TextSize = 24
 TextButton_3.MouseButton1Click:connect(function()
-	while true do
-		wait()
-	
-	local char = game.Players.LocalPlayer.Character.HumanoidRootPart
+  while true do
+    wait()
 
-char.CFrame = CFrame.new(361.709, 287.139, -195.443)
-wait(0.5)
-
-char.CFrame = CFrame.new(232.319, 287.138, -206.234)
-wait(0)
-char.CFrame = CFrame.new(251.238, 287.139, -195.695)
-wait(0)
-char.CFrame = CFrame.new(231.843, 287.138, -195.693)
-wait(0)
-char.CFrame = CFrame.new(336.675, 287.138, -195.466)
-wait(0)
-char.CFrame = CFrame.new(337.152, 287.138, -206.007)
-wait(0)
-char.CFrame = CFrame.new(342.634, 287.138, -195.365)
-wait(0)
-char.CFrame = CFrame.new(343.108, 287.138, -205.905)
-wait(0)
-char.CFrame = CFrame.new(362.184, 287.139, -205.982)
-wait(0)
-char.CFrame = CFrame.new(251.713, 287.139, -206.236)
-wait(0)
-char.CFrame = CFrame.new(239.439, 287.139, -195.351)
-wait(0)
-char.CFrame = CFrame.new(239.914, 287.139, -205.891)
-wait(0)
-end
-	
-	
+    local banknotes = game.Workspace:GetDescendants()
+    for i, tool in ipairs(banknotes) do
+      if tool:IsA("Tool") and tool.Name == "Banknote" then
+        firetouchinterest(game.Players.LocalPlayer.Character.Head, tool.Handle, 0) -- Assuming the tool has a Handle part
+      end
+    end
+  end
 end)
+
 
 
 borderPixel.Name = "borderPixel"
