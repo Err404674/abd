@@ -50,7 +50,7 @@ local SelfModules = {
  
 local ModuleScripts = {
     MainGame = require(Plr.PlayerGui.MainUI.Initiator.Main_Game),
-    SeekIntro = require(Plr.PlayerGui.MainUI.Initiator.Main_Game.RemoteListener.Cutscenes.SeekIntro),
+    SeekIntro = require(Plr.PlayerGui.MainUI.Initiator.Main_Game.RemoteListener.Cutscenes.SeekIntroHotel),
 }
  
 -- Functions
